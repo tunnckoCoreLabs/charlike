@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/tunnckoCore/charlike">
+    <img height="250" width="250" src="https://raw.githubusercontent.com/tunnckoCore/charlike/master/logo.png">
+  </a>
+</p>
+
 # [charlike][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] [![npm downloads][downloads-img]][downloads-url] 
 
 > Small, fast, simple and streaming project scaffolder for myself, but not only. Simply copy pastes and populates templates from one folder or girhub repository to some current working directory.
