@@ -1,6 +1,6 @@
 {
   "name": "charlike",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Simply copy pastes and populates templates from one folder or girhub repository to some current working directory.",
   "repository": "tunnckoCore/charlike",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
