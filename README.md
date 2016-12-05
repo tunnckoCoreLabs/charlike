@@ -6,7 +6,7 @@
 
 # charlike [![NPM version](https://img.shields.io/npm/v/charlike.svg?style=flat)](https://www.npmjs.com/package/charlike) [![NPM downloads](https://img.shields.io/npm/dm/charlike.svg?style=flat)](https://npmjs.org/package/charlike) [![npm total downloads][downloads-img]][downloads-url]
 
-> Small, fast, simple and streaming project scaffolder for myself, but not only. Simply copy pastes and populates templates from one folder or girhub repository to some current working directory.
+> Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options
 
 [![code climate][codeclimate-img]][codeclimate-url] 
 [![standard code style][standard-img]][standard-url] 
@@ -14,6 +14,8 @@
 [![windows build status][appveyor-img]][appveyor-url] 
 [![coverage status][coveralls-img]][coveralls-url] 
 [![dependency status][david-img]][david-url]
+
+You might also be interested in [jstransformer](https://github.com/jstransformers/jstransformer#readme).
 
 ## Table of Contents
 - [Install](#install)
@@ -51,14 +53,14 @@ const charlike = require('charlike')
 
 ## API
 
-### [charlike](index.js#L58)
+### [charlike](index.js#L64)
 > Scaffolds project with `name` and `desc` by creating folder with `name` to some folder. By default it generates folder with `name` to current working directory (or `options.cwd`). You can also define what _"templates"_ files to be used by passing `options.templates`, by default it uses [./templates](./templates) folder from this repository root.
 
 **Params**
 
 * `<name>` **{String}**: project name    
 * `<desc>` **{String}**: project description    
-* `[options]` **{Object}**: use `options.locals` to pass more context to template files    
+* `[options]` **{Object}**: use `options.locals` to pass more context to template files, use `options.engine` for different template engine to be used in template files, or pass `options.render` function to use your favorite engine    
 * `returns` **{Promise}**: if successful, resolved promise with absolute path to the project  
 
 **Example**
@@ -82,6 +84,9 @@ charlike('my-awesome-project', 'some cool description here', opts)
 
 ## Related
 - [always-done](https://www.npmjs.com/package/always-done): Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement… [more](https://github.com/hybridables/always-done#readme) | [homepage](https://github.com/hybridables/always-done#readme "Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement for [async-done][] - pass 100% of its tests plus more")
+- [each-promise](https://www.npmjs.com/package/each-promise): Iterate over promises, promise-returning or async/await functions in series or parallel. Support settle (fail-fast), concurrency (limiting) and hooks system (start… [more](https://github.com/tunnckocore/each-promise#readme) | [homepage](https://github.com/tunnckocore/each-promise#readme "Iterate over promises, promise-returning or async/await functions in series or parallel. Support settle (fail-fast), concurrency (limiting) and hooks system (start, beforeEach, afterEach, finish)")
+- [j140](https://www.npmjs.com/package/j140): Template engine in 140 bytes, by @jed Schmidt. Support helpers, partials and pre-compiled templates. For nodejs and the browser. Browserify-ready. | [homepage](https://github.com/tunnckocore/j140#readme "Template engine in 140 bytes, by @jed Schmidt. Support helpers, partials and pre-compiled templates. For nodejs and the browser. Browserify-ready.")
+- [jstransformer](https://www.npmjs.com/package/jstransformer): Normalize the API of any jstransformer | [homepage](https://github.com/jstransformers/jstransformer#readme "Normalize the API of any jstransformer")
 - [minibase](https://www.npmjs.com/package/minibase): Minimalist alternative for Base. Build complex APIs with small units called plugins. Works well with most of the already existing… [more](https://github.com/node-minibase/minibase#readme) | [homepage](https://github.com/node-minibase/minibase#readme "Minimalist alternative for Base. Build complex APIs with small units called plugins. Works well with most of the already existing [base][] plugins.")
 - [try-catch-core](https://www.npmjs.com/package/try-catch-core): Low-level package to handle completion and errors of sync or asynchronous functions, using [once][] and [dezalgo][] libs. Useful for and… [more](https://github.com/hybridables/try-catch-core#readme) | [homepage](https://github.com/hybridables/try-catch-core#readme "Low-level package to handle completion and errors of sync or asynchronous functions, using [once][] and [dezalgo][] libs. Useful for and used in higher-level libs such as [always-done][] to handle completion of anything.")
 
@@ -127,7 +132,7 @@ Copyright © 2016, [Charlike Mike Reagent](http://i.am.charlike.online). Release
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.2.0, on December 05, 2016._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.2.0, on December 06, 2016._
 
 [always-done]: https://github.com/hybridables/always-done
 [async-done]: https://github.com/gulpjs/async-done

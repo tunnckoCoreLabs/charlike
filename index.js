@@ -53,7 +53,10 @@ const readFile = (fp) => new Promise((resolve, reject) => {
  *
  * @param  {String} `<name>` project name
  * @param  {String} `<desc>` project description
- * @param  {Object} `[options]` use `options.locals` to pass more context to template files
+ * @param  {Object} `[options]` use `options.locals` to pass more context to template files,
+ *                              use `options.engine` for different template engine to be used
+ *                              in template files, or pass `options.render` function
+ *                              to use your favorite engine
  * @return {Promise} if successful, resolved promise with absolute path to the project
  * @api public
  */

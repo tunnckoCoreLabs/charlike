@@ -1,7 +1,7 @@
 {
   "name": "charlike",
   "version": "0.1.1",
-  "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Simply copy pastes and populates templates from one folder or girhub repository to some current working directory.",
+  "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
   "repository": "tunnckoCore/charlike",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)",
   "precommit.silent": true,
@@ -48,6 +48,15 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=3"
+  },
+  "standard": {
+    "ignore": [
+      "templates/**"
+    ]
+  },
   "verb": {
     "run": true,
     "toc": {
@@ -64,11 +73,12 @@
       "list": [
         "always-done",
         "minibase",
-        "try-catch-core"
-      ]
-    },
-    "lint": {
-      "reflinks": true
+        "try-catch-core",
+        "jstransformer",
+        "j140",
+        "each-promise"
+      ],
+      "highlight": "jstransformer"
     },
     "reflinks": [
       "always-done",
@@ -80,15 +90,9 @@
       "standard-version",
       "verb",
       "verb-generate-readme"
-    ]
-  },
-  "engines": {
-    "node": ">=4",
-    "npm": ">=3"
-  },
-  "standard": {
-    "ignore": [
-      "templates/**"
-    ]
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }
