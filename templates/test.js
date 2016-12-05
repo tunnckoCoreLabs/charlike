@@ -9,10 +9,10 @@
 
 'use strict'
 
-var test = require('mukla')
-var index = require('./index')
+const test = require('mukla')
+const #{varname} = require('./index')
 
 test('#{name}', function (done) {
-  index()
+  #{varname}()
   done()
 })

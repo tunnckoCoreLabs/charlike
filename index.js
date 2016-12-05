@@ -9,10 +9,12 @@
 
 const fs = require('fs')
 const path = require('path')
-const render = require('j140').render
 const exists = require('fs-exists-sync')
+const camelcase = require('camelcase')
 const dateformat = require('dateformat')
 const copyFolder = require('stream-copy-dir')
+const JSTransformer = require('jstransformer')
+const transformer = JSTransformer(require('jstransformer-jstransformer'))
 
 const readFile = (fp) => new Promise((resolve, reject) => {
   fs.readFile(fp, 'utf8', (err, res) => {
@@ -82,19 +84,60 @@ module.exports = function charlike (name, desc, options) {
 
         const dest = path.join(cwd, name)
         const plugin = (file, cb) => {
-          const context = Object.assign({
+          /**
+           * Common helper functions passed
+           * as locals to the template engine.
+           *
+           * - dateformat
+           * - camelcase
+           * - uppercase
+           * - lowercase
+           * - ucfirst
+           *
+           * @type {Object}
+           */
+
+          const helpers = {
+            date: dateformat,
+            camelcase: camelcase,
+            toCamelCase: camelcase,
+            toUpperCase: (val) => val.toUpperCase(),
+            toLowerCase: (val) => val.toLowerCase(),
+            ucFirst: (val) => {
+              return val.charAt(0).toUpperCase() + val.slice(1)
+            }
+          }
+
+          /**
+           * Minimum basic locals
+           * for template engne.
+           *
+           * @type {Object}
+           */
+
+          const locals = Object.assign({
+            pkg: pkg,
             name: name,
             description: desc,
-            date: dateformat,
-            pkg: pkg,
             owner: 'tunnckoCore',
             author: 'Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)'
-          }, opts.locals || opts)
-          context.repository = context.repository || `${context.owner}/${context.name}`
-          const template = render(file.contents.toString(), context)
+          }, helpers, opts.locals || {})
 
-          file.contents = Buffer.from(template)
+          locals.repository = locals.repository || `${locals.owner}/${locals.name}`
+          locals.varname = camelcase(locals.name)
 
+          const input = file.contents.toString()
+
+          if (typeof opts.render === 'function') {
+            file.contents = Buffer.from(opts.render(input, locals))
+            cb(null, file)
+            return
+          }
+
+          opts.engine = typeof opts.engine === 'string' ? opts.engine : 'j140'
+          const result = transformer.render(input, opts, locals)
+
+          file.contents = Buffer.from(result.body)
           cb(null, file)
         }
 

@@ -21,9 +21,12 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "dateformat": "github:felixge/node-dateformat",
+    "camelcase": "^4.0.0",
+    "dateformat": "^2.0.0",
     "fs-exists-sync": "^0.1.0",
-    "j140": "^2.0.0",
+    "jstransformer": "^1.0.0",
+    "jstransformer-j140": "^1.0.0",
+    "jstransformer-jstransformer": "^1.1.4",
     "stream-copy-dir": "^1.0.0"
   },
   "devDependencies": {
