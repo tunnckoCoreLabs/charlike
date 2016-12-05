@@ -10,6 +10,7 @@
 const fs = require('fs')
 const path = require('path')
 const render = require('j140').render
+const exists = require('fs-exists-sync')
 const dateformat = require('dateformat')
 const copyFolder = require('stream-copy-dir')
 
@@ -64,16 +65,22 @@ module.exports = function charlike (name, desc, options) {
       return reject(new TypeError('charlike: expect `desc` to be string'))
     }
     const opts = options && typeof options === 'object' ? options : {}
-    const cwd = typeof opts.cwd === 'string' ? opts.cwd : process.cwd()
+    const cwd = typeof opts.cwd === 'string'
+      ? path.resolve(opts.cwd)
+      : process.cwd()
 
-    readFile(path.resolve(cwd, 'package.json'))
-      .then(JSON.parse)
+    const localPkg = path.join(cwd, 'package.json')
+    const promise = exists(localPkg)
+      ? readFile(localPkg).then(JSON.parse)
+      : Promise.resolve()
+
+    promise
       .then((pkg) => {
         const src = typeof opts.templates === 'string'
           ? path.resolve(cwd, opts.templates)
           : './templates'
 
-        const dest = path.resolve(cwd, name)
+        const dest = path.join(cwd, name)
         const plugin = (file, cb) => {
           const context = Object.assign({
             name: name,

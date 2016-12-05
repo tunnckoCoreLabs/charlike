@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "dateformat": "github:felixge/node-dateformat",
+    "fs-exists-sync": "^0.1.0",
     "j140": "^2.0.0",
     "stream-copy-dir": "^1.0.0"
   },

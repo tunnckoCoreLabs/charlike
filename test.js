@@ -13,8 +13,9 @@ const test = require('mukla')
 const index = require('./index')
 
 test('charlike', () => {
-  return index('./node_modules/yeah-foo-bar', 'quxie bar, that was easy!!!', {
-    // templates: '../_xtemplates',
+  return index('yeah-foo-bar', 'quxie hoohy bar desc, that was easy!!!', {
+    cwd: './node_modules',
+    // templates: '../../config/.jsproject',
     locals: {
       customFoo: '// oooook hahahah'
     }
