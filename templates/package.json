@@ -1,9 +1,9 @@
 {
-  "name": "charlike",
-  "version": "0.1.1",
-  "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Simply copy pastes and populates templates from one folder or girhub repository to some current working directory.",
-  "repository": "tunnckoCore/charlike",
-  "author": "Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)",
+  "name": "#{name}",
+  "version": "0.1.0",
+  "description": "#{description}",
+  "repository": "#{owner}/#{name}",
+  "author": "#{author}",
   "precommit.silent": true,
   "main": "index.js",
   "license": "MIT",
@@ -20,11 +20,7 @@
     "precommit": "git add --all",
     "commit": "git-cz"
   },
-  "dependencies": {
-    "dateformat": "github:felixge/node-dateformat",
-    "j140": "^2.0.0",
-    "stream-copy-dir": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "commitizen": "^2.8.6",
     "coveralls": "^2.11.15",
@@ -65,26 +61,6 @@
     },
     "lint": {
       "reflinks": true
-    },
-    "reflinks": [
-      "always-done",
-      "async-done",
-      "base",
-      "commitizen",
-      "dezalgo",
-      "once",
-      "standard-version",
-      "verb",
-      "verb-generate-readme"
-    ]
-  },
-  "engines": {
-    "node": ">=4",
-    "npm": ">=3"
-  },
-  "standard": {
-    "ignore": [
-      "templates/**"
-    ]
+    }
   }
 }

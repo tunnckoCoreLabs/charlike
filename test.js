@@ -9,10 +9,14 @@
 
 'use strict'
 
-var test = require('mukla')
-var index = require('./index')
+const test = require('mukla')
+const index = require('./index')
 
-test('charlike', function (done) {
-  index()
-  done()
+test('charlike', () => {
+  return index('./node_modules/yeah-foo-bar', 'quxie bar, that was easy!!!', {
+    // templates: '../_xtemplates',
+    locals: {
+      customFoo: '// oooook hahahah'
+    }
+  })
 })
