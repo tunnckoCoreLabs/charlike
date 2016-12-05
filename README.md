@@ -19,6 +19,7 @@
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
+  * [charlike](#charlike)
 - [Related](#related)
 - [Contributing](#contributing)
 - [Building docs](#building-docs)
@@ -49,6 +50,35 @@ const charlike = require('charlike')
 ```
 
 ## API
+
+### [charlike](index.js#L58)
+> Scaffolds project with `name` and `desc` by creating folder with `name` to some folder. By default it generates folder with `name` to current working directory (or `options.cwd`). You can also define what _"templates"_ files to be used by passing `options.templates`, by default it uses [./templates](./templates) folder from this repository root.
+
+**Params**
+
+* `<name>` **{String}**: project name    
+* `<desc>` **{String}**: project description    
+* `[options]` **{Object}**: use `options.locals` to pass more context to template files    
+* `returns` **{Promise}**: if successful, resolved promise with absolute path to the project  
+
+**Example**
+
+```js
+const charlike = require('charlike')
+const opts = {
+  cwd: '/home/charlike/code',
+  templates: '/home/charlike/config/.jsproject',
+  locals: {
+    foo: 'bar',
+    // some helper
+    toUpperCase: (val) => val.toUpperCase()
+  }
+}
+
+charlike('my-awesome-project', 'some cool description here', opts)
+  .then((dest) => console.log(`Project generated to ${dest}`))
+  .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`))
+```
 
 ## Related
 - [always-done](https://www.npmjs.com/package/always-done): Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement… [more](https://github.com/hybridables/always-done#readme) | [homepage](https://github.com/hybridables/always-done#readme "Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement for [async-done][] - pass 100% of its tests plus more")
