@@ -1,5 +1,5 @@
 /*!
- * #{name} <https://github.com/#{owner}/#{name}>
+ * #{name} <https://github.com/#{repository}>
  *
  * Copyright (c) #{author}
  * Released under the MIT license.

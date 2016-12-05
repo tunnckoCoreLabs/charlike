@@ -75,14 +75,16 @@ module.exports = function charlike (name, desc, options) {
 
         const dest = path.resolve(cwd, name)
         const plugin = (file, cb) => {
-          const template = render(file.contents.toString(), Object.assign({
+          const context = Object.assign({
             name: name,
             description: desc,
             date: dateformat,
             pkg: pkg,
             owner: 'tunnckoCore',
             author: 'Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)'
-          }, opts.locals || opts))
+          }, opts.locals || opts)
+          context.repository = context.repository || `${context.owner}/${context.name}`
+          const template = render(file.contents.toString(), context)
 
           file.contents = Buffer.from(template)
 
