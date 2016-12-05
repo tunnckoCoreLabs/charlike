@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/node-minibase">
-    <img height="250" width="250" src="https://avatars1.githubusercontent.com/u/23032863?v=3&s=250">
+    <img height="250" width="250" src="./logo.png">
   </a>
 </p>
 
