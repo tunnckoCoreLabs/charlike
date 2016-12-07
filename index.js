@@ -83,7 +83,7 @@ module.exports = function charlike (name, desc, options) {
       .then((pkg) => {
         const src = typeof opts.templates === 'string'
           ? path.resolve(cwd, opts.templates)
-          : './templates'
+          : path.resolve(__dirname, 'templates')
 
         const dest = path.join(cwd, name)
         const plugin = (file, cb) => {
