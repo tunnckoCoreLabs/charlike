@@ -41,7 +41,7 @@
   },
   "files": [
     "index.js",
-    "templates/"
+    "templates"
   ],
   "keywords": [],
   "config": {
