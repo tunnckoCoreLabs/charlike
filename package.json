@@ -41,7 +41,18 @@
   },
   "files": [
     "index.js",
-    "templates"
+    "templates/.editorconfig",
+    "templates/.gitignore",
+    "templates/.travis.yml",
+    "templates/.verb.md",
+    "templates/CHANGELOG.md",
+    "templates/CONTRIBUTING.md",
+    "templates/LICENSE",
+    "templates/appveyor.yml",
+    "templates/index.js",
+    "templates/package.json",
+    "templates/test.js",
+    "templates/yarn.lock"
   ],
   "keywords": [],
   "config": {
