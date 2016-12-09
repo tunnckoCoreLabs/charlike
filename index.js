@@ -87,6 +87,9 @@ module.exports = function charlike (name, desc, options) {
 
         const dest = path.join(cwd, name)
         const plugin = (file, cb) => {
+          // convert templates names to normal names
+          file.basename = file.basename.replace('_', '.').replace('$', '')
+
           /**
            * Common helper functions passed
            * as locals to the template engine.
