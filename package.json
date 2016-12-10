@@ -79,7 +79,7 @@
         "j140",
         "each-promise"
       ],
-      "highlight": "jstransformer"
+      "highlight": "charlike-cli"
     },
     "reflinks": [
       "always-done",
