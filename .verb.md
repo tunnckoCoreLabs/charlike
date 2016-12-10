@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/node-minibase">
+  <a href="https://github.com/tunnckoCore/charlike">
     <img height="250" width="250" src="./logo.png">
   </a>
 </p>
