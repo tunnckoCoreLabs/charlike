@@ -57,7 +57,8 @@
         "always-done",
         "minibase",
         "try-catch-core"
-      ]
+      ],
+      "highlight": "always-done"
     },
     "lint": {
       "reflinks": true
