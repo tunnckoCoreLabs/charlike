@@ -81,7 +81,8 @@ $ npm install && npm test
 
 ***
 
-{%= include('footer') %}
+{%= include('footer') %}  
+_Project scaffolded using [charlike][] cli._
 
 {%= reflinks(verb.reflinks) %}
 
