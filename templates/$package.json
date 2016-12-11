@@ -63,5 +63,9 @@
     "lint": {
       "reflinks": true
     }
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=2"
   }
 }
