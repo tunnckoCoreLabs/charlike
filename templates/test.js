@@ -12,7 +12,7 @@
 const test = require('mukla')
 const #{varname} = require('./index')
 
-test('#{name}', function (done) {
+test('#{name}', (done) => {
   #{varname}()
   done()
 })
