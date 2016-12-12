@@ -27,7 +27,7 @@
     "cz-conventional-changelog": "^1.2.0",
     "mukla": "^0.4.8",
     "nyc": "^10.0.0",
-    "pre-commit": "^1.2.0",
+    "pre-commit": "^1.2.1",
     "standard": "^8.6.0",
     "standard-version": "^4.0.0"
   },
