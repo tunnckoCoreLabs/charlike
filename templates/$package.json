@@ -8,24 +8,25 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "standard --verbose",
-    "pretest": "npm run lint",
-    "test": "npm run coverage",
-    "posttest": "npm run lint:coverage",
-    "coverage": "nyc node test.js",
-    "lint:coverage": "nyc check-coverage --lines 0 --branches 0 --statements 0 --functions 0",
-    "report-coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "standard --fix --verbose",
+    "test": "npm-run-all -s test:*",
+    "test:api": "nyc --reporter lcov node test.js",
+    "test:report": "nyc report",
     "prerelease": "npm test",
     "release": "standard-version --sign --no-verify",
-    "precommit": "git add --all",
-    "commit": "git-cz"
+    "git:add": "git add --all",
+    "git:cz": "git-cz",
+    "commit": "npm-run-all -s test build:* git:*",
+    "build:clean": "rimraf dist",
+    "build:bundle": "rollup -c",
+    "build:show": "ls -al dist"
   },
   "dependencies": {},
   "devDependencies": {
     "commitizen": "^2.9.2",
-    "coveralls": "^2.11.15",
     "cz-conventional-changelog": "^1.2.0",
     "mukla": "^0.4.8",
+    "npm-run-all": "^4.0.1",
     "nyc": "^10.0.0",
     "pre-commit": "^1.2.2",
     "standard": "^8.6.0",
@@ -67,5 +68,12 @@
   "engines": {
     "node": ">=4",
     "npm": ">=2"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "lines": 100
   }
 }
