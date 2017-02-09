@@ -2,11 +2,11 @@
 
 > {%= description %}
 
-[![code climate][codeclimate-img]][codeclimate-url] 
-[![standard code style][standard-img]][standard-url] 
-[![linux build status][travis-img]][travis-url] 
-[![windows build status][appveyor-img]][appveyor-url] 
-[![coverage status][coveralls-img]][coveralls-url] 
+[![codeclimate][codeclimate-img]][codeclimate-url] 
+[![codestyle][standard-img]][standard-url] 
+[![linux build][travis-img]][travis-url] 
+[![windows build][appveyor-img]][appveyor-url] 
+[![codecov][coverage-img]][coverage-url] 
 [![dependency status][david-img]][david-url]
 
 {%= include('highlight') %}
@@ -86,6 +86,8 @@ _Project scaffolded using [charlike][] cli._
 
 {%= reflinks(verb.reflinks) %}
 
+{%= reflinks(verb.reflinks) %}
+
 [downloads-url]: https://www.npmjs.com/package/{%= name %}
 [downloads-img]: https://img.shields.io/npm/dt/{%= name %}.svg
 
@@ -98,8 +100,8 @@ _Project scaffolded using [charlike][] cli._
 [appveyor-url]: https://ci.appveyor.com/project/tunnckoCore/{%= name %}
 [appveyor-img]: https://img.shields.io/appveyor/ci/tunnckoCore/{%= name %}/master.svg?label=windows
 
-[coveralls-url]: https://coveralls.io/r/{%= repository %}
-[coveralls-img]: https://img.shields.io/coveralls/{%= repository %}.svg
+[coverage-url]: https://codecov.io/gh/{%= repository %}
+[coverage-img]: https://img.shields.io/codecov/c/github/{%= repository %}/master.svg
 
 [david-url]: https://david-dm.org/{%= repository %}
 [david-img]: https://img.shields.io/david/{%= repository %}.svg
