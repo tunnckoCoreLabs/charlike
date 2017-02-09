@@ -126,7 +126,7 @@ module.exports = function charlike (name, desc, options) {
             name: name,
             description: desc,
             owner: 'tunnckoCore',
-            author: 'Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)'
+            author: 'Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)'
           }, helpers, opts.locals || {})
 
           locals.repository = locals.repository || `${locals.owner}/${locals.name}`
