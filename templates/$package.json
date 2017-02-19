@@ -8,7 +8,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "standard --fix --verbose",
+    "lint": "standard **/*.js --fix --verbose",
     "test": "npm-run-all -s lint test:*",
     "test:api": "nyc --reporter lcov node test.js",
     "test:report": "nyc report",
@@ -25,11 +25,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "commitizen": "^2.9.2",
+    "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^1.2.0",
     "mukla": "^0.4.8",
     "npm-run-all": "^4.0.1",
-    "nyc": "^10.0.0",
+    "nyc": "^10.1.2",
     "pre-commit": "^1.2.2",
     "standard": "^8.6.0",
     "standard-version": "^4.0.0"
@@ -43,13 +43,17 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "standard": {
+    "ignore": [
+      "dist/**"
+    ]
+  },
   "verb": {
     "run": true,
     "toc": {
       "render": true,
       "method": "preWrite",
-      "maxdepth": 3,
-      "footer": ""
+      "maxdepth": 3
     },
     "layout": "empty",
     "tasks": [
@@ -73,9 +77,9 @@
   },
   "nyc": {
     "check-coverage": true,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
-    "lines": 100
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "lines": 0
   }
 }
