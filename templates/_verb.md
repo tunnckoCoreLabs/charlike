@@ -86,8 +86,6 @@ _Project scaffolded using [charlike][] cli._
 
 {%= reflinks(verb.reflinks) %}
 
-{%= reflinks(verb.reflinks) %}
-
 [downloads-url]: https://www.npmjs.com/package/{%= name %}
 [downloads-img]: https://img.shields.io/npm/dt/{%= name %}.svg
 
