@@ -1,6 +1,6 @@
 {
   "name": "charlike",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
   "repository": "tunnckoCore/charlike",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)",
