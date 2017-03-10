@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.7"></a>
+## [0.3.7](https://github.com/tunnckocore/charlike/compare/v0.3.6...v0.3.7) (2017-03-10)
+
+
+### Bug Fixes
+
+* **templates:** bump standard to v9 ([7ea3b5f](https://github.com/tunnckocore/charlike/commit/7ea3b5f))
+* **templates:** force lint index.js and test.js ([641af29](https://github.com/tunnckocore/charlike/commit/641af29))
+
+
+
 <a name="0.3.6"></a>
 ## [0.3.6](https://github.com/tunnckocore/charlike/compare/v0.3.5...v0.3.6) (2017-03-09)
 
