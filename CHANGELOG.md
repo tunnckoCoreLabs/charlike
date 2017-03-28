@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.9"></a>
+## [0.3.9](https://github.com/tunnckocore/charlike/compare/v0.3.8...v0.3.9) (2017-03-28)
+
+
+### Bug Fixes
+
+* **templates:** CIs, move to CircleCI, add appveyor-retry ([28cdb02](https://github.com/tunnckocore/charlike/commit/28cdb02))
+* **templates:** the package.json deps, which works on node 0.10 ([e34f8ba](https://github.com/tunnckocore/charlike/commit/e34f8ba))
+
+
+
 <a name="0.3.8"></a>
 ## [0.3.8](https://github.com/tunnckocore/charlike/compare/v0.3.7...v0.3.8) (2017-03-12)
 
