@@ -25,11 +25,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^1.2.0",
-    "mukla": "^0.4.8",
-    "npm-run-all": "^4.0.1",
-    "nyc": "^10.1.2",
+    "commitizen": "~2.7.0",
+    "cz-conventional-changelog": "1.1.5",
+    "mukla": "^0.4.9",
+    "npm-run-all": "~3.1.2",
+    "nyc": "^10.2.0",
     "pre-commit": "^1.2.2",
     "standard": "^9.0.0",
     "standard-version": "^4.0.0"
@@ -42,11 +42,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "standard": {
-    "ignore": [
-      "dist/**"
-    ]
   },
   "verb": {
     "run": true,
@@ -70,10 +65,6 @@
     "lint": {
       "reflinks": true
     }
-  },
-  "engines": {
-    "node": ">=4",
-    "npm": ">=2"
   },
   "nyc": {
     "check-coverage": true,
