@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.12"></a>
+## [0.3.12](https://github.com/tunnckocore/charlike/compare/v0.3.11...v0.3.12) (2017-04-01)
+
+
+### Bug Fixes
+
+* **templates:** update readme template ([f02898d](https://github.com/tunnckocore/charlike/commit/f02898d))
+
+
+
 <a name="0.3.11"></a>
 ## [0.3.11](https://github.com/tunnckocore/charlike/compare/v0.3.10...v0.3.11) (2017-03-30)
 
