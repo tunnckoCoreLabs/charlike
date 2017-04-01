@@ -153,7 +153,7 @@ _Project scaffolded using [charlike][] cli._
 [daviddm-devdeps-url]: https://david-dm.org/{%= repository %}?type=dev
 [daviddm-devdeps-img]: https://img.shields.io/david/dev/{%= repository %}.svg
 
-[ghtag-url]: https://github.com/{%= repository %}/releases/tag/v{%= version %}
+[ghtag-url]: https://github.com/{%= repository %}/tags
 [ghtag-img]: https://img.shields.io/github/tag/{%= repository %}.svg?label=github%20tag
 
 [npmv-url]: https://www.npmjs.com/package/{%= name %}
