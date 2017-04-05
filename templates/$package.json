@@ -37,11 +37,6 @@
   "files": [
     "index.js"
   ],
-  "eslintConfig": {
-    "extends": [
-      "standard"
-    ]
-  },
   "keywords": [],
   "config": {
     "commitizen": {
