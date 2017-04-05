@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.14"></a>
+## [0.3.14](https://github.com/tunnckocore/charlike/compare/v0.3.13...v0.3.14) (2017-04-05)
+
+
+### Bug Fixes
+
+* **templates:** update badges, add slack chat badge ([e1cf2f9](https://github.com/tunnckocore/charlike/commit/e1cf2f9))
+
+
+
 <a name="0.3.13"></a>
 ## [0.3.13](https://github.com/tunnckocore/charlike/compare/v0.3.12...v0.3.13) (2017-04-01)
 
