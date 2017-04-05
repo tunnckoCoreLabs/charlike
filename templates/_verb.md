@@ -44,11 +44,12 @@ ping me on twitter ([@tunnckoCore][tunnckocore-twitter-url]),
 join the [support chat][supportchat-url] room
 or queue a [live session][codementor-url] on CodeMentor with me.
 If you don't have any problems, you're using it somewhere or
-you just enjoy this product, then please consider [donating some cash][paypalme-url] at PayPal,
+you just enjoy this product, then please consider [support me][paypalme-url] at PayPal,
 since this is [OPEN Open Source][opensource-project-url] project made
 with love at [Sofia, Bulgaria][bulgaria-url] 🇧🇬.
 
 [![tunnckoCore support][supportchat-img]][supportchat-url] 
+[![tunnckoCore slack][slackchat-img]][slackchat-url] 
 [![code mentor][codementor-img]][codementor-url] 
 [![paypal donate][paypalme-img]][paypalme-url] 
 {%= badge('downloads') %} 
@@ -162,7 +163,7 @@ _Project scaffolded using [charlike][] cli._
 [standard-url]: https://github.com/feross/standard
 [standard-img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 
-[paypalme-url]: https://www.paypal.me/tunnckoCore
+[paypalme-url]: https://www.paypal.me/tunnckoCore/5usd
 [paypalme-img]: https://img.shields.io/badge/paypal-donate-brightgreen.svg
 
 [czfriendly-url]: http://commitizen.github.io/cz-cli
@@ -184,7 +185,10 @@ _Project scaffolded using [charlike][] cli._
 [strelease-img]: https://img.shields.io/badge/using-standard%20version-brightgreen.svg
 
 [supportchat-url]: https://gitter.im/tunnckoCore/support
-[supportchat-img]: https://img.shields.io/gitter/room/tunnckoCore/support.svg
+[supportchat-img]: https://img.shields.io/gitter/room/tunnckoCore/support.svg?colorB=049372
+
+[slackchat-url]: https://tunnckocore-slack.now.sh/
+[slackchat-img]: https://img.shields.io/badge/join-slack%20chat-F62459.svg
 
 [bulgaria-url]: https://www.google.bg/search?q=Sofia%2C+Bulgaria "One of the top 10 best places for start-up business in the world, especially in IT technologies"
 
