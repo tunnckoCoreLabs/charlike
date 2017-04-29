@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.17"></a>
+## [0.3.17](https://github.com/tunnckocore/charlike/compare/v0.3.16...v0.3.17) (2017-04-29)
+
+
+### Bug Fixes
+
+* **templates:** rename .eslintrc -> .eslintrc.json ([a8af4d5](https://github.com/tunnckocore/charlike/commit/a8af4d5))
+
+
+
 <a name="0.3.16"></a>
 ## [0.3.16](https://github.com/tunnckocore/charlike/compare/v0.3.15...v0.3.16) (2017-04-05)
 
