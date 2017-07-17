@@ -1,6 +1,7 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in [Releases Page](https://github.com/tunnckoCore/charlike/releases).  
+Previous versions are documented here.
 
 <a name="0.3.18"></a>
 ## [0.3.18](https://github.com/tunnckocore/charlike/compare/v0.3.17...v0.3.18) (2017-04-30)
