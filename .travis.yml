@@ -1,18 +1,29 @@
 sudo: false
 language: node_js
 
-os:
-  - linux
-  - osx
-
-node_js:
-  - 'node'
-  - '8'
-  - '6'
-  - '4'
+cache:
+  directories:
+    - node_modules
 
 notifications:
   email: false
 
+node_js:
+  - '8'
+  - '6'
+  - '4'
+
 before_install:
   - npm install --global npm@latest
+
+before_script:
+  - npm prune
+
+after_success:
+  - nyc report
+  - npm run semantic-release
+  - bash <(curl -s https://codecov.io/bash)
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

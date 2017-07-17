@@ -11,8 +11,8 @@
 [![code climate][codeclimate-img]][codeclimate-url] 
 [![standard code style][standard-img]][standard-url] 
 [![linux build status][travis-img]][travis-url] 
-[![windows build status][appveyor-img]][appveyor-url] 
-[![coverage status][coveralls-img]][coveralls-url] 
+[![windows build][appveyor-img]][appveyor-url] 
+[![code coverage][codecov-img]][codecov-url] 
 [![dependency status][david-img]][david-url]
 
 You might also be interested in [charlike-cli](https://github.com/tunnckocore/charlike-cli#readme).
@@ -159,8 +159,8 @@ _Project scaffolded using [charlike][] cli._
 [appveyor-url]: https://ci.appveyor.com/project/tunnckoCore/charlike
 [appveyor-img]: https://img.shields.io/appveyor/ci/tunnckoCore/charlike/master.svg?label=windows
 
-[coveralls-url]: https://coveralls.io/r/tunnckoCore/charlike
-[coveralls-img]: https://img.shields.io/coveralls/tunnckoCore/charlike.svg
+[codecov-url]: https://codecov.io/gh/tunnckoCore/charlike
+[codecov-img]: https://img.shields.io/codecov/c/github/tunnckoCore/charlike/master.svg?label=codecov
 
 [david-url]: https://david-dm.org/tunnckoCore/charlike
 [david-img]: https://img.shields.io/david/tunnckoCore/charlike.svg
