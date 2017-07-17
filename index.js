@@ -16,12 +16,13 @@ const copyFolder = require('stream-copy-dir')
 const JSTransformer = require('jstransformer')
 const transformer = JSTransformer(require('jstransformer-jstransformer'))
 
-const readFile = (fp) => new Promise((resolve, reject) => {
-  fs.readFile(fp, 'utf8', (err, res) => {
-    if (err) return reject(err)
-    resolve(res)
+const readFile = (fp) =>
+  new Promise((resolve, reject) => {
+    fs.readFile(fp, 'utf8', (err, res) => {
+      if (err) return reject(err)
+      resolve(res)
+    })
   })
-})
 
 /**
  * > Scaffolds project with `name` and `desc` by
@@ -70,86 +71,97 @@ module.exports = function charlike (name, desc, options) {
       return reject(new TypeError('charlike: expect `desc` to be string'))
     }
     const opts = options && typeof options === 'object' ? options : {}
-    const cwd = typeof opts.cwd === 'string'
-      ? path.resolve(opts.cwd)
-      : process.cwd()
+    const cwd =
+      typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : process.cwd()
 
     const localPkg = path.join(cwd, 'package.json')
     const promise = exists(localPkg)
       ? readFile(localPkg).then(JSON.parse)
       : Promise.resolve()
 
-    promise
-      .then((pkg) => {
-        const src = typeof opts.templates === 'string'
+    promise.then((pkg) => {
+      const src =
+        typeof opts.templates === 'string'
           ? path.resolve(cwd, opts.templates)
           : path.resolve(__dirname, 'templates')
 
-        const dest = path.join(cwd, name)
-        const plugin = (file, cb) => {
-          // convert templates names to normal names
-          file.basename = file.basename.replace('_', '.').replace('$', '')
+      const dest = path.join(cwd, name)
+      const plugin = (file, cb) => {
+        // convert templates names to normal names
+        file.basename = file.basename.replace('_', '.').replace('$', '')
 
-          /**
-           * Common helper functions passed
-           * as locals to the template engine.
-           *
-           * - dateformat
-           * - camelcase
-           * - uppercase
-           * - lowercase
-           * - ucfirst
-           *
-           * @type {Object}
-           */
+        /**
+         * Common helper functions passed
+         * as locals to the template engine.
+         *
+         * - dateformat
+         * - camelcase
+         * - uppercase
+         * - lowercase
+         * - ucfirst
+         *
+         * @type {Object}
+         */
 
-          const helpers = {
-            date: dateformat,
-            camelcase: camelcase,
-            toCamelCase: camelcase,
-            toUpperCase: (val) => val.toUpperCase(),
-            toLowerCase: (val) => val.toLowerCase(),
-            ucFirst: (val) => {
-              return val.charAt(0).toUpperCase() + val.slice(1)
-            }
+        const helpers = {
+          date: dateformat,
+          camelcase: camelcase,
+          toCamelCase: camelcase,
+          toUpperCase: (val) => val.toUpperCase(),
+          toLowerCase: (val) => val.toLowerCase(),
+          ucFirst: (val) => {
+            return val.charAt(0).toUpperCase() + val.slice(1)
           }
+        }
 
-          /**
-           * Minimum basic locals
-           * for template engne.
-           *
-           * @type {Object}
-           */
+        /**
+         * Minimum basic locals
+         * for template engne.
+         *
+         * @type {Object}
+         */
 
-          const locals = Object.assign({
+        const author = {
+          url: 'https://i.am.charlike.online',
+          realname: 'Charlike Mike Reagent',
+          username: 'tunnckoCore'
+        }
+
+        const locals = Object.assign(
+          {
             pkg: pkg,
             name: name,
             description: desc,
-            owner: 'tunnckoCore',
-            author: 'Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)'
-          }, helpers, opts.locals || {})
+            owner: author.username,
+            author: `${author.realname} <@${author.username}> (${author.url})`
+          },
+          helpers,
+          opts.locals || {}
+        )
 
-          locals.repository = locals.repository || `${locals.owner}/${locals.name}`
-          locals.varname = camelcase(locals.name)
+        locals.repository = locals.repository
+          ? locals.repository
+          : `${locals.owner}/${locals.name}`
+        locals.varname = camelcase(locals.name)
 
-          const input = file.contents.toString()
+        const input = file.contents.toString()
 
-          if (typeof opts.render === 'function') {
-            file.contents = Buffer.from(opts.render(input, locals))
-            cb(null, file)
-            return
-          }
-
-          opts.engine = typeof opts.engine === 'string' ? opts.engine : 'j140'
-          const result = transformer.render(input, opts, locals)
-
-          file.contents = Buffer.from(result.body)
+        if (typeof opts.render === 'function') {
+          file.contents = Buffer.from(opts.render(input, locals))
           cb(null, file)
+          return
         }
 
-        copyFolder(src, dest, plugin)
-          .once('error', reject)
-          .once('finish', () => resolve(dest))
-      }, reject)
+        opts.engine = typeof opts.engine === 'string' ? opts.engine : 'j140'
+        const result = transformer.render(input, opts, locals)
+
+        file.contents = Buffer.from(result.body)
+        cb(null, file)
+      }
+
+      copyFolder(src, dest, plugin)
+        .once('error', reject)
+        .once('finish', () => resolve(dest))
+    }, reject)
   })
 }

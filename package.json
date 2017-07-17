@@ -8,7 +8,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint ./*js ./test/*.js --fix",
+    "lint": "eslint --fix ./*.js",
     "test": "npm-run-all -s lint test:*",
     "test:api": "nyc --reporter lcov node test.js",
     "test:report": "nyc report",
@@ -16,43 +16,37 @@
     "release": "standard-version --sign --no-verify",
     "git": "npm-run-all -s git:*",
     "git:add": "git add --all",
-    "git:cz": "git-cz",
+    "git:cz": "simple-commit-message",
+    "git:push": "git push",
     "commit": "npm-run-all -s test git"
   },
   "dependencies": {
-    "camelcase": "^4.0.0",
-    "dateformat": "^2.0.0",
-    "fs-exists-sync": "^0.1.0",
-    "jstransformer": "^1.0.0",
-    "jstransformer-j140": "^1.0.0",
-    "jstransformer-jstransformer": "^1.1.4",
-    "stream-copy-dir": "^1.0.0"
+    "camelcase": "4.1.0",
+    "dateformat": "2.0.0",
+    "fs-exists-sync": "0.1.0",
+    "jstransformer": "1.0.0",
+    "jstransformer-j140": "1.0.0",
+    "jstransformer-jstransformer": "1.1.5",
+    "stream-copy-dir": "1.0.0"
   },
   "devDependencies": {
-    "commitizen": "^2.8.6",
-    "coveralls": "^2.11.15",
-    "cz-conventional-changelog": "^1.2.0",
-    "eslint": "^4.2.0",
-    "mukla": "^0.4.8",
-    "npm-run-all": "^4.0.2",
-    "nyc": "^11.0.1",
-    "pre-commit": "^1.2.0",
-    "standard": "^10.0.1",
-    "standard-version": "^4.0.0"
+    "eslint": "4.2.0",
+    "mukla": "0.4.9",
+    "npm-run-all": "4.0.2",
+    "nyc": "11.1.0",
+    "pre-commit": "1.2.0",
+    "simple-commit-message": "3.2.0",
+    "standard": "10.0.2",
+    "standard-version": "4.0.0"
   },
   "files": [
     "index.js",
     "templates"
   ],
   "keywords": [],
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "engines": {
     "node": ">=4",
-    "npm": ">=2"
+    "npm": ">=3"
   },
   "standard": {
     "ignore": [
