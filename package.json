@@ -1,6 +1,6 @@
 {
   "name": "charlike",
-  "version": "0.3.18",
+  "version": "0.0.0-development",
   "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
   "repository": "tunnckoCore/charlike",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)",
@@ -39,16 +39,21 @@
     "pre-commit": "1.2.0",
     "simple-commit-message": "3.2.0",
     "standard": "10.0.2",
-    "standard-version": "4.0.0"
+    "semantic-release": "^6.3.6"
   },
-  "files": ["index.js", "templates"],
+  "files": [
+    "index.js",
+    "templates"
+  ],
   "keywords": [],
   "engines": {
     "node": ">=4",
     "npm": ">=3"
   },
   "standard": {
-    "ignore": ["templates/**"]
+    "ignore": [
+      "templates/**"
+    ]
   },
   "verb": {
     "run": true,
@@ -59,7 +64,9 @@
       "footer": ""
     },
     "layout": "empty",
-    "tasks": ["readme"],
+    "tasks": [
+      "readme"
+    ],
     "related": {
       "list": [
         "always-done",
