@@ -4,7 +4,6 @@
   "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
   "repository": "tunnckoCore/charlike",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)",
-  "precommit.silent": true,
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -41,19 +40,10 @@
     "standard": "10.0.2",
     "semantic-release": "^6.3.6"
   },
-  "files": [
-    "index.js",
-    "templates"
-  ],
+  "files": ["index.js", "templates"],
   "keywords": [],
-  "engines": {
-    "node": ">=4",
-    "npm": ">=3"
-  },
   "standard": {
-    "ignore": [
-      "templates/**"
-    ]
+    "ignore": ["templates/**"]
   },
   "verb": {
     "run": true,
@@ -64,9 +54,7 @@
       "footer": ""
     },
     "layout": "empty",
-    "tasks": [
-      "readme"
-    ],
+    "tasks": ["readme"],
     "related": {
       "list": [
         "always-done",
@@ -93,11 +81,22 @@
       "reflinks": true
     }
   },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=3"
+  },
   "nyc": {
     "check-coverage": true,
     "statements": 0,
     "functions": 0,
     "branches": 0,
     "lines": 0
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  },
+  "pre-commit": {
+    "silent": true,
+    "run": ["deps", "secure", "lint", "test"]
   }
 }
