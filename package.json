@@ -32,7 +32,6 @@
   "devDependencies": {
     "dependency-check": "2.9.1",
     "eslint": "4.2.0",
-    "github-post-release": "1.7.2",
     "mukla": "0.4.9",
     "npm-run-all": "4.0.2",
     "nsp": "2.6.3",
@@ -102,8 +101,7 @@
     "lines": 0
   },
   "release": {
-    "analyzeCommits": "simple-commit-message",
-    "generateNotes": "github-post-release"
+    "analyzeCommits": "simple-commit-message"
   },
   "pre-commit": {
     "silent": true,
