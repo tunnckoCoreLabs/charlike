@@ -17,7 +17,8 @@
     "git:cz": "simple-commit-message",
     "git:push": "git push",
     "commit": "npm-run-all --silent -s deps secure lint test git",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "setup": "semantic-release-cli setup"
   },
   "dependencies": {
     "camelcase": "4.1.0",
