@@ -72,7 +72,7 @@ See available bundles at [`https://unpkg.com/charlike/dist/browser/`](https://un
 ## API
 Review carefully the provided examples and the working [tests](./test).
 
-### [charlike](src/index.js#L79)
+### [charlike](src/index.js#L51)
 > Scaffolds project with `name` and `desc` by creating folder with `name` to some folder. By default it generates folder with `name` to current working directory (or `options.cwd`). You can also define what _"templates"_ files to be used by passing `options.templates`, by default it uses [./templates](./templates) folder from this repository root.
 
 **Params**
