@@ -1,19 +1,20 @@
-/*!
- * charlike <https://github.com/tunnckoCore/charlike>
- *
- * Copyright (c) Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)
- * Released under the MIT license.
+/**
+ * @copyright 2016-present, Charlike Mike Reagent <olsten.larck@gmail.com>
+ * @license Apache-2.0
  */
 
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
+/* eslint-disable import/no-nodejs-modules */
 
-const fs = require('fs');
-const path = require('path');
-const camelcase = require('camelcase');
-const dateformat = require('dateformat');
-const streamCopyDir = require('stream-copy-dir');
-const JSTransformer = require('jstransformer');
-const transformer = JSTransformer(require('jstransformer-jstransformer'));
+import fs from 'fs';
+import path from 'path';
+import proc from 'process';
+import camelcase from 'camelcase';
+import dateformat from 'dateformat';
+import streamCopyDir from 'stream-copy-dir';
+import JSTransformer from 'jstransformer';
+import jstransformer from 'jstransformer-jstransformer';
+
+const transformer = JSTransformer(jstransformer);
 
 const copyFolder = (src, dest, plugin) =>
   new Promise((resolve, reject) => {
@@ -47,20 +48,21 @@ const readFile = (fp) =>
  * folder from this repository root.
  *
  * ```js
- * const charlike = require('charlike')
+ * import charlike from 'charlike';
+ *
  * const opts = {
  *   cwd: '/home/charlike/code',
  *   templates: '/home/charlike/config/.jsproject',
  *   locals: {
  *     foo: 'bar',
  *     // some helper
- *     toUpperCase: (val) => val.toUpperCase()
- *   }
- * }
+ *     toUpperCase: (val) => val.toUpperCase(),
+ *   },
+ * };
  *
  * charlike('my-awesome-project', 'some cool description here', opts)
  *   .then((dest) => console.log(`Project generated to ${dest}`))
- *   .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`))
+ *   .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`));
  * ```
  *
  * @name   charlike
@@ -74,7 +76,7 @@ const readFile = (fp) =>
  * @api public
  */
 
-module.exports = async function charlike(name, desc, options) {
+export default async function charlike(name, desc, options) {
   if (typeof name !== 'string') {
     throw new TypeError('charlike: expect `name` to be string');
   }
@@ -82,7 +84,7 @@ module.exports = async function charlike(name, desc, options) {
     throw new TypeError('charlike: expect `desc` to be string');
   }
   const opts = options && typeof options === 'object' ? options : {};
-  const cwd = typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : process.cwd();
+  const cwd = typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : proc.cwd();
 
   const localPkg = path.join(cwd, 'package.json');
 
@@ -95,7 +97,11 @@ module.exports = async function charlike(name, desc, options) {
   const srcPath =
     typeof opts.templates === 'string'
       ? path.resolve(cwd, opts.templates)
-      : path.resolve(__dirname, 'templates');
+      : path.resolve(path.dirname('..'), 'templates');
+
+  if (!fs.existsSync(srcPath)) {
+    throw new Error('charlike: source templates directory not found');
+  }
 
   const destPath = path.join(cwd, name);
   const joined = (x) => ({
@@ -105,17 +111,15 @@ module.exports = async function charlike(name, desc, options) {
   const makeArgs = (x) => [pkg, joined(x), { name, desc, opts }];
 
   const copySrc = () => copy(...makeArgs('src'));
-  const copyTest = () => copy(...makeArgs('test'));
-  const copyCircle = () => copy(...makeArgs('.circleci'));
 
   return copySrc()
-    .then(copyTest)
-    .then(copyCircle)
+    .then(() => copy(...makeArgs('test')))
+    .then(() => copy(...makeArgs('.circleci')))
     .then(() => {
       const opt = { name, desc, opts };
       return copy(pkg, { src: srcPath, dest: destPath }, opt);
     });
-};
+}
 
 function copy(pkg, { src, dest }, { name, desc, opts }) {
   return new Promise((resolve, reject) => {

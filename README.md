@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/tunnckoCore/charlike">
+    <img height="250" width="250" src="./logo.png">
+  </a>
+</p>
+
 # charlike [![npm version][npmv-img]][npmv-url] [![github release][github-release-img]][github-release-url] [![License][license-img]][license-url]
 
 > Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options
@@ -44,6 +50,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [Users](#users)
+- [Logo](#logo)
 - [License](#license)
 
 ## Install
@@ -52,6 +59,8 @@ This project requires [**Node.js**][nodeversion-url] **v8.6** or above. Install 
 
 ```
 $ yarn global add charlike
+# or
+$ yarn add charlike
 ```
 <!-- 
 A browser usage is also possible, thanks to the [unpkg.com](https://unpkg.com) CDN and [Rollup](https://ghub.now.sh/rollup) bundler.  
@@ -63,7 +72,7 @@ See available bundles at [`https://unpkg.com/charlike/dist/browser/`](https://un
 ## API
 Review carefully the provided examples and the working [tests](./test).
 
-### [charlike](index.js#L78)
+### [charlike](src/index.js#L79)
 > Scaffolds project with `name` and `desc` by creating folder with `name` to some folder. By default it generates folder with `name` to current working directory (or `options.cwd`). You can also define what _"templates"_ files to be used by passing `options.templates`, by default it uses [./templates](./templates) folder from this repository root.
 
 **Params**
@@ -76,32 +85,31 @@ Review carefully the provided examples and the working [tests](./test).
 **Example**
 
 ```js
-const charlike = require('charlike')
+import charlike from 'charlike';
+
 const opts = {
   cwd: '/home/charlike/code',
   templates: '/home/charlike/config/.jsproject',
   locals: {
     foo: 'bar',
     // some helper
-    toUpperCase: (val) => val.toUpperCase()
-  }
-}
+    toUpperCase: (val) => val.toUpperCase(),
+  },
+};
 
 charlike('my-awesome-project', 'some cool description here', opts)
   .then((dest) => console.log(`Project generated to ${dest}`))
-  .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`))
+  .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`));
 ```
 
 **[back to top](#thetop)**
 
 ## Related Projects
 Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance! 
-- [always-done](https://www.npmjs.com/package/always-done): Handle completion and errors with elegance! Support for streams, callbacks, promises, child… [more](https://github.com/hybridables/always-done#readme) | [homepage](https://github.com/hybridables/always-done#readme "Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement for [async-done][] - pass 100% of its tests plus more")
-- [each-promise](https://www.npmjs.com/package/each-promise): Iterate over promises, promise-returning or async/await functions in series or parallel. Support… [more](https://github.com/tunnckocore/each-promise#readme) | [homepage](https://github.com/tunnckocore/each-promise#readme "Iterate over promises, promise-returning or async/await functions in series or parallel. Support settle (fail-fast), concurrency (limiting) and hooks system (start, beforeEach, afterEach, finish)")
-- [j140](https://www.npmjs.com/package/j140): Template engine in 140 bytes, by @jed Schmidt. Support helpers, partials and… [more](https://github.com/tunnckocore/j140#readme) | [homepage](https://github.com/tunnckocore/j140#readme "Template engine in 140 bytes, by @jed Schmidt. Support helpers, partials and pre-compiled templates. For nodejs and the browser. Browserify-ready.")
+- [gitcommit](https://www.npmjs.com/package/gitcommit): Simple, small and stable helper & prompter for submitting conventional commits | [homepage](https://github.com/tunnckoCore/gitcommit#readme "Simple, small and stable helper & prompter for submitting conventional commits")
+- [hela-config-tunnckocore](https://www.npmjs.com/package/hela-config-tunnckocore): Shareable Config (preset of tasks) for [hela][] task runner | [homepage](https://github.com/tunnckoCore/hela-config-tunnckocore "Shareable Config (preset of tasks) for [hela][] task runner")
+- [hela](https://www.npmjs.com/package/hela): Powerful & flexible task runner framework in 80 lines, based on [execa… [more](https://github.com/tunnckoCore/hela#readme) | [homepage](https://github.com/tunnckoCore/hela#readme "Powerful & flexible task runner framework in 80 lines, based on [execa][]. Supports shareable configs, a la ESLint")
 - [jstransformer](https://www.npmjs.com/package/jstransformer): Normalize the API of any jstransformer | [homepage](https://github.com/jstransformers/jstransformer#readme "Normalize the API of any jstransformer")
-- [minibase](https://www.npmjs.com/package/minibase): Minimalist alternative for Base. Build complex APIs with small units called plugins… [more](https://github.com/node-minibase/minibase#readme) | [homepage](https://github.com/node-minibase/minibase#readme "Minimalist alternative for Base. Build complex APIs with small units called plugins. Works well with most of the already existing [base][] plugins.")
-- [try-catch-core](https://www.npmjs.com/package/try-catch-core): Low-level package to handle completion and errors of sync or asynchronous functions… [more](https://github.com/hybridables/try-catch-core#readme) | [homepage](https://github.com/hybridables/try-catch-core#readme "Low-level package to handle completion and errors of sync or asynchronous functions, using [once][] and [dezalgo][] libs. Useful for and used in higher-level libs such as [always-done][] to handle completion of anything.")
 
 **[back to top](#thetop)**
 
@@ -117,26 +125,21 @@ Thanks to the hard work of [these wonderful people](./CONTRIBUTORS.md) this proj
 You can see who uses `charlike` in the [USERS.md](./USERS.md) file. Please feel free adding this file if it not exists.  
 If you or your organization are using this project, consider adding yourself to the list of users. **Thank You!**
 
+## Logo
+The logo is [Monster Icon](http://thenounproject.com/term/moster/63928/) by [Christian Mohr](http://www.thenounproject.com/mom-digital). Released under the [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/us/) license.
+
 ## License
 Copyright (c) 2016-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  
-Released under the [MIT License][license-url].
+Released under the [Apache-2.0 License][license-url].
 
 ***
 
 _This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on February 17, 2018._  
 _Project automation and management with [hela][] task framework._
 
-[always-done]: https://github.com/hybridables/always-done
-[async-done]: https://github.com/gulpjs/async-done
-[base]: https://github.com/node-base/base
-[commitizen]: https://github.com/commitizen/cz-cli
-[dezalgo]: https://github.com/npm/dezalgo
+[execa]: https://github.com/sindresorhus/execa
 [hela]: https://github.com/tunnckoCore/hela
 [new-release]: https://github.com/tunnckoCore/new-release
-[once]: https://github.com/isaacs/once
-[standard-version]: https://github.com/conventional-changelog/standard-version
-[verb-generate-readme]: https://github.com/verbose/verb-generate-readme
-[verb]: https://github.com/verbose/verb
 
 <!-- Heading badges -->
 [npmv-url]: https://www.npmjs.com/package/charlike
@@ -146,7 +149,7 @@ _Project automation and management with [hela][] task framework._
 [github-release-img]: https://img.shields.io/github/release/tunnckoCore/charlike.svg?label=github%20release
 
 [license-url]: https://github.com/tunnckoCore/charlike/blob/master/LICENSE
-[license-img]: https://img.shields.io/badge/license-MIT-blue.svg
+[license-img]: https://img.shields.io/badge/license-Apache%202.0-blue.svg
 <!-- [license-img]: https://img.shields.io/badge/license-tunnckoCore_1%2E0-blue.svg -->
 
 <!-- Front line badges -->
@@ -178,8 +181,8 @@ _Project automation and management with [hela][] task framework._
 [prettier-url]: https://github.com/prettier/prettier
 [prettier-img]: https://img.shields.io/badge/styled_with-prettier-f952a5.svg
 
-[nodesecurity-url]: https://nodesecurity.io/orgs/tunnckocore/projects/todo/master
-[nodesecurity-img]: https://nodesecurity.io/orgs/tunnckocore/projects/todo/badge
+[nodesecurity-url]: https://nodesecurity.io/orgs/tunnckocore/projects/e6f9f165-cc4d-41be-ad83-aa54e30caaab/master
+[nodesecurity-img]: https://nodesecurity.io/orgs/tunnckocore/projects/e6f9f165-cc4d-41be-ad83-aa54e30caaab/badge
 <!-- the original color of nsp: 
 [nodesec-img]: https://img.shields.io/badge/nsp-no_known_vulns-35a9e0.svg -->
 

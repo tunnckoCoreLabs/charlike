@@ -4,17 +4,25 @@ _gh_pages
 node_modules
 jspm_packages
 bower_components
-components
 vendor
 build
 dest
+dist
 lib-cov
 coverage
+.nyc_output
 nbproject
 cache
 temp
 tmp
 #{name}
+
+# npm >=5 lock file (& shrinkwrap), we use Yarn!
+package-lock.json
+npm-shrinkwrap.json
+
+# Typescript v1 declaration files
+typings/
 
 # Packages #
 # ##########
@@ -26,16 +34,32 @@ tmp
 *.tar
 *.zip
 
+# node-waf configuration
+.lock-wscript
+
 # OS, Logs and databases #
 # #########################
 logs
-*.pid
-*.dat
 *.log
+npm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.dat
 *.sql
 *.sqlite
 *~
 ~*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Editors
+*.idea
+*.vscode
 
 # Another files #
 # ###############
@@ -44,7 +68,6 @@ Icon?
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-npm-debug.log
 .directory
 ._*
 lcov.info
@@ -55,16 +78,21 @@ pids
 *.seed
 *.pid.lock
 
-
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage
-# see here: http://gruntjs.com/creating-plugins#storing-task-files
-.grunt
-
 # Optional npm cache directory
 .npm
 
 # Optional REPL history
 .node_repl_history
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# The `@std/esm` package cache
+.esm-cache
+
+# dotenv environment variables file
+.env
+.pem

@@ -1,16 +1,16 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/charlike
+  working_directory: ~/#{name}
   docker:
     - image: circleci/node:8
 
 restore_modules_cache: &restore_modules_cache
   restore_cache:
     keys:
-    - charlike-{{ checksum "yarn.lock" }}
+    - #{name}-{{ checksum "yarn.lock" }}
     # fallback to using the latest cache if no exact match is found
-    - charlike-
+    - #{name}-
 
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
           name: Installing Dependencies
           command: yarn install
       - save_cache:
-          key: charlike-{{ checksum "yarn.lock" }}
+          key: #{name}-{{ checksum "yarn.lock" }}
           paths: node_modules
       - run:
           name: Remove node_modules to cleanup workspace
@@ -36,7 +36,7 @@ jobs:
       - *restore_modules_cache
       - run:
           name: Running tests and checks
-          command: yarn hela test
+          command: yarn test
       - run:
           name: Sending test coverage to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
