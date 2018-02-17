@@ -9,7 +9,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const exists = require('fs-exists-sync');
 const camelcase = require('camelcase');
 const dateformat = require('dateformat');
 const streamCopyDir = require('stream-copy-dir');
@@ -88,7 +87,7 @@ module.exports = async function charlike(name, desc, options) {
   const localPkg = path.join(cwd, 'package.json');
 
   let pkg = {};
-  if (exists(localPkg)) {
+  if (fs.existsSync(localPkg)) {
     const promise = readFile(localPkg);
     pkg = await promise.then(JSON.parse);
   }

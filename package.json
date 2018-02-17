@@ -4,7 +4,7 @@
   "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
   "repository": "tunnckoCore/charlike",
   "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
-  "nspId": "todo",
+  "nspId": "e6f9f165-cc4d-41be-ad83-aa54e30caaab",
   "main": "index.js",
   "license": "MIT",
   "licenseStart": 2016,
@@ -19,24 +19,23 @@
     "release": "new-release"
   },
   "dependencies": {
-    "camelcase": "4.1.0",
-    "dateformat": "2.0.0",
-    "fs-exists-sync": "0.1.0",
-    "jstransformer": "1.0.0",
-    "jstransformer-j140": "1.0.0",
-    "jstransformer-jstransformer": "1.1.5",
-    "stream-copy-dir": "1.0.0"
+    "camelcase": "^4.1.0",
+    "dateformat": "^3.0.3",
+    "jstransformer": "^1.0.0",
+    "jstransformer-j140": "^1.0.0",
+    "jstransformer-jstransformer": "^1.1.6",
+    "stream-copy-dir": "^1.0.0"
   },
   "devDependencies": {
-    "dependency-check": "2.9.1",
-    "eslint": "4.18.0",
-    "eslint-config-tunnckocore": "1.0.1",
-    "gitcommit": "0.2.4",
-    "mukla": "0.4.9",
-    "new-release": "4.0.1",
-    "npm-run-all": "4.0.2",
-    "nsp": "2.8.1",
-    "nyc": "11.1.0"
+    "dependency-check": "^2.9.1",
+    "eslint": "^4.18.0",
+    "eslint-config-tunnckocore": "^1.0.1",
+    "gitcommit": "^0.2.4",
+    "mukla": "^0.4.9",
+    "new-release": "^4.0.1",
+    "npm-run-all": "^4.0.2",
+    "nsp": "^2.8.1",
+    "nyc": "^11.4.1"
   },
   "files": [
     "index.js",
