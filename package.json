@@ -49,10 +49,10 @@
     ]
   },
   "nyc": {
-    "statements": 0,
-    "functions": 0,
-    "branches": 0,
-    "lines": 0,
+    "statements": 82,
+    "functions": 81,
+    "branches": 62,
+    "lines": 81,
     "exclude": [
       "test"
     ],
@@ -65,7 +65,7 @@
   "version": "0.0.0-semantically-released",
   "repository": "tunnckoCore/charlike",
   "homepage": "https://github.com/tunnckoCore/charlike",
-  "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
+  "author": "Charlike Mike Reagent (https://tunnckocore.com)",
   "cdn": "./dist/index.umd.js",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",

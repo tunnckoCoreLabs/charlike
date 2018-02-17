@@ -57,7 +57,7 @@
   "version": "0.0.0-semantically-released",
   "repository": "#{repository}",
   "homepage": "https://github.com/#{repository}",
-  "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
+  "author": "Charlike Mike Reagent (https://tunnckocore.com)",
   "cdn": "./dist/index.umd.js",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
