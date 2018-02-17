@@ -5,24 +5,38 @@
  * Released under the MIT license.
  */
 
-'use strict'
+/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
-const fs = require('fs')
-const path = require('path')
-const exists = require('fs-exists-sync')
-const camelcase = require('camelcase')
-const dateformat = require('dateformat')
-const copyFolder = require('stream-copy-dir')
-const JSTransformer = require('jstransformer')
-const transformer = JSTransformer(require('jstransformer-jstransformer'))
+const fs = require('fs');
+const path = require('path');
+const exists = require('fs-exists-sync');
+const camelcase = require('camelcase');
+const dateformat = require('dateformat');
+const streamCopyDir = require('stream-copy-dir');
+const JSTransformer = require('jstransformer');
+const transformer = JSTransformer(require('jstransformer-jstransformer'));
+
+const copyFolder = (src, dest, plugin) =>
+  new Promise((resolve, reject) => {
+    if (fs.existsSync(src)) {
+      streamCopyDir(src, dest, plugin)
+        .once('error', reject)
+        .on('finish', resolve);
+    } else {
+      resolve();
+    }
+  });
 
 const readFile = (fp) =>
   new Promise((resolve, reject) => {
     fs.readFile(fp, 'utf8', (err, res) => {
-      if (err) return reject(err)
-      resolve(res)
-    })
-  })
+      if (err) {
+        reject(err);
+      } else {
+        resolve(res);
+      }
+    });
+  });
 
 /**
  * > Scaffolds project with `name` and `desc` by
@@ -32,8 +46,6 @@ const readFile = (fp) =>
  * You can also define what _"templates"_ files to be used
  * by passing `options.templates`, by default it uses [./templates](./templates)
  * folder from this repository root.
- *
- * **Example**
  *
  * ```js
  * const charlike = require('charlike')
@@ -52,6 +64,7 @@ const readFile = (fp) =>
  *   .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`))
  * ```
  *
+ * @name   charlike
  * @param  {String} `<name>` project name
  * @param  {String} `<desc>` project description
  * @param  {Object} `[options]` use `options.locals` to pass more context to template files,
@@ -62,106 +75,123 @@ const readFile = (fp) =>
  * @api public
  */
 
-module.exports = function charlike (name, desc, options) {
+module.exports = async function charlike(name, desc, options) {
+  if (typeof name !== 'string') {
+    throw new TypeError('charlike: expect `name` to be string');
+  }
+  if (typeof desc !== 'string') {
+    throw new TypeError('charlike: expect `desc` to be string');
+  }
+  const opts = options && typeof options === 'object' ? options : {};
+  const cwd = typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : process.cwd();
+
+  const localPkg = path.join(cwd, 'package.json');
+
+  let pkg = {};
+  if (exists(localPkg)) {
+    const promise = readFile(localPkg);
+    pkg = await promise.then(JSON.parse);
+  }
+
+  const srcPath =
+    typeof opts.templates === 'string'
+      ? path.resolve(cwd, opts.templates)
+      : path.resolve(__dirname, 'templates');
+
+  const destPath = path.join(cwd, name);
+  const joined = (x) => ({
+    src: path.join(srcPath, x),
+    dest: path.join(destPath, x),
+  });
+  const makeArgs = (x) => [pkg, joined(x), { name, desc, opts }];
+
+  const copySrc = () => copy(...makeArgs('src'));
+  const copyTest = () => copy(...makeArgs('test'));
+  const copyCircle = () => copy(...makeArgs('.circleci'));
+
+  return copySrc()
+    .then(copyTest)
+    .then(copyCircle)
+    .then(() => {
+      const opt = { name, desc, opts };
+      return copy(pkg, { src: srcPath, dest: destPath }, opt);
+    });
+};
+
+function copy(pkg, { src, dest }, { name, desc, opts }) {
   return new Promise((resolve, reject) => {
-    if (typeof name !== 'string') {
-      return reject(new TypeError('charlike: expect `name` to be string'))
-    }
-    if (typeof desc !== 'string') {
-      return reject(new TypeError('charlike: expect `desc` to be string'))
-    }
-    const opts = options && typeof options === 'object' ? options : {}
-    const cwd =
-      typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : process.cwd()
+    const plugin = (file, cb) => {
+      // convert templates names to normal names
+      file.basename = file.basename.replace(/^_/, '.').replace(/^\$/, ''); // eslint-disable-line
 
-    const localPkg = path.join(cwd, 'package.json')
-    const promise = exists(localPkg)
-      ? readFile(localPkg).then(JSON.parse)
-      : Promise.resolve()
+      /**
+       * Common helper functions passed
+       * as locals to the template engine.
+       *
+       * - dateformat
+       * - camelcase
+       * - uppercase
+       * - lowercase
+       * - ucfirst
+       *
+       * @type {Object}
+       */
 
-    promise.then((pkg) => {
-      const src =
-        typeof opts.templates === 'string'
-          ? path.resolve(cwd, opts.templates)
-          : path.resolve(__dirname, 'templates')
+      const helpers = {
+        date: dateformat,
+        camelcase,
+        toCamelCase: camelcase,
+        toUpperCase: (val) => val.toUpperCase(),
+        toLowerCase: (val) => val.toLowerCase(),
+        ucFirst: (val) => val.charAt(0).toUpperCase() + val.slice(1),
+      };
 
-      const dest = path.join(cwd, name)
-      const plugin = (file, cb) => {
-        // convert templates names to normal names
-        file.basename = file.basename.replace('_', '.').replace('$', '')
+      /**
+       * Minimum basic locals
+       * for template engne.
+       *
+       * @type {Object}
+       */
 
-        /**
-         * Common helper functions passed
-         * as locals to the template engine.
-         *
-         * - dateformat
-         * - camelcase
-         * - uppercase
-         * - lowercase
-         * - ucfirst
-         *
-         * @type {Object}
-         */
+      const author = {
+        url: 'https://i.am.charlike.online',
+        realname: 'Charlike Mike Reagent',
+        username: 'tunnckoCore',
+      };
 
-        const helpers = {
-          date: dateformat,
-          camelcase: camelcase,
-          toCamelCase: camelcase,
-          toUpperCase: (val) => val.toUpperCase(),
-          toLowerCase: (val) => val.toLowerCase(),
-          ucFirst: (val) => {
-            return val.charAt(0).toUpperCase() + val.slice(1)
-          }
-        }
+      const locals = Object.assign(
+        {
+          pkg,
+          name,
+          description: desc,
+          owner: author.username,
+          author: 'Charlike Mike Reagent <olsten.larck@gmail.com>',
+        },
+        helpers,
+        opts.locals || {},
+      );
 
-        /**
-         * Minimum basic locals
-         * for template engne.
-         *
-         * @type {Object}
-         */
+      const repo = `${locals.owner}/${locals.name}`;
+      locals.repository = locals.repository ? locals.repository : repo;
+      locals.varname = camelcase(locals.name);
 
-        const author = {
-          url: 'https://i.am.charlike.online',
-          realname: 'Charlike Mike Reagent',
-          username: 'tunnckoCore'
-        }
+      const input = file.contents.toString();
 
-        const locals = Object.assign(
-          {
-            pkg: pkg,
-            name: name,
-            description: desc,
-            owner: author.username,
-            author: `${author.realname} <@${author.username}> (${author.url})`
-          },
-          helpers,
-          opts.locals || {}
-        )
-
-        locals.repository = locals.repository
-          ? locals.repository
-          : `${locals.owner}/${locals.name}`
-        locals.varname = camelcase(locals.name)
-
-        const input = file.contents.toString()
-
-        if (typeof opts.render === 'function') {
-          file.contents = Buffer.from(opts.render(input, locals))
-          cb(null, file)
-          return
-        }
-
-        opts.engine = typeof opts.engine === 'string' ? opts.engine : 'j140'
-        const result = transformer.render(input, opts, locals)
-
-        file.contents = Buffer.from(result.body)
-        cb(null, file)
+      if (typeof opts.render === 'function') {
+        file.contents = Buffer.from(opts.render(input, locals)); // eslint-disable-line
+        cb(null, file);
+        return;
       }
 
-      copyFolder(src, dest, plugin)
-        .once('error', reject)
-        .once('finish', () => resolve(dest))
-    }, reject)
-  })
+      opts.engine = typeof opts.engine === 'string' ? opts.engine : 'j140';
+      const result = transformer.render(input, opts, locals);
+
+      file.contents = Buffer.from(result.body); // eslint-disable-line
+      cb(null, file);
+    };
+
+    copyFolder(src, dest, plugin)
+      .catch(reject)
+      .then(() => resolve(dest));
+  });
 }

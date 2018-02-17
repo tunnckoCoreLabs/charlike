@@ -1,23 +1,21 @@
 /*!
  * charlike <https://github.com/tunnckoCore/charlike>
  *
- * Copyright (c) Charlike Mike Reagent <@tunnckoCore> (http://i.am.charlike.online)
+ * Copyright (c) Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)
  * Released under the MIT license.
  */
 
-/* jshint asi:true */
+/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
-'use strict'
+const test = require('mukla');
+const charlike = require('./index');
 
-const test = require('mukla')
-const index = require('./index')
-
-test('charlike', () => {
-  return index('yeah-foo-bar', 'quxie hoohy bar desc, that was easy!!!', {
+test('charlike', async () => {
+  await charlike('yezzah-foo-bar', 'quxie hoohy bar desc, that was easy!!!', {
     cwd: './node_modules',
     // templates: '../../config/.jsproject',
     locals: {
-      customFoo: '// oooook hahahah'
-    }
-  })
-})
+      customFoo: '// oooook hahahah',
+    },
+  });
+});
