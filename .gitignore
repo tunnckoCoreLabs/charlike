@@ -13,6 +13,7 @@ coverage
 .nyc_output
 nbproject
 cache
+cache
 temp
 tmp
 charlike

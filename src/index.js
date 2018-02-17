@@ -8,35 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import proc from 'process';
-import camelcase from 'camelcase';
-import dateformat from 'dateformat';
-import streamCopyDir from 'stream-copy-dir';
-import JSTransformer from 'jstransformer';
-import jstransformer from 'jstransformer-jstransformer';
-
-const transformer = JSTransformer(jstransformer);
-
-const copyFolder = (src, dest, plugin) =>
-  new Promise((resolve, reject) => {
-    if (fs.existsSync(src)) {
-      streamCopyDir(src, dest, plugin)
-        .once('error', reject)
-        .on('finish', resolve);
-    } else {
-      resolve();
-    }
-  });
-
-const readFile = (fp) =>
-  new Promise((resolve, reject) => {
-    fs.readFile(fp, 'utf8', (err, res) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(res);
-      }
-    });
-  });
+import copy from './utils';
 
 /**
  * > Scaffolds project with `name` and `desc` by
@@ -86,14 +58,6 @@ export default async function charlike(name, desc, options) {
   const opts = options && typeof options === 'object' ? options : {};
   const cwd = typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : proc.cwd();
 
-  const localPkg = path.join(cwd, 'package.json');
-
-  let pkg = {};
-  if (fs.existsSync(localPkg)) {
-    const promise = readFile(localPkg);
-    pkg = await promise.then(JSON.parse);
-  }
-
   const srcPath =
     typeof opts.templates === 'string'
       ? path.resolve(cwd, opts.templates)
@@ -108,7 +72,7 @@ export default async function charlike(name, desc, options) {
     src: path.join(srcPath, x),
     dest: path.join(destPath, x),
   });
-  const makeArgs = (x) => [pkg, joined(x), { name, desc, opts }];
+  const makeArgs = (x) => [joined(x), { name, desc, opts }];
 
   const copySrc = () => copy(...makeArgs('src'));
 
@@ -117,84 +81,6 @@ export default async function charlike(name, desc, options) {
     .then(() => copy(...makeArgs('.circleci')))
     .then(() => {
       const opt = { name, desc, opts };
-      return copy(pkg, { src: srcPath, dest: destPath }, opt);
+      return copy({ src: srcPath, dest: destPath }, opt);
     });
-}
-
-function copy(pkg, { src, dest }, { name, desc, opts }) {
-  return new Promise((resolve, reject) => {
-    const plugin = (file, cb) => {
-      // convert templates names to normal names
-      file.basename = file.basename.replace(/^_/, '.').replace(/^\$/, ''); // eslint-disable-line
-
-      /**
-       * Common helper functions passed
-       * as locals to the template engine.
-       *
-       * - dateformat
-       * - camelcase
-       * - uppercase
-       * - lowercase
-       * - ucfirst
-       *
-       * @type {Object}
-       */
-
-      const helpers = {
-        date: dateformat,
-        camelcase,
-        toCamelCase: camelcase,
-        toUpperCase: (val) => val.toUpperCase(),
-        toLowerCase: (val) => val.toLowerCase(),
-        ucFirst: (val) => val.charAt(0).toUpperCase() + val.slice(1),
-      };
-
-      /**
-       * Minimum basic locals
-       * for template engne.
-       *
-       * @type {Object}
-       */
-
-      const author = {
-        url: 'https://i.am.charlike.online',
-        realname: 'Charlike Mike Reagent',
-        username: 'tunnckoCore',
-      };
-
-      const locals = Object.assign(
-        {
-          pkg,
-          name,
-          description: desc,
-          owner: author.username,
-          author: 'Charlike Mike Reagent <olsten.larck@gmail.com>',
-        },
-        helpers,
-        opts.locals || {},
-      );
-
-      const repo = `${locals.owner}/${locals.name}`;
-      locals.repository = locals.repository ? locals.repository : repo;
-      locals.varname = camelcase(locals.name);
-
-      const input = file.contents.toString();
-
-      if (typeof opts.render === 'function') {
-        file.contents = Buffer.from(opts.render(input, locals)); // eslint-disable-line
-        cb(null, file);
-        return;
-      }
-
-      opts.engine = typeof opts.engine === 'string' ? opts.engine : 'j140';
-      const result = transformer.render(input, opts, locals);
-
-      file.contents = Buffer.from(result.body); // eslint-disable-line
-      cb(null, file);
-    };
-
-    copyFolder(src, dest, plugin)
-      .catch(reject)
-      .then(() => resolve(dest));
-  });
 }

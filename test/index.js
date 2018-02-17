@@ -11,7 +11,7 @@ const charlike = require('../dist/index.cjs');
 test('charlike', async () => {
   await charlike('yeahx', 'quxie hoohy bar desc, that was easy!!!', {
     cwd: './node_modules',
-    // templates: '../../config/.jsproject',
+    // templates: '~/.jsproject',
     locals: {
       nspId: 'e6f9f165-cc4d-41be-ad83-aa54e30caaab',
     },
