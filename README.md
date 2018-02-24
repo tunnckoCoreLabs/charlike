@@ -220,5 +220,5 @@ _Project automation and management with [hela][] task framework._
 
 [open-issue-url]: https://github.com/tunnckoCore/charlike/issues/new
 [highlighted-link]: https://ghub.now.sh/charlike-cli
-[author-link]: www.tunnckocore.com
+[author-link]: http://tunnckocore.com
 
