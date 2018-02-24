@@ -175,4 +175,4 @@ _Project automation and management with [hela][] task framework._
 
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
 [highlighted-link]: https://ghub.now.sh/{%= verb.related.highlight %}
-[author-link]: https://tunnckocore.com
+[author-link]: www.tunnckocore.com
