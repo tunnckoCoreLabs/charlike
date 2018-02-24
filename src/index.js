@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import proc from 'process';
+import resolve from 'resolve';
 import copy from './utils';
 
 /**
@@ -58,10 +59,14 @@ export default async function charlike(name, desc, options) {
   const opts = options && typeof options === 'object' ? options : {};
   const cwd = typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : proc.cwd();
 
-  const srcPath =
-    typeof opts.templates === 'string'
-      ? path.resolve(cwd, opts.templates)
-      : path.resolve(path.dirname('..'), 'templates');
+  let srcPath = null;
+  if (typeof opts.templates === 'string') {
+    srcPath = path.resolve(opts.templates);
+  } else {
+    const selfPath = resolve.sync('..'); // should work?
+    const dirname = path.dirname(path.dirname(selfPath));
+    srcPath = path.join(dirname, 'templates');
+  }
 
   if (!fs.existsSync(srcPath)) {
     throw new Error('charlike: source templates directory not found');
