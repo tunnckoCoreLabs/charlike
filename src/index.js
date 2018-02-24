@@ -87,5 +87,6 @@ export default async function charlike(name, desc, options) {
     .then(() => {
       const opt = { name, desc, opts };
       return copy({ src: srcPath, dest: destPath }, opt);
-    });
+    })
+    .then(() => destPath);
 }

@@ -9,11 +9,14 @@ const test = require('mukla');
 const charlike = require('../dist/index.cjs');
 
 test('charlike', async () => {
-  await charlike('yeahx', 'quxie hoohy bar desc, that was easy!!!', {
+  const destPath = await charlike('yeahx', 'quxie hoohy bar desc, that was easy!!!', {
     cwd: './node_modules',
     // templates: '~/.jsproject',
     locals: {
       nspId: 'e6f9f165-cc4d-41be-ad83-aa54e30caaab',
     },
   });
+
+  test.strictEqual(typeof destPath, 'string');
+  test.strictEqual(destPath.endsWith('node_modules/yeahx'), true);
 });
