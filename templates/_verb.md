@@ -82,10 +82,10 @@ Released under the [{%= license %} License][license-url].
 <!-- Heading badges -->
 
 [npmv-url]: https://www.npmjs.com/package/{%= name %}
-[npmv-img]: https://badgen.now.sh/npm/v/{%= name %}
+[npmv-img]: https://badgen.now.sh/npm/v/{%= name %}?label=npm%20version
 
 [ghrelease-url]: https://github.com/{%= repository %}/releases/latest
-[ghrelease-img]: https://badgen.now.sh/github/release/{%= repository %}
+[ghrelease-img]: https://badgen.now.sh/github/release/{%= repository %}?label=github%20release
 
 [license-url]: https://github.com/{%= repository %}/blob/master/LICENSE
 [license-img]: https://badgen.now.sh/npm/license/{%= name %}
