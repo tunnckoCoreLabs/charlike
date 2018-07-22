@@ -1,50 +1,64 @@
 {
   "name": "#{name}",
   "description": "#{description}",
-  "nspId": "todo",
   "license": "Apache-2.0",
-  "licenseStart": 2018,
+  "licenseStart": "#{date('yyyy')}",
   "scripts": {
-    "lint": "hela lint",
-    "test": "hela test",
-    "commit": "hela commit --no-docs",
-    "prepublishOnly": "hela protect"
+    "lint": "xaxa",
+    "test": "nyc asia",
+    "gitadd": "git status --porcelain && git add -A",
+    "commit-dry": "yarn gitadd && yarn commit",
+    "precommit": "yarn lint && yarn test && yarn gitadd",
+    "commit": "gitcommit -sS",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "build": "ascjs src dist",
+    "prepublishOnly": "yarn build"
   },
   "engines": {
-    "node": ">=8.6",
-    "npm": ">=5.2",
-    "yarn": ">=1.3"
+    "node": "^8.9.0 || ^10.6.0",
+    "npm": ">=5.5",
+    "yarn": ">=1.5"
   },
   "dependencies": {},
   "devDependencies": {
-    "hela": "^2.0.9",
-    "hela-config-tunnckocore": "^3.0.16",
-    "mukla": "^0.4.9"
+    "ascjs": "^2.4.0",
+    "asia": "^0.19.6",
+    "esm": "^3.0.72",
+    "gitcommit": "^1.0.8",
+    "new-release": "^4.0.3",
+    "nyc": "^12.0.2",
+    "xaxa": "^1.3.6"
   },
   "files": [
+    "src",
     "dist"
   ],
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "version": "0.0.0-semantically-released",
+  "repository": "#{owner}/#{name}",
+  "homepage": "https://github.com/#{owner}/#{name}",
+  "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
+  "publishConfig": {
+    "access": "public"
+  },
   "eslintConfig": {
-    "extends": "tunnckocore"
+    "extends": "xaxa"
   },
   "renovate": {
     "extends": "tunnckocore"
-  },
-  "hela": {
-    "extends": "tunnckocore"
-  },
-  "rollup": {
-    "input": "src/index.js",
-    "output": [
-      "cjs",
-      "es"
-    ]
   },
   "nyc": {
     "statements": 0,
     "functions": 0,
     "branches": 0,
     "lines": 0,
+    "cache": true,
+    "check-coverage": true,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
     "exclude": [
       "test"
     ],
@@ -54,13 +68,6 @@
       ".mjs"
     ]
   },
-  "version": "0.0.0-semantically-released",
-  "repository": "#{repository}",
-  "homepage": "https://github.com/#{repository}",
-  "author": "Charlike Mike Reagent (http://tunnckocore.com)",
-  "cdn": "./dist/index.umd.js",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
   "verb": {
     "run": true,
     "toc": {
@@ -75,13 +82,12 @@
     ],
     "related": {
       "list": [
+        "asia",
         "gitcommit",
-        "try-catch-core",
         "new-release",
-        "always-done",
-        "jstransformer"
-      ],
-      "highlight": "charlike-cli"
+        "xaxa",
+        "charlike"
+      ]
     },
     "lint": {
       "reflinks": true

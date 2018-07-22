@@ -1,12 +1,12 @@
 /**
- * @copyright 2018-present, Charlike Mike Reagent <olsten.larck@gmail.com>
+ * @copyright #{date('yyyy')}-present, Charlike Mike Reagent (https://i.am.charlike.online)
  * @license Apache-2.0
  */
 
-/* eslint-disable import/no-commonjs */
+'use strict';
 
-const test = require('mukla');
+const test = require('asia');
 
-test('foo bar', () => {
-  test.ok(true, 'should pass');
+test('foo bar', (t) => {
+  t.ok(true);
 });

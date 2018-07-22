@@ -1,9 +1,14 @@
 version: 2
 
-defaults: &defaults
+node8: &node8
   working_directory: ~/#{name}
   docker:
-    - image: circleci/node:8
+    - image: circleci/node:8.9
+
+node10: &node10
+  working_directory: ~/#{name}
+  docker:
+    - image: circleci/node:10.6
 
 restore_modules_cache: &restore_modules_cache
   restore_cache:
@@ -12,55 +17,74 @@ restore_modules_cache: &restore_modules_cache
     # fallback to using the latest cache if no exact match is found
     - #{name}-
 
+jobinstall: &jobinstall
+  steps:
+    - checkout
+    - *restore_modules_cache
+    - run:
+        name: Installing Dependencies
+        command: yarn install
+    - save_cache:
+        key: #{name}-{{ checksum "yarn.lock" }}
+        paths: node_modules
+    - run:
+        name: Remove node_modules to cleanup workspace
+        command: rm -rf node_modules
+
+jobtest: &jobtest
+  steps:
+    - checkout
+    - *restore_modules_cache
+    - run:
+        name: Running tests and checks
+        command: yarn test
+    - run:
+        name: Sending test coverage to CodeCov
+        command: bash <(curl -s https://codecov.io/bash)
+
 
 jobs:
-  install:
-    <<: *defaults
-    steps:
-      - checkout
-      - *restore_modules_cache
-      - run:
-          name: Installing Dependencies
-          command: yarn install
-      - save_cache:
-          key: #{name}-{{ checksum "yarn.lock" }}
-          paths: node_modules
-      - run:
-          name: Remove node_modules to cleanup workspace
-          command: rm -rf node_modules
+  install-on-node8:
+    <<: *node8
+    <<: *jobinstall
 
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - *restore_modules_cache
-      - run:
-          name: Running tests and checks
-          command: yarn test
-      - run:
-          name: Sending test coverage to CodeCov
-          command: bash <(curl -s https://codecov.io/bash)
+  test-on-node8:
+    <<: *node8
+    <<: *jobtest
+
+  install-on-node10:
+    <<: *node10
+    <<: *jobinstall
+
+  test-on-node10:
+    <<: *node10
+    <<: *jobtest
 
   release:
-    <<: *defaults
+    <<: *node10
     steps:
       - checkout
       - *restore_modules_cache
       - run:
           name: Releasing and publishing
-          command: yarn hela release
+          command: yarn new-release
 
 workflows:
   version: 2
   automated:
     jobs:
-      - install
-      - test:
+      - install-on-node8
+      - test-on-node8:
           requires:
-            - install
+            - install-on-node8
+      - install-on-node10
+      - test-on-node10:
+          requires:
+            - install-on-node10
       - release:
           requires:
-            - test
+            - test-on-node8
+            - test-on-node10
           filters:
             branches:
               only: master

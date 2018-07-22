@@ -1,178 +1,129 @@
-# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][github-release-img]][github-release-url] [![License][license-img]][license-url]
+# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
+
+<!-- When logo is needed
+<p align="center">
+  <a href="https://github.com/username/repo">
+    <img src="./logo.png">
+  </a>
+</p>
+<br>
+-->
 
 > {%= description %}
 
 <div id="thetop"></div>
 
-{% if (verb.related && verb.related.highlight) { %}
-_You might also be interested in [{%= verb.related.highlight %}][highlighted-link] or in the other [related projects](#related-projects)._
-{% } %}
+[![XAXA code style][codestyle-img]][codestyle-url]
+[![CircleCI linux build][linuxbuild-img]][linuxbuild-url]
+[![CodeCov coverage status][codecoverage-img]][codecoverage-url]
+[![DavidDM dependency status][dependencies-img]][dependencies-url]
+[![Renovate App Status][renovateapp-img]][renovateapp-url]
+[![Make A Pull Request][prs-welcome-img]][prs-welcome-url]
 
-## Quality Assurance :100:
+If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents.  
+For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
-[![bitHound Code][bithound-code-img]][bithound-code-url] 
-[![Code Style Standard][standard-img]][standard-url] 
-[![Linux Build][circleci-img]][circleci-url] 
-[![Code Coverage][codecov-img]][codecov-url] 
-[![bitHound Score][bithound-score-img]][bithound-score-url] 
-[![bitHound Deps][bithound-deps-img]][bithound-deps-url] 
-[![Dependencies Status][dependencies-img]][dependencies-url] 
+[![Conventional Commits][ccommits-img]][ccommits-url]
+[![PayPal Author Support][paypal-donate-img]][paypal-donate-url]
+[![Share Love Tweet][share-love-img]][share-love-url]
+[![NPM Downloads Weekly][downloads-weekly-img]][npmv-url]
+[![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
+[![NPM Downloads Total][downloads-total-img]][npmv-url]
 
-If you have any _how-to_ kind of questions, please read [Code of Conduct](./CODE_OF_CONDUCT.md) and **ping me on [twitter](https://twitter.com/tunnckoCore)** or [open an issue][open-issue-url].  
-You may also read the [Contributing Guide](./CONTRIBUTING.md). There, beside _"How to contribute?"_, we describe everything **_stated_** by  the badges.
+Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
 
-[![Make A Pull Request][prs-welcome-img]][prs-welcome-url] 
-[![Code Format Prettier][prettier-img]][prettier-url] 
-[![Node Security Status][nodesecurity-img]][nodesecurity-url] 
-[![Conventional Commits][ccommits-img]][ccommits-url] 
-[![Semantically Released][new-release-img]][new-release-url] 
-[![Renovate App Status][renovate-img]][renovate-url] 
-
-Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecov-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) Github Bot.
-
-[![All Contributors Spec][all-contributors-img]](#contributors) 
-[![Newsletter Subscribe][tinyletter-img]][tinyletter-url] 
-[![Give thanks][give-donate-img]][give-donate-url] 
-[![Share Love Tweet][share-love-img]][share-love-url] 
-[![NPM Downloads Weekly][downloads-weekly-img]][npmv-url] 
-[![NPM Downloads Monthly][downloads-monthly-img]][npmv-url] 
-[![NPM Downloads Total][downloads-total-img]][npmv-url] 
 
 ## Table of Contents
 <!-- toc -->
 
 ## Install
+This project requires [**Node.js**][nodeversion-url] **{%= engines.node %}**. Install it using [**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
+_We highly recommend to use Yarn when you think to contribute to this project._
 
-This project requires [**Node.js**][nodeversion-url] **v{%= engines.node.slice(2) %}** or above. Install it using [**yarn**](https://yarnpkg.com) **v{%= engines.yarn.slice(2) %}+** or [**npm**](https://www.npmjs.com) **v{%= engines.npm.slice(2) %}+** package managers.
-
+```bash
+$ yarn add {%= name %}
 ```
-$ yarn add {%= name %} --dev
-```
-<!-- 
-A browser usage is also possible, thanks to the [unpkg.com](https://unpkg.com) CDN and [Rollup](https://ghub.now.sh/rollup) bundler.  
-See available bundles at [`https://unpkg.com/{%= name %}/dist/browser/`](https://unpkg.com/{%= name %}/dist/browser/).
 
-> _**Note:** May not work in the browser if some of the [Node.js builtin modules](https://github.com/juliangruber/builtins/blob/master/builtins.json) are used here._
- -->
- 
 ## API
-Review carefully the provided examples and the working [tests](./test).
-
 {%= apidocs('src/index.js') %}
 
 **[back to top](#thetop)**
 
 {% if (verb.related && verb.related.list && verb.related.list.length) { %}
+
 ## Related Projects
-Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance! 
+Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
 {%= related(verb.related.list, { words: 12 }) %}
-{% } %}
 
 **[back to top](#thetop)**
+{% } %}
 
 ## Contributing
 Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
-For bugs reports and feature requests, [please create an issue][open-issue-url].
-  
+For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+
 ## Contributors
 Thanks to the hard work of [these wonderful people](./CONTRIBUTORS.md) this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
-[Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome.
+[Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome. :stars:
 
 ## Users
 You can see who uses `{%= name %}` in the [USERS.md](./USERS.md) file. Please feel free adding this file if it not exists.  
-If you or your organization are using this project, consider adding yourself to the list of users. **Thank You!**
+If you or your organization are using this project, consider adding yourself to the list of users.  
+**Thank You!** :heart:
 
 ## License
 Copyright (c) {%= licenseStart %}-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  
 Released under the [{%= license %} License][license-url].
 
-***
+---
 
-{%= include('footer') %}  
-_Project automation and management with [hela][] task framework._
-
-{%= reflinks(verb.reflinks) %}
-
+{%= include('footer') %}
 
 <!-- Heading badges -->
-[npmv-url]: https://www.npmjs.com/package/{%= name %}
-[npmv-img]: https://img.shields.io/npm/v/{%= name %}.svg?label=npm%20version
 
-[github-release-url]: https://github.com/{%= repository %}/releases/latest
-[github-release-img]: https://img.shields.io/github/release/{%= repository %}.svg?label=github%20release
+[npmv-url]: https://www.npmjs.com/package/{%= name %}
+[npmv-img]: https://badgen.now.sh/npm/v/{%= name %}
+
+[ghrelease-url]: https://github.com/{%= repository %}/releases/latest
+[ghrelease-img]: https://badgen.now.sh/github/release/{%= repository %}
 
 [license-url]: https://github.com/{%= repository %}/blob/master/LICENSE
-[license-img]: https://img.shields.io/badge/license-{%= license.replace('-', '%20') %}-blue.svg
-<!-- [license-img]: https://img.shields.io/badge/license-tunnckoCore_1%2E0-blue.svg -->
+[license-img]: https://badgen.now.sh/npm/license/{%= name %}
 
 <!-- Front line badges -->
-[bithound-score-url]: https://www.bithound.io/github/{%= repository %}
-[bithound-score-img]: https://www.bithound.io/github/{%= repository %}/badges/score.svg
 
-[bithound-code-url]: https://www.bithound.io/github/{%= repository %}
-[bithound-code-img]: https://www.bithound.io/github/{%= repository %}/badges/code.svg
+[codestyle-url]: https://github.com/olstenlarck/xaxa
+[codestyle-img]: https://badgen.now.sh/badge/code%20style/xaxa/green
 
-[standard-url]: https://github.com/airbnb/javascript
-[standard-img]: https://img.shields.io/badge/code_style-airbnb-brightgreen.svg
+[linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
+[linuxbuild-img]: https://badgen.now.sh/circleci/github/{%= repository %}/master
 
-[circleci-url]: https://circleci.com/gh/{%= repository %}/tree/master
-[circleci-img]: https://img.shields.io/circleci/project/github/{%= repository %}/master.svg
-
-[codecov-url]: https://codecov.io/gh/{%= repository %}
-[codecov-img]: https://img.shields.io/codecov/c/github/{%= repository %}/master.svg
-
-[bithound-deps-url]: https://www.bithound.io/github/{%= repository %}/dependencies/npm
-[bithound-deps-img]: https://www.bithound.io/github/{%= repository %}/badges/dependencies.svg
+[codecoverage-url]: https://codecov.io/gh/{%= repository %}
+[codecoverage-img]: https://codecov.io/gh/{%= repository %}/branch/master/graph/badge.svg
 
 [dependencies-url]: https://david-dm.org/{%= repository %}
-[dependencies-img]: https://img.shields.io/david/{%= repository %}.svg
-
-<!-- Second front of badges -->
-[prs-welcome-img]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
-[prs-welcome-url]: http://makeapullrequest.com
-
-[prettier-url]: https://github.com/prettier/prettier
-[prettier-img]: https://img.shields.io/badge/styled_with-prettier-f952a5.svg
-
-[nodesecurity-url]: https://nodesecurity.io/orgs/tunnckocore/projects/{%= nspId %}/master
-[nodesecurity-img]: https://nodesecurity.io/orgs/tunnckocore/projects/{%= nspId %}/badge
-<!-- the original color of nsp: 
-[nodesec-img]: https://img.shields.io/badge/nsp-no_known_vulns-35a9e0.svg -->
+[dependencies-img]: https://badgen.now.sh/david/dep/{%= repository %}
 
 [ccommits-url]: https://conventionalcommits.org/
-[ccommits-img]: https://img.shields.io/badge/conventional_commits-1.0.0-yellow.svg
-
+[ccommits-img]: https://badgen.now.sh/badge/conventional%20commits/v1.0.0/dfb317
 [new-release-url]: https://github.com/tunnckoCore/new-release
-[new-release-img]: https://img.shields.io/badge/semantically-released-05C5FF.svg
+[new-release-img]: https://badgen.now.sh/badge/semantically/released/05c5ff
 
-[nodeversion-url]: https://nodejs.org/en/download
+[downloads-weekly-img]: https://badgen.now.sh/npm/dw/{%= name %}
+[downloads-monthly-img]: https://badgen.now.sh/npm/dm/{%= name %}
+[downloads-total-img]: https://badgen.now.sh/npm/dt/{%= name %}
+
 [nodeversion-img]: https://img.shields.io/node/v/{%= name %}.svg
+[nodeversion-url]: https://nodejs.org/en/download
 
-[renovate-url]: https://renovateapp.com
-[renovate-img]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
-
-
-<!-- Third badges line (After CodeSponsor.io ad) -->
-[all-contributors-img]: https://img.shields.io/github/contributors/{%= repository %}.svg?label=all%20contributors&colorB=ffa500
-
-[tinyletter-url]: https://tinyletter.com/tunnckoCore
-[tinyletter-img]: https://img.shields.io/badge/join-newsletter-9caaf8.svg
-<!-- 
+[renovateapp-url]: https://renovatebot.com
+[renovateapp-img]: https://badgen.now.sh/badge/renovate/enabled/green
+[prs-welcome-img]: https://badgen.now.sh/badge/PRs/welcome/green
+[prs-welcome-url]: http://makeapullrequest.com
 [paypal-donate-url]: https://paypal.me/tunnckoCore/10
-[paypal-donate-img]: https://img.shields.io/badge/$-support-f47721.svg
- -->
-[give-donate-url]: https://paypal.me/tunnckoCore/10
-[give-donate-img]: https://img.shields.io/badge/give-donation-f47721.svg
+[paypal-donate-img]: https://badgen.now.sh/badge/$/support/purple
 
-[downloads-weekly-img]: https://img.shields.io/npm/dw/{%= name %}.svg
-[downloads-monthly-img]: https://img.shields.io/npm/dm/{%= name %}.svg
-[downloads-total-img]: https://img.shields.io/npm/dt/{%= name %}.svg
-
-
-<!-- Miscellaneous -->
-[share-love-url]: https://twitter.com/intent/tweet?text={%= encodeURI(homepage) %}&via=tunnckoCore
-[share-love-img]: https://img.shields.io/badge/tweet-about-1da1f2.svg
-
+[share-love-url]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
+[share-love-img]: https://badgen.now.sh/badge/twitter/share/1da1f2
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
-[highlighted-link]: https://ghub.now.sh/{%= verb.related.highlight %}
-[author-link]: http://tunnckocore.com
+[author-link]: https://i.am.charlike.online

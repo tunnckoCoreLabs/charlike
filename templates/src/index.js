@@ -1,6 +1,8 @@
 /**
- * @copyright 2018-present, Charlike Mike Reagent <olsten.larck@gmail.com>
+ * @copyright #{date('yyyy')}-present, Charlike Mike Reagent (https://i.am.charlike.online)
  * @license Apache-2.0
  */
 
-export default () => {};
+'use strict';
+
+module.exports = () => {};
