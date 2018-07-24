@@ -5,7 +5,7 @@
   "licenseStart": "#{date('yyyy')}",
   "scripts": {
     "lint": "xaxa",
-    "test": "nyc asia",
+    "test": "nyc --require esm asia",
     "gitadd": "git status --porcelain && git add -A",
     "commit-dry": "yarn gitadd && yarn commit",
     "precommit": "yarn lint && yarn test && yarn gitadd",
