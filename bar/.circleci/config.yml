@@ -1,21 +1,21 @@
 version: 2
 
 node8: &node8
-  working_directory: ~/#{name}
+  working_directory: ~/bar
   docker:
-    - image: circleci/node:8
+    - image: circleci/node:8.9
 
 node10: &node10
-  working_directory: ~/#{name}
+  working_directory: ~/bar
   docker:
-    - image: circleci/node:10
+    - image: circleci/node:10.6
 
 restore_modules_cache: &restore_modules_cache
   restore_cache:
     keys:
-    - #{name}-{{ checksum "yarn.lock" }}
+    - bar-{{ checksum "yarn.lock" }}
     # fallback to using the latest cache if no exact match is found
-    - #{name}-
+    - bar-
 
 jobinstall: &jobinstall
   steps:
@@ -25,7 +25,7 @@ jobinstall: &jobinstall
         name: Installing Dependencies
         command: yarn install
     - save_cache:
-        key: #{name}-{{ checksum "yarn.lock" }}
+        key: bar-{{ checksum "yarn.lock" }}
         paths: node_modules
     - run:
         name: Remove node_modules to cleanup workspace

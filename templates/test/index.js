@@ -3,9 +3,7 @@
  * @license Apache-2.0
  */
 
-'use strict';
-
-const test = require('asia');
+import test from 'asia';
 
 test('foo bar', (t) => {
   t.ok(true);
