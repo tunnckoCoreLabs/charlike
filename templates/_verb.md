@@ -1,4 +1,4 @@
-# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
+# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url] [![Semantically Released][new-release-img]][new-release-url]
 
 <!-- When logo is needed
 <p align="center">
@@ -25,7 +25,7 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 
 [![Conventional Commits][ccommits-img]][ccommits-url]
 [![PayPal Author Support][paypal-donate-img]][paypal-donate-url]
-[![Share Love Tweet][share-love-img]][share-love-url]
+[![Share Love Tweet][shareb]][shareu]
 [![NPM Downloads Weekly][downloads-weekly-img]][npmv-url]
 [![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
@@ -80,50 +80,49 @@ Released under the [{%= license %} License][license-url].
 {%= include('footer') %}
 
 <!-- Heading badges -->
-
 [npmv-url]: https://www.npmjs.com/package/{%= name %}
-[npmv-img]: https://badgen.now.sh/npm/v/{%= name %}?label=npm%20version
+[npmv-img]: https://badgen.net/npm/v/{%= name %}?label=npm%20version
 
 [ghrelease-url]: https://github.com/{%= repository %}/releases/latest
-[ghrelease-img]: https://badgen.now.sh/github/release/{%= repository %}?label=github%20release
+[ghrelease-img]: https://badgen.net/github/release/{%= repository %}?label=github%20release
 
 [license-url]: https://github.com/{%= repository %}/blob/master/LICENSE
-[license-img]: https://badgen.now.sh/npm/license/{%= name %}
+[license-img]: https://badgen.net/npm/license/{%= name %}
 
 <!-- Front line badges -->
 
 [codestyle-url]: https://github.com/olstenlarck/xaxa
-[codestyle-img]: https://badgen.now.sh/badge/code%20style/xaxa/green
+[codestyle-img]: https://badgen.net/badge/code%20style/xaxa/green
 
 [linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
-[linuxbuild-img]: https://badgen.now.sh/circleci/github/{%= repository %}/master
+[linuxbuild-img]: https://badgen.net/circleci/github/{%= repository %}/master
 
 [codecoverage-url]: https://codecov.io/gh/{%= repository %}
 [codecoverage-img]: https://codecov.io/gh/{%= repository %}/branch/master/graph/badge.svg
 
 [dependencies-url]: https://david-dm.org/{%= repository %}
-[dependencies-img]: https://badgen.now.sh/david/dep/{%= repository %}
+[dependencies-img]: https://badgen.net/david/dep/{%= repository %}
 
 [ccommits-url]: https://conventionalcommits.org/
-[ccommits-img]: https://badgen.now.sh/badge/conventional%20commits/v1.0.0/dfb317
+[ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
+
 [new-release-url]: https://github.com/tunnckoCore/new-release
-[new-release-img]: https://badgen.now.sh/badge/semantically/released/05c5ff
+[new-release-img]: https://badgen.net/badge/semantically/released/05c5ff
 
-[downloads-weekly-img]: https://badgen.now.sh/npm/dw/{%= name %}
-[downloads-monthly-img]: https://badgen.now.sh/npm/dm/{%= name %}
-[downloads-total-img]: https://badgen.now.sh/npm/dt/{%= name %}
-
-[nodeversion-img]: https://img.shields.io/node/v/{%= name %}.svg
-[nodeversion-url]: https://nodejs.org/en/download
+[downloads-weekly-img]: https://badgen.net/npm/dw/{%= name %}
+[downloads-monthly-img]: https://badgen.net/npm/dm/{%= name %}
+[downloads-total-img]: https://badgen.net/npm/dt/{%= name %}
 
 [renovateapp-url]: https://renovatebot.com
-[renovateapp-img]: https://badgen.now.sh/badge/renovate/enabled/green
-[prs-welcome-img]: https://badgen.now.sh/badge/PRs/welcome/green
-[prs-welcome-url]: http://makeapullrequest.com
-[paypal-donate-url]: https://paypal.me/tunnckoCore/10
-[paypal-donate-img]: https://badgen.now.sh/badge/$/support/purple
+[renovateapp-img]: https://badgen.net/badge/renovate/enabled/green
 
-[share-love-url]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
-[share-love-img]: https://badgen.now.sh/badge/twitter/share/1da1f2
+[prs-welcome-img]: https://badgen.net/badge/PRs/welcome/green
+[prs-welcome-url]: http://makeapullrequest.com
+
+[paypal-donate-url]: https://paypal.me/tunnckoCore/10
+[paypal-donate-img]: https://badgen.net/badge/$/support/purple
+
+[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
+[shareb]: https://badgen.net/badge/twitter/share/1da1f2
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
 [author-link]: https://i.am.charlike.online
