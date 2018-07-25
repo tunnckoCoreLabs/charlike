@@ -1,4 +1,4 @@
-# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url] [![Semantically Released][new-release-img]][new-release-url]
+# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
 
 <!-- When logo is needed
 <p align="center">
@@ -19,6 +19,7 @@
 [![DavidDM dependency status][dependencies-img]][dependencies-url]
 [![Renovate App Status][renovateapp-img]][renovateapp-url]
 [![Make A Pull Request][prs-welcome-img]][prs-welcome-url]
+[![Semantically Released][new-release-img]][new-release-url]
 
 If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
@@ -37,7 +38,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 <!-- toc -->
 
 ## Install
-This project requires [**Node.js**][nodeversion-url] **{%= engines.node %}**. Install it using [**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
+This project requires [**Node.js**](https://nodejs.org) **{%= engines.node %}**. Install it using [**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
 _We highly recommend to use Yarn when you think to contribute to this project._
 
 ```bash
@@ -53,7 +54,7 @@ $ yarn add {%= name %}
 
 ## Related Projects
 Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
-{%= related(verb.related.list, { words: 12 }) %}
+{%= related(verb.related.list, { words: 11 }) %}
 
 **[back to top](#thetop)**
 {% } %}
