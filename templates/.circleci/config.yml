@@ -105,7 +105,7 @@ jobs:
       - *restore_modules_cache
       - run:
           name: Bundling your awesome project
-          command: yarn build
+          command: yarn build || echo "No build processing."
       - run:
           name: Releasing and publishing
           command: yarn new-release
