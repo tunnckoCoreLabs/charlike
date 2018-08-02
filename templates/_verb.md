@@ -25,7 +25,7 @@ If you have any _how-to_ kind of questions, please read the [Contributing Guide]
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
 [![Conventional Commits][ccommits-img]][ccommits-url]
-[![PayPal Author Support][paypal-donate-img]][paypal-donate-url]
+[![Become a Patron][patreon-img]][patreon-url]
 [![Share Love Tweet][shareb]][shareu]
 [![NPM Downloads Weekly][downloads-weekly-img]][npmv-url]
 [![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
@@ -46,7 +46,7 @@ $ yarn add {%= name %}
 ```
 
 ## API
-{%= apidocs('src/index.js') %}
+{%= maybeInclude('docs/API.md') %}
 
 **[back to top](#thetop)**
 
@@ -82,10 +82,10 @@ Released under the [{%= license %} License][license-url].
 
 <!-- Heading badges -->
 [npmv-url]: https://www.npmjs.com/package/{%= name %}
-[npmv-img]: https://badgen.net/npm/v/{%= name %}?label=npm%20version
+[npmv-img]: https://badgen.net/npm/v/{%= name %}?icon=npm
 
 [ghrelease-url]: https://github.com/{%= repository %}/releases/latest
-[ghrelease-img]: https://badgen.net/github/release/{%= repository %}?label=github%20release
+[ghrelease-img]: https://badgen.net/github/release/{%= repository %}?icon=github
 
 [license-url]: https://github.com/{%= repository %}/blob/master/LICENSE
 [license-img]: https://badgen.net/npm/license/{%= name %}
@@ -96,10 +96,10 @@ Released under the [{%= license %} License][license-url].
 [codestyle-img]: https://badgen.net/badge/code%20style/xaxa/green
 
 [linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
-[linuxbuild-img]: https://badgen.net/circleci/github/{%= repository %}/master
+[linuxbuild-img]: https://badgen.net/circleci/github/{%= repository %}/master?label=build&icon=circleci
 
 [codecoverage-url]: https://codecov.io/gh/{%= repository %}
-[codecoverage-img]: https://codecov.io/gh/{%= repository %}/branch/master/graph/badge.svg
+[codecoverage-img]: https://badgen.net/codecov/c/gh/{%= repository %}
 
 [dependencies-url]: https://david-dm.org/{%= repository %}
 [dependencies-img]: https://badgen.net/david/dep/{%= repository %}
@@ -123,7 +123,10 @@ Released under the [{%= license %} License][license-url].
 [paypal-donate-url]: https://paypal.me/tunnckoCore/10
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
 
+[patreon-url]: https://www.patreon.com/bePatron?u=5579781
+[patreon-img]: https://badgen.net/badge/become/a%20patron/F96854?icon=patreon 
+
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
-[author-link]: https://i.am.charlike.online
+[author-link]: https://tunnckocore.com

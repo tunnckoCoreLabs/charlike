@@ -4,46 +4,40 @@
   "license": "Apache-2.0",
   "licenseStart": "#{date('yyyy')}",
   "scripts": {
-    "lint": "xaxa",
-    "test": "nyc --require esm asia",
+    "lint": "eslint src test --fix --quiet",
+    "test": "nyc --require esmc/register asia",
     "gitadd": "git status --porcelain && git add -A",
     "commit-dry": "yarn gitadd && yarn commit",
     "precommit": "yarn lint && yarn test && yarn gitadd",
     "commit": "gitcommit -sS",
-    "prebuild": "rm -rf dist && mkdir dist",
-    "build": "ascjs src dist",
+    "build": "esmc",
     "prepublishOnly": "yarn build"
   },
   "engines": {
-    "node": "^8.9.0 || ^10.6.0",
-    "npm": ">=5.5",
-    "yarn": ">=1.5"
+    "node": "^8.9.0 || ^10.6.0"
   },
   "dependencies": {},
   "devDependencies": {
-    "ascjs": "^2.4.0",
     "asia": "^0.19.7",
-    "esm": "^3.0.72",
-    "gitcommit": "^1.0.8",
+    "esmc": "^0.3.1",
+    "gitcommit": "^1.0.9",
     "new-release": "^4.0.3",
-    "nyc": "^12.0.2",
-    "xaxa": "^2.0.2"
+    "nyc": "^12.0.2"
   },
   "files": [
-    "src",
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "src/index.js",
+  "main": "dist/nodejs/__index.js",
+  "module": "dist/nodejs/index.js",
   "version": "0.0.0-semantically-released",
   "repository": "#{owner}/#{name}",
   "homepage": "https://github.com/#{owner}/#{name}",
-  "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
+  "author": "Charlike Mike Reagent (https://tunnckocore.com)",
   "publishConfig": {
     "access": "public"
   },
   "eslintConfig": {
-    "extends": "xaxa"
+    "extends": "./node_modules/esmc/src/eslint/config.js"
   },
   "renovate": {
     "extends": "tunnckocore"
