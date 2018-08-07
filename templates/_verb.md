@@ -13,7 +13,7 @@
 
 <div id="thetop"></div>
 
-[![XAXA code style][codestyle-img]][codestyle-url]
+[![Code style][codestyle-img]][codestyle-url]
 [![CircleCI linux build][linuxbuild-img]][linuxbuild-url]
 [![CodeCov coverage status][codecoverage-img]][codecoverage-url]
 [![DavidDM dependency status][dependencies-img]][dependencies-url]
@@ -52,7 +52,7 @@ $ yarn add {%= name %}
 
 {% if (verb.related && verb.related.list && verb.related.list.length) { %}
 
-## Related Projects
+## See Also
 Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
 {%= related(verb.related.list, { words: 11 }) %}
 
@@ -92,17 +92,17 @@ Released under the [{%= license %} License][license-url].
 
 <!-- Front line badges -->
 
-[codestyle-url]: https://github.com/olstenlarck/xaxa
-[codestyle-img]: https://badgen.net/badge/code%20style/xaxa/green
+[codestyle-url]: https://github.com/olstenlarck/eslint-config-esmc
+[codestyle-img]: https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb
 
 [linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
 [linuxbuild-img]: https://badgen.net/circleci/github/{%= repository %}/master?label=build&icon=circleci
 
 [codecoverage-url]: https://codecov.io/gh/{%= repository %}
-[codecoverage-img]: https://badgen.net/codecov/c/gh/{%= repository %}
+[codecoverage-img]: https://badgen.net/codecov/c/github/{%= repository %}?icon=codecov
 
 [dependencies-url]: https://david-dm.org/{%= repository %}
-[dependencies-img]: https://badgen.net/david/dep/{%= repository %}
+[dependencies-img]: https://badgen.net/david/dep/{%= repository %}?label=deps
 
 [ccommits-url]: https://conventionalcommits.org/
 [ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
@@ -127,6 +127,6 @@ Released under the [{%= license %} License][license-url].
 [patreon-img]: https://badgen.net/badge/become/a%20patron/F96854?icon=patreon 
 
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
-[shareb]: https://badgen.net/badge/twitter/share/1da1f2
+[shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
 [author-link]: https://tunnckocore.com

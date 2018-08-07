@@ -55,11 +55,6 @@
     ],
     "exclude": [
       "test"
-    ],
-    "extension": [
-      ".js",
-      ".jsx",
-      ".mjs"
     ]
   },
   "verb": {
@@ -74,15 +69,6 @@
     "tasks": [
       "readme"
     ],
-    "related": {
-      "list": [
-        "asia",
-        "gitcommit",
-        "new-release",
-        "xaxa",
-        "charlike"
-      ]
-    },
     "lint": {
       "reflinks": true
     }
