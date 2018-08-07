@@ -18,6 +18,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
     "esmc": "^0.3.1",
     "gitcommit": "^1.0.9",

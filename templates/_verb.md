@@ -33,7 +33,6 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 
 Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
 
-
 ## Table of Contents
 <!-- toc -->
 
@@ -64,13 +63,11 @@ Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
 ## Contributors
-Thanks to the hard work of [these wonderful people](./CONTRIBUTORS.md) this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
-[Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome. :stars:
+Thanks to the hard work of these wonderful people this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
+[Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome. :sparkles: 
 
-## Users
-You can see who uses `{%= name %}` in the [USERS.md](./USERS.md) file. Please feel free adding this file if it not exists.  
-If you or your organization are using this project, consider adding yourself to the list of users.  
-**Thank You!** :heart:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## License
 Copyright (c) {%= licenseStart %}-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  
