@@ -20,7 +20,7 @@
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
-    "esmc": "^0.7.1",
+    "esmc": "*",
     "gitcommit": "^1.0.9",
     "new-release": "^4.0.3",
     "nyc": "^12.0.2"

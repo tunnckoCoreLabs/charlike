@@ -45,7 +45,7 @@ $ yarn add {%= name %}
 ```
 
 ## API
-{%= maybeInclude('docs/API.md') %}
+{%= ifExists('./docs/API.md', include('./docs/API.md')) %}
 
 **[back to top](#thetop)**
 
