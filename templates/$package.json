@@ -6,10 +6,9 @@
   "scripts": {
     "lint": "eslint src test --fix --quiet",
     "test": "nyc --require esmc/register asia",
-    "gitadd": "git status --porcelain && git add -A",
-    "commit-dry": "yarn gitadd && gitcommit -sS",
-    "precommit": "yarn lint && yarn test && yarn gitadd",
-    "commit": "gitcommit -sS",
+    "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
+    "precommit": "yarn lint && yarn test",
+    "commit": "yarn commit-dry",
     "build": "esmc",
     "prepublishOnly": "yarn build"
   },
