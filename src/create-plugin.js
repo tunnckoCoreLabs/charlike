@@ -83,7 +83,7 @@ export default function createPlugin(settings = {}) {
       helpers,
       opts.locals || {},
     );
-    locals.owner = opts.locals.owner || locals.author.username
+    locals.owner = locals.owner || locals.author.username
 
     const repo = `${locals.owner}/${locals.name}`;
     locals.repository = locals.repository ? locals.repository : repo;
