@@ -55,7 +55,7 @@
   },
   "nyc": {
     "statements": 82,
-    "functions": 81,
+    "functions": 80,
     "branches": 62,
     "lines": 81,
     "exclude": [
