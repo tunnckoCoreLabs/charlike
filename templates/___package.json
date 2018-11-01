@@ -6,7 +6,7 @@
   "scripts": {
     "docs": "docks --outfile .verb.md && verb",
     "lint": "eslint src test --cache --fix --quiet --format codeframe",
-    "test": "nyc --require esm asia -R codeframe",
+    "test": "nyc asia",
     "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
     "precommit": "lint-staged && yarn test",
     "commit": "yarn commit-dry"
