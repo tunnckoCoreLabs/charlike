@@ -20,10 +20,15 @@ const transformer = JSTransformer(jstransformer);
  * @returns Function
  * @private
  */
-export default function createPlugin(name, desc, opts) {
+export default function createPlugin(settings = {}) {
   return function plugin(file, cb) {
     // convert templates names to normal names
-    file.basename = file.basename.replace(/^_/, '.').replace(/^\$/, ''); // eslint-disable-line
+
+    // eslint-disable-next-line no-param-reassign
+    file.basename = file.basename
+      .replace(/^___/, '')
+      .replace(/^_/, '.')
+      .replace(/^\$/, '');
 
     /**
      * Common helper functions passed
@@ -63,11 +68,15 @@ export default function createPlugin(name, desc, opts) {
       username: 'tunnckoCore',
     };
 
+    const { opts } = settings;
     const locals = Object.assign(
       {
-        name: opts.pkgName,
-        pkgName: name,
+        name: settings.pkgName,
+        pkgName: settings.name,
+        desc: settings.desc,
+        description: settings.desc,
         author,
+        owner: opts.locals.owner || author.username,
       },
       helpers,
       opts.locals || {},

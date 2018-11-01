@@ -6,7 +6,7 @@
   "licenseStart": 2016,
   "scripts": {
     "lint": "hela lint",
-    "test": "hela test",
+    "test": "node -r esm test",
     "commit": "hela commit --no-docs",
     "prepublishOnly": "hela protect"
   },
@@ -18,6 +18,7 @@
   "dependencies": {
     "camelcase": "^5.0.0",
     "dateformat": "^3.0.3",
+    "esm": "^3.0.84",
     "jstransformer": "^1.0.0",
     "jstransformer-j140": "^1.0.0",
     "jstransformer-jstransformer": "^1.1.6",
@@ -31,6 +32,8 @@
   },
   "files": [
     "dist",
+    "src",
+    "index.js",
     "templates"
   ],
   "eslintConfig": {
@@ -68,8 +71,8 @@
   "homepage": "https://github.com/tunnckoCoreLabs/charlike",
   "author": "Charlike Mike Reagent (http://tunnckocore.com)",
   "cdn": "./dist/index.umd.js",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
+  "main": "index.js",
+  "module": "src/index.js",
   "verb": {
     "run": true,
     "toc": {

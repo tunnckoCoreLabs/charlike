@@ -8,8 +8,10 @@
 import fs from 'fs';
 import path from 'path';
 import proc from 'process';
-import resolve from 'resolve';
 import copy from './utils';
+
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));
 
 /**
  * > Scaffolds project with `name` and `desc` by
@@ -63,9 +65,7 @@ export default async function charlike(name, desc, options) {
   if (typeof opts.templates === 'string') {
     srcPath = path.resolve(opts.templates);
   } else {
-    const selfPath = resolve.sync('..'); // should work?
-    const dirname = path.dirname(path.dirname(selfPath));
-    srcPath = path.join(dirname, 'templates');
+    srcPath = path.join(path.dirname(__dirname), 'templates');
   }
 
   if (!fs.existsSync(srcPath)) {
@@ -79,29 +79,19 @@ export default async function charlike(name, desc, options) {
     src: path.join(srcPath, x),
     dest: path.join(destPath, x),
   });
-  const makeArgs = (x) => [
-    joined(x),
-    {
-      name,
-      pkgName,
-      desc,
-      opts,
-    },
-  ];
+  const settings = {
+    name,
+    pkgName,
+    desc,
+    opts,
+  };
 
+  const makeArgs = (x) => [joined(x), settings];
   const copySrc = () => copy(...makeArgs('src'));
 
   return copySrc()
     .then(() => copy(...makeArgs('test')))
     .then(() => copy(...makeArgs('.circleci')))
-    .then(() => {
-      const opt = {
-        name,
-        pkgName,
-        desc,
-        opts,
-      };
-      return copy({ src: srcPath, dest: destPath }, opt);
-    })
+    .then(() => copy({ src: srcPath, dest: destPath }, settings))
     .then(() => destPath);
 }

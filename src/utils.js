@@ -14,12 +14,12 @@ import createPlugin from './create-plugin';
  * modified with `createPlugin` and JSTransformer.
  *
  * @param {object} `{ src, dest }`
- * @param {object} `{ name, desc, opts }`
+ * @param {object} `{ name, pkgName, desc, opts }`
  * @returns Promise
  * @private
  */
-export default async function copy({ src, dest }, { name, desc, opts }) {
-  return copyFolder(src, dest, createPlugin(name, desc, opts));
+export default async function copy({ src, dest }, settings) {
+  return copyFolder(src, dest, createPlugin(settings));
 }
 
 /**

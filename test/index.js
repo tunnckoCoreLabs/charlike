@@ -6,17 +6,17 @@
 /* eslint-disable import/no-commonjs */
 
 const test = require('mukla');
-const charlike = require('../dist/index.cjs');
+const charlike = require('../index').default;
 
 test('charlike', async () => {
-  const destPath = await charlike('yeahx', 'quxie hoohy bar desc, that was easy!!!', {
+  const destPath = await charlike('@aaa/zzzzzzz', 'quxie hoohy bar desc, that was easy!!!', {
     cwd: './node_modules',
     // templates: '~/.jsproject',
     locals: {
-      nspId: 'e6f9f165-cc4d-41be-ad83-aa54e30caaab',
+      nspId: 'e6fdasdasd4e30caaab',
     },
   });
 
   test.strictEqual(typeof destPath, 'string');
-  test.strictEqual(destPath.endsWith('node_modules/yeahx'), true);
+  test.strictEqual(destPath.endsWith('node_modules/zzzzzzz'), true);
 });
