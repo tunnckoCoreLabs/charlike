@@ -112,7 +112,7 @@ Consider showing your [support](#support-the-project) to them. :sparkling_heart:
 
 ## License
 
-Copyright (c) {%= licenseStart %}-present, [#{author.name}]()#{author.url}) `<#{author.email}>` & [contributors](#wonderful-contributors).  
+Copyright (c) {%= licenseStart %}-present, [#{author.name}](#{author.url}) `<#{author.email}>` & [contributors](#wonderful-contributors).  
 Released under the [{%= license %} License][license-url].
 
 ---
@@ -163,7 +163,7 @@ Released under the [{%= license %} License][license-url].
 [patreon-img]: https://badgen.net/badge/patreon/#{author.username}/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
-[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=#{author.username}
+[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=#{author.twitter}
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
 
