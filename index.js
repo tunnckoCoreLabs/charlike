@@ -6,4 +6,4 @@ const pkg = require('./package.json');
 
 const esmRequire = esmLoader(module);
 
-module.exports = esmRequire(path.join(__dirname, pkg.module)).default;
+module.exports = esmRequire(path.join(__dirname, pkg.module));

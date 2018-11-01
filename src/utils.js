@@ -1,15 +1,8 @@
-/**
- * @copyright 2016-present, Charlike Mike Reagent <olsten.larck@gmail.com>
- * @license Apache-2.0
- */
-
-/* eslint-disable import/no-nodejs-modules */
-
 import fs from 'fs';
 import streamCopyDir from 'stream-copy-dir';
 import gitconfig from 'git-config-path';
 import parse from 'parse-git-config';
-import gitUsername from 'git-username';
+import gitLocalUsername from 'git-username';
 import createPlugin from './create-plugin';
 
 /**
@@ -48,10 +41,12 @@ function copyFolder(src, dest, plugin) {
 }
 
 // Workaround for the https://github.com/jonschlinkert/git-username/issues/4
-export function gitGlobalUsername(options) {
+export function gitUsername(options) {
   const opt = Object.assign({ type: 'global' }, options && options.gitconfig);
   const gc = gitconfig(opt);
   const opts = Object.assign({ cwd: '/', path: gc }, options);
   const config = parse.sync(opts) || {};
-  return config.user && config.user.username ? config.user.username : gitUsername();
+  return config.user && config.user.username
+    ? config.user.username
+    : gitLocalUsername();
 }

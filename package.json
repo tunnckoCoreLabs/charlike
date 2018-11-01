@@ -1,18 +1,18 @@
 {
   "name": "charlike",
-  "description": "Small, fast, simple and streaming project scaffolder for myself, but not only. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
-  "nspId": "e6f9f165-cc4d-41be-ad83-aa54e30caaab",
+  "description": "Small & fast project scaffolder with sane defaults. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
   "license": "Apache-2.0",
-  "licenseStart": 2016,
+  "licenseStart": "2016",
   "scripts": {
+    "docs": "docks --outfile .verb.md && verb",
     "lint": "eslint src test --cache --fix --quiet --format codeframe",
-    "test": "node -r esm test",
-    "commit": "hela commit --no-docs"
+    "test": "nyc asia",
+    "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
+    "precommit": "lint-staged && yarn test",
+    "commit": "yarn commit-dry"
   },
   "engines": {
-    "node": ">=8.6",
-    "npm": ">=5.2",
-    "yarn": ">=1.3"
+    "node": "^8.11.0 || ^10.12.0"
   },
   "dependencies": {
     "camelcase": "^5.0.0",
@@ -29,60 +29,49 @@
     "stream-copy-dir": "^1.0.0"
   },
   "devDependencies": {
-    "hela": "^2.0.9",
-    "hela-config-tunnckocore": "^3.0.16",
-    "mukla": "^0.4.9"
+    "all-contributors-cli": "^5.4.0",
+    "asia": "^0.19.7",
+    "docks": "^0.6.0",
+    "eslint": "^5.8.0",
+    "eslint-config-esmc": "^1.0.12",
+    "gitcommit": "^1.0.9",
+    "husky": "^1.1.2",
+    "lint-staged": "^8.0.4",
+    "new-release": "^4.0.3",
+    "nyc": "^13.1.0"
   },
   "files": [
-    "dist",
     "src",
-    "index.js",
-    "templates"
+    "index.js"
   ],
+  "main": "index.js",
+  "module": "src/index.js",
+  "typings": "src/index.d.ts",
+  "version": "0.0.0-semantically-released",
+  "repository": "tunnckoCoreLabs/charlike",
+  "homepage": "https://github.com/tunnckoCoreLabs/charlike",
+  "author": "Charlike Mike Reagent (https://tunnckocore.com)",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "eslintConfig": {
-    "extends": "tunnckocore"
+    "extends": "esmc"
   },
   "renovate": {
     "extends": "tunnckocore"
   },
-  "hela": {
-    "extends": "tunnckocore"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
   },
-  "rollup": {
-    "input": "src/index.js",
-    "output": [
-      "cjs",
-      "es"
-    ]
-  },
-  "nyc": {
-    "statements": 82,
-    "functions": 80,
-    "branches": 62,
-    "lines": 81,
-    "exclude": [
-      "test"
-    ],
-    "extension": [
-      ".js",
-      ".jsx",
-      ".mjs"
-    ]
-  },
-  "version": "1.9.1",
-  "repository": "tunnckoCoreLabs/charlike",
-  "homepage": "https://github.com/tunnckoCoreLabs/charlike",
-  "author": "Charlike Mike Reagent (http://tunnckocore.com)",
-  "cdn": "./dist/index.umd.js",
-  "main": "index.js",
-  "module": "src/index.js",
   "verb": {
     "run": true,
     "toc": {
       "render": true,
       "method": "preWrite",
-      "maxdepth": 3,
-      "footer": ""
+      "maxdepth": 4
     },
     "layout": "empty",
     "tasks": [
@@ -90,9 +79,11 @@
     ],
     "related": {
       "list": [
+        "asia",
+        "charlike-cli",
+        "docks",
         "gitcommit",
-        "hela",
-        "hela-config-tunnckocore",
+        "new-release",
         "jstransformer"
       ],
       "highlight": "charlike-cli"
@@ -101,9 +92,8 @@
       "reflinks": true
     },
     "reflinks": [
-      "execa",
-      "hela",
-      "new-release"
+      "new-release",
+      "semantic-release"
     ]
   }
 }

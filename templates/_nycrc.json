@@ -1,10 +1,17 @@
 {
   "statements": 0,
-  "functions": 0,
   "branches": 0,
+  "functions": 0,
   "lines": 0,
   "cache": true,
   "check-coverage": true,
-  "reporter": ["lcov", "text"],
-  "exclude": ["*.test.js", "**/*.test.js", "test"]
+  "require": "esm",
+  "include": [
+    "src/**/*.js"
+  ],
+  "exclude": [
+    "*.test.js",
+    "**/*.test.js",
+    "test"
+  ]
 }
