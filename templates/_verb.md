@@ -1,13 +1,5 @@
-# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
-
-<!-- When logo is needed
-<p align="center">
-  <a href="https://github.com/username/repo">
-    <img src="./logo.png">
-  </a>
-</p>
-<br>
--->
+# {%= name %} [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] 
+[![License][license-img]][license-url]
 
 > {%= description %}
 
@@ -21,8 +13,10 @@
 [![Make A Pull Request][prs-welcome-img]][prs-welcome-url]
 [![Semantically Released][new-release-img]][new-release-url]
 
-If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents.  
-For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of 
+Conduct](./CODE_OF_CONDUCT.md) documents.  
+For bugs reports and feature requests, [please create an issue][open-issue-url] or ping 
+[@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
 [![Conventional Commits][ccommits-img]][ccommits-url]
 [![Become a Patron][patreon-img]][patreon-url]
@@ -31,17 +25,40 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 [![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
 
-Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
+Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with 
+[new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
+
+<!-- Logo and such, put here:
+
+<p align="center">
+  <a href="https://github.com/{%= repository %}">
+    <img src="./media/demo.png" width="85%">
+  </a>
+</p>
+
+-->
 
 ## Table of Contents
 <!-- toc -->
 
 ## Install
-This project requires [**Node.js**](https://nodejs.org) **{%= engines.node %}**. Install it using [**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
+This project requires [**Node.js**](https://nodejs.org) **{%= engines.node %}**. Install it using 
+[**yarn**](https://yarnpkg.com) or [**npm**](https://npmjs.com).  
 _We highly recommend to use Yarn when you think to contribute to this project._
 
 ```bash
 $ yarn add {%= name %}
+```
+
+## Usage
+
+Review carefully the provided example(s) and the working [tests](./test).
+
+```js
+const {%= varname %} = require('{%= name %}').default;
+
+// or using ES Modules
+import {%= varname %} from '{%= name %}';
 ```
 
 ## API
@@ -52,26 +69,68 @@ $ yarn add {%= name %}
 {% if (verb.related && verb.related.list && verb.related.list.length) { %}
 
 ## See Also
-Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
+Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your 
+existance!
 {%= related(verb.related.list, { words: 11 }) %}
 
 **[back to top](#thetop)**
 {% } %}
 
 ## Contributing
-Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
-For bugs reports and feature requests, [please create an issue][open-issue-url] or ping [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
-## Contributors
-Thanks to the hard work of these wonderful people this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
-[Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome. :sparkles: 
+### Follow the Guidelines
+Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for 
+advices.  
+For bugs reports and feature requests, [please create an issue][open-issue-url] or ping 
+[@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+
+### Support the project
+
+[Become a Partner or Sponsor?][patreon-url] :dollar: Check the **Partner**, **Sponsor** or **Omega-level** tiers! 
+:tada: You can 
+get your company logo, link & name on this file. It's also rendered on package page in [npmjs.com][npmv-url] and 
+[yarnpkg.com](https://yarnpkg.com/en/package/{%= name %}) sites too! :rocket:
+
+Not financial support? Okey! [Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars 
+and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always 
+welcome. :sparkles:
+
+### OPEN Open Source
+
+This project is following [OPEN Open Source](http://openopensource.org) model
+
+> Individuals making significant and valuable contributions are given commit-access to the project to 
+contribute as they see fit. This project is built on collective efforts and it's not strongly guarded by its founders.
+
+There are a few basic ground-rules for its contributors
+
+1. Any **significant modifications** must be subject to a pull request to get feedback from other contributors.
+2. [Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request) to get feedback are 
+_encouraged_ for any other trivial contributions, but are not required.
+3. Contributors should attempt to adhere to the prevailing code-style and development workflow.
+
+### Wonderful Contributors
+Thanks to the hard work of these wonderful people this project is alive! It follows the 
+[all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
+Don't hesitate to add yourself to that list if you have made any contribution! ;) [See how, 
+here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/5038030?v=4" width="120px;"/><br /><sub><b>Charlike Mike 
+Reagent</b></sub>](https://tunnckocore.com)<br 
+/>[💻](https://github.com/olstenlarck/flow-reporter-codeframe/commits?author=olstenlarck "Code") 
+[📖](https://github.com/olstenlarck/flow-reporter-codeframe/commits?author=olstenlarck "Documentation") 
+[💬](#question-olstenlarck "Answering Questions") [👀](#review-olstenlarck "Reviewed Pull Requests") 
+[🔍](#fundingFinding-olstenlarck "Funding Finding") |
+| :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
+Consider showing your [support](#support-the-project) to them. :sparkling_heart:
+
 ## License
-Copyright (c) {%= licenseStart %}-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  
-Released under the [{%= license %} License][license-url].
+Copyright (c) {%= licenseStart %}-present, [contributors](#wonderful-contributors). Released under the [{%= license %} 
+License][license-url].
 
 ---
 
@@ -89,7 +148,7 @@ Released under the [{%= license %} License][license-url].
 
 <!-- Front line badges -->
 
-[codestyle-url]: https://github.com/olstenlarck/eslint-config-esmc
+[codestyle-url]: https://github.com/airbnb/javascript
 [codestyle-img]: https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb
 
 [linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
@@ -104,8 +163,8 @@ Released under the [{%= license %} License][license-url].
 [ccommits-url]: https://conventionalcommits.org/
 [ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
 
-[new-release-url]: https://github.com/tunnckoCore/new-release
-[new-release-img]: https://badgen.net/badge/semantically/released/05c5ff
+[new-release-npm-url]: https://github.com/tunnckoCore/new-release
+[new-release-npm-img]: https://badgen.net/badge/semantically/released/05c5ff
 
 [downloads-weekly-img]: https://badgen.net/npm/dw/{%= name %}
 [downloads-monthly-img]: https://badgen.net/npm/dm/{%= name %}
@@ -121,9 +180,12 @@ Released under the [{%= license %} License][license-url].
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
 
 [patreon-url]: https://www.patreon.com/bePatron?u=5579781
-[patreon-img]: https://badgen.net/badge/become/a%20patron/F96854?icon=patreon 
+[patreon-img]: https://badgen.net/badge/patreon/tunnckoCore/F96854?icon=patreon
+
+[patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
 [author-link]: https://tunnckocore.com
+

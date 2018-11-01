@@ -13,31 +13,35 @@
     "prepublishOnly": "yarn build"
   },
   "engines": {
-    "node": "^8.9.0 || ^10.6.0"
+    "node": "^10.13.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "esm": "^3.0.84"
+  },
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
-    "esmc": "*",
+    "eslint-config-esmc": "^1.0.11",
     "gitcommit": "^1.0.9",
     "new-release": "^4.0.3",
     "nyc": "^12.0.2"
   },
   "files": [
-    "dist"
+    "src",
+    "index.js"
   ],
-  "main": "dist/nodejs/__index.js",
-  "module": "dist/nodejs/index.js",
+  "main": "index.js",
+  "module": "src/index.js",
   "version": "0.0.0-semantically-released",
   "repository": "#{owner}/#{name}",
   "homepage": "https://github.com/#{owner}/#{name}",
   "author": "Charlike Mike Reagent (https://tunnckocore.com)",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "latest"
   },
   "eslintConfig": {
-    "extends": "./node_modules/esmc/src/eslint/config.js"
+    "extends": "esmc"
   },
   "renovate": {
     "extends": "tunnckocore"
@@ -62,13 +66,21 @@
     "toc": {
       "render": true,
       "method": "preWrite",
-      "maxdepth": 3,
-      "footer": ""
+      "maxdepth": 4
     },
     "layout": "empty",
     "tasks": [
       "readme"
     ],
+    "related": {
+      "list": [
+        "asia",
+        "gitcommit",
+        "new-release",
+        "docks",
+        "charlike"
+      ]
+    },
     "lint": {
       "reflinks": true
     }
