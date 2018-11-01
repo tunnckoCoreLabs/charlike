@@ -72,12 +72,22 @@ export default async function charlike(name, desc, options) {
     throw new Error('charlike: source templates directory not found');
   }
 
-  const destPath = path.join(cwd, name);
+  const pkgName = name.startsWith('@') ? name.split('/')[1] : name;
+  const destPath = path.join(cwd, pkgName);
+
   const joined = (x) => ({
     src: path.join(srcPath, x),
     dest: path.join(destPath, x),
   });
-  const makeArgs = (x) => [joined(x), { name, desc, opts }];
+  const makeArgs = (x) => [
+    joined(x),
+    {
+      name,
+      pkgName,
+      desc,
+      opts,
+    },
+  ];
 
   const copySrc = () => copy(...makeArgs('src'));
 
@@ -85,7 +95,12 @@ export default async function charlike(name, desc, options) {
     .then(() => copy(...makeArgs('test')))
     .then(() => copy(...makeArgs('.circleci')))
     .then(() => {
-      const opt = { name, desc, opts };
+      const opt = {
+        name,
+        pkgName,
+        desc,
+        opts,
+      };
       return copy({ src: srcPath, dest: destPath }, opt);
     })
     .then(() => destPath);

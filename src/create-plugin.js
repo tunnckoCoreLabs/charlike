@@ -41,6 +41,7 @@ export default function createPlugin(name, desc, opts) {
     const helpers = {
       date: dateformat,
       camelcase,
+      camelCase: camelcase,
       toCamelCase: camelcase,
       toUpperCase: (val) => val.toUpperCase(),
       toLowerCase: (val) => val.toLowerCase(),
@@ -55,17 +56,18 @@ export default function createPlugin(name, desc, opts) {
      */
 
     const author = {
-      url: 'https://i.am.charlike.online',
-      realname: 'Charlike Mike Reagent',
+      url: 'https://tunnckocore.com',
+      name: 'Charlike Mike Reagent',
+      email: 'mameto2011@gmail.com',
+      twitter: 'tunnckoCore',
       username: 'tunnckoCore',
     };
 
     const locals = Object.assign(
       {
-        name,
-        description: desc,
-        owner: author.username,
-        author: 'Charlike Mike Reagent <olsten.larck@gmail.com>',
+        name: opts.pkgName,
+        pkgName: name,
+        author,
       },
       helpers,
       opts.locals || {},
@@ -78,7 +80,7 @@ export default function createPlugin(name, desc, opts) {
     const input = file.contents.toString();
 
     if (typeof opts.render === 'function') {
-      file.contents = Buffer.from(opts.render(input, locals)); // eslint-disable-line
+      file.contents = Buffer.from(opts.render(input, locals, file)); // eslint-disable-line
       cb(null, file);
       return;
     }
