@@ -1,6 +1,6 @@
 {
   "projectName": "#{name}",
-  "projectOwner": "#{owner}",
+  "projectOwner": "tunnckoCore",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [

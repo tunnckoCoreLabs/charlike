@@ -26,9 +26,9 @@ node10linux: &node10linux
 restore_modules_cache: &restore_modules_cache
   restore_cache:
     keys:
-    - #{name}-{{ checksum "yarn.lock" }}
-    # fallback to using the latest cache if no exact match is found
-    - #{name}-
+      - #{name}-{{ checksum "yarn.lock" }}
+      # fallback to using the latest cache if no exact match is found
+      - #{name}-
 
 # jobinstall: &jobinstall
 #   steps:
@@ -64,7 +64,6 @@ jobtest: &jobtest
         name: Sending test coverage to CodeCov
         command: bash <(curl -s https://codecov.io/bash)
 
-
 jobs:
   # install-node8linux:
   #   <<: *node8linux
@@ -75,8 +74,8 @@ jobs:
     <<: *jobtest
 
   # install-node10linux:
-    # <<: *node10linux
-    # <<: *jobinstall
+  # <<: *node10linux
+  # <<: *jobinstall
 
   test-node10linux:
     <<: *node10linux
@@ -105,7 +104,7 @@ jobs:
       - *restore_modules_cache
       - run:
           name: Bundling your awesome project
-          command: yarn build || echo "No build processing."
+          command: yarn build || echo "No build step."
       - run:
           name: Releasing and publishing
           command: yarn new-release
@@ -147,4 +146,4 @@ workflows:
           filters:
             branches:
               only: master
-          context: org-global
+          context: org-secret

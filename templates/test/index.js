@@ -1,10 +1,6 @@
-/**
- * @copyright #{date('yyyy')}-present, Charlike Mike Reagent <mameto2011@gmail.com> (https://tunnckocore.com)
- * @license Apache-2.0
- */
-
 import test from 'asia';
+import docks from '../src';
 
-test('foo bar', (t) => {
+test('todo', async (t) => {
   t.ok(true);
 });

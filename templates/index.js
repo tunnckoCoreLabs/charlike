@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-
 const esmLoader = require('esm');
 const pkg = require('./package.json');
 

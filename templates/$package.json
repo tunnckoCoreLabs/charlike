@@ -2,18 +2,18 @@
   "name": "#{name}",
   "description": "#{description}",
   "license": "Apache-2.0",
-  "licenseStart": "#{date('yyyy')}",
+  "licenseStart": "2018",
   "scripts": {
-    "lint": "eslint src test --fix --quiet",
-    "test": "nyc --require esmc/register asia",
+    "docks": "node src/cli.js --outfile .verb.md",
+    "docs": "yarn docks && verb",
+    "lint": "eslint src test --cache --fix --quiet --format codeframe",
+    "test": "nyc --require esm asia -R codeframe",
     "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
-    "precommit": "yarn lint && yarn test",
-    "commit": "yarn commit-dry",
-    "build": "esmc",
-    "prepublishOnly": "yarn build"
+    "precommit": "lint-staged && yarn test",
+    "commit": "yarn commit-dry"
   },
   "engines": {
-    "node": "^10.13.0"
+    "node": "^8.9.0 || ^10.12.0"
   },
   "dependencies": {
     "esm": "^3.0.84"
@@ -21,8 +21,11 @@
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
+    "eslint": "^5.8.0",
     "eslint-config-esmc": "^1.0.11",
     "gitcommit": "^1.0.9",
+    "husky": "^1.1.2",
+    "lint-staged": "^8.0.4",
     "new-release": "^4.0.3",
     "nyc": "^12.0.2"
   },
@@ -32,6 +35,7 @@
   ],
   "main": "index.js",
   "module": "src/index.js",
+  "typings": "index.d.ts",
   "version": "0.0.0-semantically-released",
   "repository": "#{owner}/#{name}",
   "homepage": "https://github.com/#{owner}/#{name}",
@@ -41,24 +45,28 @@
     "tag": "latest"
   },
   "eslintConfig": {
-    "extends": "esmc"
+    "extends": "esmc",
+    "rules": {
+      "no-param-reassign": "off",
+      "promise/prefer-await-to-then": "off"
+    }
   },
   "renovate": {
     "extends": "tunnckocore"
   },
-  "nyc": {
-    "statements": 0,
-    "functions": 0,
-    "branches": 0,
-    "lines": 0,
-    "cache": true,
-    "check-coverage": true,
-    "reporter": [
-      "lcov",
-      "text"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,es6,jsx,mjs}": [
+      "eslint --cache --fix --quiet --format codeframe",
+      "git add"
     ],
-    "exclude": [
-      "test"
+    "**/*.{js,ts,tsx,es6,jsx,mjs,md,mdx,json,yaml,yml,toml}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "verb": {
@@ -75,14 +83,19 @@
     "related": {
       "list": [
         "asia",
+        "charlike",
+        "docks",
         "gitcommit",
         "new-release",
-        "docks",
-        "charlike"
+        "parse-commit-message"
       ]
     },
     "lint": {
       "reflinks": true
-    }
+    },
+    "reflinks": [
+      "new-release",
+      "semantic-release"
+    ]
   }
 }

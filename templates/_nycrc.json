@@ -1,0 +1,10 @@
+{
+  "statements": 80,
+  "functions": 80,
+  "branches": 49,
+  "lines": 80,
+  "cache": true,
+  "check-coverage": true,
+  "reporter": ["lcov", "text"],
+  "exclude": ["*.test.js", "**/*.test.js", "test"]
+}
