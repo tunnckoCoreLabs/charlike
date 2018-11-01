@@ -1,6 +1,6 @@
 {
   "projectName": "#{name}",
-  "projectOwner": "tunnckoCore",
+  "projectOwner": "#{owner}",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -11,10 +11,10 @@
   "contributorsPerLine": 6,
   "contributors": [
     {
-      "login": "tunnckoCore",
-      "name": "Charlike Mike Reagent",
+      "login": "#{author.username}",
+      "name": "#{author.name}",
       "avatar_url": "https://avatars3.githubusercontent.com/u/5038030?v=4",
-      "profile": "https://tunnckocore.com",
+      "profile": "#{author.url}",
       "contributions": [
         "code",
         "doc",

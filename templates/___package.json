@@ -37,9 +37,9 @@
   "module": "src/index.js",
   "typings": "src/index.d.ts",
   "version": "0.0.0-semantically-released",
-  "repository": "#{owner}/#{name}",
-  "homepage": "https://github.com/#{owner}/#{name}",
-  "author": "Charlike Mike Reagent (https://tunnckocore.com)",
+  "repository": "#{repository}",
+  "homepage": "https://github.com/#{repository}",
+  "author": "#{author.name} (#{author.url})",
   "publishConfig": {
     "access": "public",
     "tag": "latest"

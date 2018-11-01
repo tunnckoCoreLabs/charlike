@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = {
+  printWidth: 80,
+
   // That actually is enforced by AirBnB Style anyway.
   // Enforce 2 spaces, because JavaScript is always different
   // then the rest of the languages.

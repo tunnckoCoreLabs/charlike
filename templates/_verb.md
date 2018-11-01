@@ -14,7 +14,7 @@
 
 If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
-[@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+[@tunnckoCore](https://twitter.com/#{author.twitter}) at Twitter.
 
 [![Become a Patron][patreon-img]][patreon-url]
 [![Share Love Tweet][shareb]][shareu]
@@ -73,7 +73,7 @@ existance!
 
 Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
-[@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+[@tunnckoCore](https://twitter.com/#{author.twitter}) at Twitter.
 
 ### Support the project
 
@@ -103,7 +103,7 @@ here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/5038030?v=4" width="120px;"/><br /><sub><b>Charlike Mike Reagent</b></sub>](https://tunnckocore.com)<br />[💻](https://github.com/{%= repository %}/commits?author=tunnckoCore "Code") [📖](https://github.com/{%= repository %}/commits?author=tunnckoCore "Documentation") [💬](#question-tunnckoCore "Answering Questions") [👀](#review-tunnckoCore "Reviewed Pull Requests") [🔍](#fundingFinding-tunnckoCore "Funding Finding") |
+| [<img src="https://avatars3.githubusercontent.com/u/5038030?v=4" width="120px;"/><br /><sub><b>#{author.name}</b></sub>](#{author.url})<br />[💻](https://github.com/{%= repository %}/commits?author=#{author.username} "Code") [📖](https://github.com/{%= repository %}/commits?author=#{author.username} "Documentation") [💬](#question-tunnckoCore "Answering Questions") [👀](#review-tunnckoCore "Reviewed Pull Requests") [🔍](#fundingFinding-tunnckoCore "Funding Finding") |
 | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -112,7 +112,7 @@ Consider showing your [support](#support-the-project) to them. :sparkling_heart:
 
 ## License
 
-Copyright (c) {%= licenseStart %}-present, [Charlike Mike Reagent][author-link] `<mameto2011@gmail.com>` & [contributors](#wonderful-contributors).  
+Copyright (c) {%= licenseStart %}-present, [#{author.name}]()#{author.url}) `<#{author.email}>` & [contributors](#wonderful-contributors).  
 Released under the [{%= license %} License][license-url].
 
 ---
@@ -157,13 +157,14 @@ Released under the [{%= license %} License][license-url].
 [renovateapp-img]: https://badgen.net/badge/renovate/enabled/green
 [prs-welcome-img]: https://badgen.net/badge/PRs/welcome/green
 [prs-welcome-url]: http://makeapullrequest.com
-[paypal-donate-url]: https://paypal.me/tunnckoCore/10
+[paypal-donate-url]: https://paypal.me/#{author.username}/10
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
-[patreon-url]: https://www.patreon.com/bePatron?u=5579781
-[patreon-img]: https://badgen.net/badge/patreon/tunnckoCore/F96854?icon=patreon
+[patreon-url]: https://www.patreon.com/bePatron?u=#{author.patreonId || '5579781'}
+[patreon-img]: https://badgen.net/badge/patreon/#{author.username}/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
-[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=tunnckoCore
+[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=#{author.username}
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
-[author-link]: https://tunnckocore.com
+
+<!-- [author-link]: https://tunnckocore.com -->
