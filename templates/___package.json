@@ -1,5 +1,5 @@
 {
-  "name": "#{pkgName}",
+  "name": "#{name}",
   "description": "#{description}",
   "license": "Apache-2.0",
   "licenseStart": "#{date('yyyy')}",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
-    "docks":"^0.5.5",
+    "docks":"^0.6.0",
     "eslint": "^5.8.0",
     "eslint-config-esmc": "^1.0.12",
     "gitcommit": "^1.0.9",
