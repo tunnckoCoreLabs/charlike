@@ -1148,6 +1148,11 @@ foreground-child@^1.5.3, foreground-child@^1.5.6:
     cross-spawn "^4"
     signal-exit "^3.0.0"
 
+fs-exists-sync@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/fs-exists-sync/-/fs-exists-sync-0.1.0.tgz#982d6893af918e72d08dec9e8673ff2b5a8d6add"
+  integrity sha1-mC1ok6+RjnLQjeyehnP/K1qNat0=
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -1183,6 +1188,41 @@ get-installed-path@^4.0.5:
 get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
+
+git-config-path@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/git-config-path/-/git-config-path-1.0.1.tgz#6d33f7ed63db0d0e118131503bab3aca47d54664"
+  integrity sha1-bTP37WPbDQ4RgTFQO6s6ykfVRmQ=
+  dependencies:
+    extend-shallow "^2.0.1"
+    fs-exists-sync "^0.1.0"
+    homedir-polyfill "^1.0.0"
+
+git-user-email@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/git-user-email/-/git-user-email-0.2.2.tgz#47d42c7b89ccca942d650ebf2555f87a88277754"
+  integrity sha1-R9Qse4nMypQtZQ6/JVX4eognd1Q=
+  dependencies:
+    extend-shallow "^2.0.1"
+    git-config-path "^1.0.1"
+    parse-git-config "^1.0.2"
+
+git-user-name@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/git-user-name/-/git-user-name-2.0.0.tgz#c0411d423051615d0df1ee44ab45596d2168c2e3"
+  integrity sha512-1DC8rUNm2I5V9v4eIpK6PSjKCp9bI0t6Wl05WSk+xEMS8GhR8GWzxM3aGZfPrfuqEfWxSbui5/pQJryJFXqCzQ==
+  dependencies:
+    extend-shallow "^2.0.1"
+    git-config-path "^1.0.1"
+    parse-git-config "^1.1.1"
+
+git-username@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/git-username/-/git-username-1.0.0.tgz#5e31ef29efe15c184cfaa5ed23212c89b0fcf123"
+  integrity sha512-xm45KwBR6Eu1jO4umx/o2M84v9TC7tdOBuzLx8ayhdR9H1FBiiG9azz31uC0esDvaWVBTDINpJ5USomk+ja8OQ==
+  dependencies:
+    parse-github-url "^1.0.2"
+    remote-origin-url "^1.0.0"
 
 gitcommit@^0.2.4:
   version "0.2.4"
@@ -1333,7 +1373,7 @@ hela@^2.0.9:
     mri "1.1.0"
     resolve-plugins-sync "1.1.4"
 
-homedir-polyfill@^1.0.1:
+homedir-polyfill@^1.0.0, homedir-polyfill@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
   dependencies:
@@ -2164,6 +2204,16 @@ parse-commit-message@1.1.2:
     arrayify "1.0.0"
     collect-mentions "0.1.1"
 
+parse-git-config@^1.0.2, parse-git-config@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/parse-git-config/-/parse-git-config-1.1.1.tgz#d3a9984317132f57398712bba438e129590ddf8c"
+  integrity sha1-06mYQxcTL1c5hxK7pDjhKVkN34w=
+  dependencies:
+    extend-shallow "^2.0.1"
+    fs-exists-sync "^0.1.0"
+    git-config-path "^1.0.1"
+    ini "^1.3.4"
+
 parse-git-log@0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/parse-git-log/-/parse-git-log-0.2.1.tgz#1cc8c63c8390a2fdbf01368255f43937f8a23ee1"
@@ -2172,6 +2222,11 @@ parse-git-log@0.2.1:
     split2 "^2.1.0"
     through2 "^2.0.3"
     vfile "^2.0.0"
+
+parse-github-url@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/parse-github-url/-/parse-github-url-1.0.2.tgz#242d3b65cbcdda14bb50439e3242acf6971db395"
+  integrity sha512-kgBf6avCbO3Cn6+RnzRGLkUsv4ZVqv/VfAYkRsyBcgkshNvVBkRn1FEZcW0Jb+npXQWm2vHPnnOqFteZxRRGNw==
 
 parse-glob@^3.0.4:
   version "3.0.4"
@@ -2386,6 +2441,13 @@ registry-url@^3.0.3:
   resolved "https://registry.yarnpkg.com/registry-url/-/registry-url-3.1.0.tgz#3d4ef870f73dde1d77f0cf9a381432444e174942"
   dependencies:
     rc "^1.0.1"
+
+remote-origin-url@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/remote-origin-url/-/remote-origin-url-1.0.0.tgz#add020aa5f1a0b37372858e02b323dc28d4cd030"
+  integrity sha512-xHDM6IBqivpiQ1e4WOuFpM/T6rbzA/WBsu+3WLtgPOhHyjA0nYlijV3NprlTb4FcXlQ5+Q+z174sQ1NnUF5FwA==
+  dependencies:
+    parse-git-config "^1.1.1"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"

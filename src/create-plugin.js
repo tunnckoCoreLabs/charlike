@@ -7,6 +7,9 @@ import camelcase from 'camelcase';
 import dateformat from 'dateformat';
 import JSTransformer from 'jstransformer';
 import jstransformer from 'jstransformer-jstransformer';
+import gitName from 'git-user-name';
+import gitEmail from 'git-user-email';
+import gitUsername from 'git-username';
 
 const transformer = JSTransformer(jstransformer);
 
@@ -62,10 +65,10 @@ export default function createPlugin(settings = {}) {
 
     const author = {
       url: 'https://tunnckocore.com',
-      name: 'Charlike Mike Reagent',
-      email: 'mameto2011@gmail.com',
+      name: gitName(),
+      email: gitEmail(),
       twitter: 'tunnckoCore',
-      username: 'tunnckoCore',
+      username: gitUsername(),
     };
 
     const { opts } = settings;
