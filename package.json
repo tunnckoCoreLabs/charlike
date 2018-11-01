@@ -7,7 +7,8 @@
   "scripts": {
     "lint": "hela lint",
     "test": "node -r esm test",
-    "commit": "hela commit --no-docs"
+    "commit": "hela commit --no-docs",
+    "prepublishOnly": "hela protect"
   },
   "engines": {
     "node": ">=8.6",
@@ -64,7 +65,7 @@
       ".mjs"
     ]
   },
-  "version": "1.5.0",
+  "version": "0.0.0-semantically-released",
   "repository": "tunnckoCoreLabs/charlike",
   "homepage": "https://github.com/tunnckoCoreLabs/charlike",
   "author": "Charlike Mike Reagent (http://tunnckocore.com)",
