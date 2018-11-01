@@ -4,8 +4,7 @@
   "license": "Apache-2.0",
   "licenseStart": "2018",
   "scripts": {
-    "docks": "node src/cli.js --outfile .verb.md",
-    "docs": "yarn docks && verb",
+    "docs": "docks --outfile .verb.md && verb",
     "lint": "eslint src test --cache --fix --quiet --format codeframe",
     "test": "nyc --require esm asia -R codeframe",
     "commit-dry": "git status --porcelain && git add -A && gitcommit -sS",
@@ -21,13 +20,14 @@
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
     "asia": "^0.19.7",
+    "docks":"^0.5.5",
     "eslint": "^5.8.0",
     "eslint-config-esmc": "^1.0.11",
     "gitcommit": "^1.0.9",
     "husky": "^1.1.2",
     "lint-staged": "^8.0.4",
     "new-release": "^4.0.3",
-    "nyc": "^12.0.2"
+    "nyc": "^13.1.0"
   },
   "files": [
     "src",
@@ -45,11 +45,7 @@
     "tag": "latest"
   },
   "eslintConfig": {
-    "extends": "esmc",
-    "rules": {
-      "no-param-reassign": "off",
-      "promise/prefer-await-to-then": "off"
-    }
+    "extends": "esmc"
   },
   "renovate": {
     "extends": "tunnckocore"
