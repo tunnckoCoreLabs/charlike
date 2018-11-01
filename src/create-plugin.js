@@ -66,7 +66,7 @@ export default function createPlugin(settings = {}) {
     const author = {
       url: 'https://tunnckocore.com',
       name: gitName(),
-      email: gitEmail(),
+      email: gitEmail() || 'mameto2011@gmail.com',
       twitter: 'tunnckoCore',
       username: gitUsername(),
     };
