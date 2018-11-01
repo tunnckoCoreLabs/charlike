@@ -42,7 +42,8 @@
   },
   "files": [
     "src",
-    "index.js"
+    "index.js",
+    "templates"
   ],
   "main": "index.js",
   "module": "src/index.js",
