@@ -166,5 +166,3 @@ Released under the [{%= license %} License][license-url].
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%= repository %}&via=#{author.twitter}
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/{%= repository %}/issues/new
-
-<!-- [author-link]: https://tunnckocore.com -->
