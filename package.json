@@ -22,7 +22,6 @@
     "jstransformer": "^1.0.0",
     "jstransformer-j140": "^1.0.0",
     "jstransformer-jstransformer": "^1.1.6",
-    "resolve": "^1.5.0",
     "stream-copy-dir": "^1.0.0"
   },
   "devDependencies": {
