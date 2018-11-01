@@ -55,16 +55,6 @@
       "pre-commit": "yarn precommit"
     }
   },
-  "lint-staged": {
-    "**/*.{js,ts,tsx,es6,jsx,mjs}": [
-      "eslint --cache --fix --quiet --format codeframe",
-      "git add"
-    ],
-    "**/*.{js,ts,tsx,es6,jsx,mjs,md,mdx,json,yaml,yml,toml}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "verb": {
     "run": true,
     "toc": {

@@ -79,11 +79,11 @@ export default function createPlugin(settings = {}) {
         desc: settings.desc,
         description: settings.desc,
         author,
-        owner: opts.locals.owner || author.username,
       },
       helpers,
       opts.locals || {},
     );
+    locals.owner = opts.locals.owner || locals.author.username
 
     const repo = `${locals.owner}/${locals.name}`;
     locals.repository = locals.repository ? locals.repository : repo;
