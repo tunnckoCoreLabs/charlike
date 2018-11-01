@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "licenseStart": 2016,
   "scripts": {
-    "lint": "hela lint",
+    "lint": "eslint src test --cache --fix --quiet --format codeframe",
     "test": "node -r esm test",
     "commit": "hela commit --no-docs"
   },
@@ -18,12 +18,14 @@
     "camelcase": "^5.0.0",
     "dateformat": "^3.0.3",
     "esm": "^3.0.84",
+    "git-config-path": "^1.0.1",
     "git-user-email": "^0.2.2",
     "git-user-name": "^2.0.0",
     "git-username": "^1.0.0",
     "jstransformer": "^1.0.0",
     "jstransformer-j140": "^1.0.0",
     "jstransformer-jstransformer": "^1.1.6",
+    "parse-git-config": "^2.0.3",
     "stream-copy-dir": "^1.0.0"
   },
   "devDependencies": {
@@ -67,7 +69,7 @@
       ".mjs"
     ]
   },
-  "version": "1.8.1",
+  "version": "1.9.0",
   "repository": "tunnckoCoreLabs/charlike",
   "homepage": "https://github.com/tunnckoCoreLabs/charlike",
   "author": "Charlike Mike Reagent (http://tunnckocore.com)",

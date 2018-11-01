@@ -8,7 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import proc from 'process';
-import copy from './utils';
+import { copy } from './utils';
 
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));

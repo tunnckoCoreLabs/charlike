@@ -9,7 +9,7 @@ import JSTransformer from 'jstransformer';
 import jstransformer from 'jstransformer-jstransformer';
 import gitName from 'git-user-name';
 import gitEmail from 'git-user-email';
-import gitUsername from 'git-username';
+import { gitGlobalUsername } from './utils';
 
 const transformer = JSTransformer(jstransformer);
 
@@ -68,7 +68,7 @@ export default function createPlugin(settings = {}) {
       name: gitName(),
       email: gitEmail() || 'mameto2011@gmail.com',
       twitter: 'tunnckoCore',
-      username: gitUsername(),
+      username: gitGlobalUsername(),
     };
 
     const { opts } = settings;
