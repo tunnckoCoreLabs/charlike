@@ -16,12 +16,12 @@ If you have any _how-to_ kind of questions, please read the [Contributing Guide]
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
 [@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
 
-[![Conventional Commits][ccommits-img]][ccommits-url]
 [![Become a Patron][patreon-img]][patreon-url]
 [![Share Love Tweet][shareb]][shareu]
 [![NPM Downloads Weekly][downloads-weekly-img]][npmv-url]
 [![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
+[![Conventional Commits][ccommits-img]][ccommits-url]
 
 Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
 
