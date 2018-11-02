@@ -83,6 +83,15 @@ export default function createPlugin(settings) {
     );
     locals.owner = opts.owner || locals.owner || locals.author.username;
 
+    locals.deps = locals.deps || JSON.stringify({ esm: '^3.0.84' });
+    locals.devDeps =
+      locals.devDeps ||
+      JSON.stringify({
+        '@tunnckocore/config': '^0.5.1',
+        '@tunnckocore/scripts': '^1.0.1',
+        asia: '^0.19.7',
+      });
+
     const repo = `${locals.owner}/${locals.name}`;
     locals.repository = locals.repository ? locals.repository : repo;
     locals.varname = camelcase(locals.name);

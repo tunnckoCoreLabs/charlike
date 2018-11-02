@@ -10,14 +10,8 @@
   "engines": {
     "node": "^8.11.0 || >=10.13.0"
   },
-  "dependencies": {
-    "esm": "^3.0.84"
-  },
-  "devDependencies": {
-    "@tunnckocore/config": "^0.4.0",
-    "@tunnckocore/scripts": "^1.0.1",
-    "asia": "^0.19.7"
-  },
+  "dependencies": #{deps},
+  "devDependencies": #{devDeps},
   "files": [
     "src",
     "index.js"
