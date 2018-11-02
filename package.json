@@ -4,6 +4,7 @@
   "license": "Apache-2.0",
   "licenseStart": "2016",
   "scripts": {
+    "cli": "node cli.js",
     "docs": "docks --outfile .verb.md && verb",
     "lint": "eslint src test --cache --fix --quiet --format codeframe",
     "test": "nyc asia",
@@ -15,6 +16,7 @@
     "node": "^8.11.0 || ^10.12.0"
   },
   "dependencies": {
+    "@tunnckocore/package-json": "^0.3.1",
     "camelcase": "^5.0.0",
     "dateformat": "^3.0.3",
     "esm": "^3.0.84",
@@ -25,6 +27,7 @@
     "jstransformer": "^1.0.0",
     "jstransformer-j140": "^1.0.0",
     "jstransformer-jstransformer": "^1.1.6",
+    "mri": "^1.1.1",
     "parse-git-config": "^2.0.3",
     "stream-copy-dir": "^1.0.0"
   },
@@ -42,9 +45,11 @@
   },
   "files": [
     "src",
+    "cli.js",
     "index.js",
     "templates"
   ],
+  "bin": "cli.js",
   "main": "index.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
