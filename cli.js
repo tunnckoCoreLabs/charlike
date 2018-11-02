@@ -35,25 +35,26 @@ function get(pkgName, field = 'version') {
 
 async function showHelp(status = 0) {
   console.log(`
-  ${await get('charlike', 'description')}
   (charlike v${await get('charlike')})
+  ${await get('charlike', 'description')}
+
   Usage
     $ charlike <name> <description> [flags]
 
   Common Flags
-    --help            Show this output
-    --version         Show version
+    --help              Show this output
+    --version           Show version
 
   Options
-    --owner, -o       Project github owner - username or organization
-    --name, -n        Name of the project, same as to pass first param
-    --desc, -d        Project description, same as to pass second param
-    --repo, -r        Repository pattern like username/projectName
-    --engine, -e      Engine to be used, j140 by default
-    --licenseStrt, -l Context to pass to template files (support dot notation)
-    --locals, -L      Context to pass to template files (support dot notation)
-    --templates, -t   Path to templates folder
-    --cwd             Folder to be used as current working dir
+    --owner, -o         Project github owner - username or organization
+    --name, -n          Name of the project, same as to pass first param
+    --desc, -d          Project description, same as to pass second param
+    --repo, -r          Repository pattern like username/projectName
+    --engine, -e        Engine to be used, j140 by default
+    --licenseStart, -l  License start year
+    --locals, -L        Context to pass to template files
+    --templates, -t     Path to templates folder
+    --cwd               Folder to be used as current working dir
 
   Examples
     $ charlike my-awesome-project 'some cool description'
@@ -61,10 +62,10 @@ async function showHelp(status = 0) {
     $ charlike --desc 'abc description here' -n beta-trans -o gulpjs
 
   Issues: ${await get('charlike', 'homepage')}
-  `);
+`);
 
   if (status !== 1) {
-    throw new Error('foo');
+    throw new Error('charlike: foo');
   }
 
   proc.exit(status);
