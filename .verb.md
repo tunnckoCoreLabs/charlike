@@ -32,7 +32,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 
 <p align="center">
   <a href="https://github.com/tunnckoCoreLabs/charlike">
-    <img src="./logo.png" width="85%">
+    <img src="./logo.png" width="50%" height="50%">
   </a>
 </p>
 
