@@ -25,7 +25,7 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
 [![Share Love Tweet][shareb]][shareu]
 
-Project is [semantically](https://semver.org) & automatically released on [CircleCI][codecoverage-url] with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
+Project is [semantically](https://semver.org) & automatically released on [CircleCI](https://circleci.com) with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
 
 <!-- Logo when needed:
 
@@ -75,13 +75,13 @@ existance!
 
 Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
-[@tunnckoCore](https://twitter.com/#{author.twitter}) at Twitter.
+[@#{author.twitter}](https://twitter.com/#{author.twitter}) at Twitter.
 
 ### Support the project
 
 [Become a Partner or Sponsor?][patreon-url] :dollar: Check the **Partner**, **Sponsor** or **Omega-level** tiers! :tada: You can get your company logo, link & name on this file. It's also rendered on package page in [npmjs.com][npmv-url] and [yarnpkg.com](https://yarnpkg.com/en/package/{%= name %}) sites too! :rocket:
 
-Not financial support? Okey! [Pull requests](https://github.com/tunnckoCore/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always
+Not financial support? Okey! [Pull requests](https://github.com/tunnckoCoreLabs/contributing#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always
 welcome. :sparkles:
 
 ### OPEN Open Source
@@ -105,7 +105,7 @@ here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/5038030?v=4" width="120px;"/><br /><sub><b>#{author.name}</b></sub>](#{author.url})<br />[💻](https://github.com/#{repository}/commits?author=#{author.username} "Code") [📖](https://github.com/#{repository}/commits?author=#{author.username} "Documentation") [💬](#question-tunnckoCore "Answering Questions") [👀](#review-tunnckoCore "Reviewed Pull Requests") [🔍](#fundingFinding-tunnckoCore "Funding Finding") |
+| [<img src="#{author.avatar}" width="120px;"/><br /><sub><b>#{author.name}</b></sub>](#{author.url})<br />[💻](https://github.com/#{repository}/commits?author=#{author.username} "Code") [📖](https://github.com/#{repository}/commits?author=#{author.username} "Documentation") [💬](#question-#{author.username} "Answering Questions") [👀](#review-#{author.username} "Reviewed Pull Requests") [🔍](#fundingFinding-#{author.username} "Funding Finding") |
 | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -114,7 +114,7 @@ Consider showing your [support](#support-the-project) to them. :sparkling_heart:
 
 ## License
 
-Copyright (c) {%= licenseStart %}-present, [#{author.name}](#{author.url}) `<#{author.email}>` & [contributors](#wonderful-contributors).  
+Copyright (c) {%= licenseStart %}-present, [#{author.name}](#{author.url}) `<mameto2011@gmail.com>` & [contributors](#wonderful-contributors).  
 Released under the [{%= license %} License][license-url].
 
 ---
@@ -128,20 +128,24 @@ Released under the [{%= license %} License][license-url].
 
 [ghrelease-url]: https://github.com/#{repository}/releases/latest
 [ghrelease-img]: https://badgen.net/github/release/#{repository}?icon=github
-[license-url]: https://github.com/#{repository}/blob/master/LICENSE
 
+[license-url]: https://github.com/#{repository}/blob/master/LICENSE
 [license-img]: https://badgen.net/npm/license/{%= name %}
 
 <!-- Front line badges -->
 
 [codestyle-url]: https://github.com/airbnb/javascript
 [codestyle-img]: https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb
+
 [linuxbuild-url]: https://circleci.com/gh/#{repository}/tree/master
 [linuxbuild-img]: https://badgen.net/circleci/github/#{repository}/master?label=build&icon=circleci
+
 [codecoverage-url]: https://codecov.io/gh/#{repository}
 [codecoverage-img]: https://badgen.net/codecov/c/github/#{repository}?icon=codecov
+
 [dependencies-url]: https://david-dm.org/#{repository}
 [dependencies-img]: https://badgen.net/david/dep/#{repository}?label=deps
+
 [ccommits-url]: https://conventionalcommits.org/
 [ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
 [new-release-url]: https://ghub.io/new-release
@@ -157,8 +161,7 @@ Released under the [{%= license %} License][license-url].
 [prs-welcome-url]: http://makeapullrequest.com
 [paypal-donate-url]: https://paypal.me/#{author.username}/10
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
-
-[patreon-url]: https://www.patreon.com/bePatron?u=#{author.patreonId || '5579781'}
+[patreon-url]: https://www.patreon.com/bePatron?u=5579781
 [patreon-img]: https://badgen.net/badge/patreon/#{author.username}/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 

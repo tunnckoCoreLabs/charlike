@@ -65,6 +65,7 @@ export default function createPlugin(settings) {
       email: gitEmail() || 'mameto2011@gmail.com',
       twitter: 'tunnckoCore',
       username: gitUsername(),
+      avatar: 'https://avatars3.githubusercontent.com/u/5038030?v=4',
     };
 
     const { opts } = settings;
@@ -74,6 +75,7 @@ export default function createPlugin(settings) {
         pkgName: settings.name,
         desc: settings.desc,
         description: settings.desc,
+        licenseStart: opts.licenseStart || dateformat('yyyy'),
         author,
       },
       helpers,

@@ -1,6 +1,7 @@
-import test from 'asia';
-import docks from '../src';
 
-test('todo', async (t) => {
-  t.ok(true);
+import test from 'asia';
+import mod from '../src';
+
+test('todo', (t) => {
+  t.strictEqual(typeof mod, 'function');
 });

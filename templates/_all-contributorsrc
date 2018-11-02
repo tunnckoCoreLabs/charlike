@@ -13,7 +13,7 @@
     {
       "login": "#{author.username}",
       "name": "#{author.name}",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/5038030?v=4",
+      "avatar_url": "#{author.avatar}",
       "profile": "#{author.url}",
       "contributions": [
         "code",
