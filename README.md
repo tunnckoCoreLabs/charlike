@@ -27,19 +27,19 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 
 Project is [semantically](https://semver.org) & automatically released on [CircleCI](https://circleci.com) with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
 
-<!-- Logo when needed:
+<!-- Logo when needed: 
+-->
 
 <p align="center">
   <a href="https://github.com/tunnckoCoreLabs/charlike">
-    <img src="./media/logo.png" width="85%">
+    <img src="./logo.png" width="85%">
   </a>
 </p>
-
--->
 
 ## Table of Contents
 
 - [Install](#install)
+- [CLI](#cli)
 - [API](#api)
   * [src/index.js](#srcindexjs)
     + [charlike](#charlike)
@@ -61,6 +61,36 @@ _We highly recommend to use Yarn when you think to contribute to this project._
 
 ```bash
 $ yarn add charlike
+```
+
+## CLI
+
+Install it globally or locally and run `charlike --help`.
+
+```
+  Usage
+    $ charlike <name> <description> [flags]
+
+  Common Flags
+    --help              Show this output
+    --version           Show version
+
+  Options
+    --owner, -o         Project github owner - username or organization
+    --name, -n          Name of the project, same as to pass first param
+    --desc, -d          Project description, same as to pass second param
+    --repo, -r          Repository pattern like username/projectName
+    --engine, -e        Engine to be used, j140 by default
+    --licenseStart, -l  License start year
+    --locals, -L        Context to pass to template files
+    --templates, -t     Path to templates folder
+    --cwd               Folder to be used as current working dir
+
+  Examples
+    $ charlike my-awesome-project 'some cool description'
+    $ charlike minibase-data 'we are awesome' --owner node-minibase
+    $ charlike --desc 'abc description here' -n beta-trans -o gulpjs
+
 ```
 
 ## API
