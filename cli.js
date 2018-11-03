@@ -8,7 +8,7 @@ const autoUpdater = require('auto-install-updates');
 const mri = require('mri');
 const pkg = require('./package.json');
 
-autoUpdater({ pkg, updateCheckInterval: 1000 * 60 * 2 });
+autoUpdater({ pkg, updateCheckInterval: 1000 * 60 * 3 });
 
 const cli = mri(proc.argv.slice(2), {
   alias: {

@@ -382,14 +382,14 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-auto-install-updates@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/auto-install-updates/-/auto-install-updates-0.2.1.tgz#bb17188bb85fcc35662eff5f5d85a92f15ad79c4"
-  integrity sha512-KvHns5jRhmD6MEJQqZ9e233Cwpkv+j7V7nkNVRzcc/SXTNKkbR7ePeeK0CHx1b2cdPeRQkQE05HejgWYy46dhA==
+auto-install-updates@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/auto-install-updates/-/auto-install-updates-0.2.2.tgz#5695e0e7fc195a93a2556b4763bbd05b3cf0dd92"
+  integrity sha512-3N5toxxz3XVzh9dJptfX9zau/S6DBRU3SMIB+Ik3t+I2WPNf0jMMkfa1pMsCrNovtol9yZlbpTryNxJr3pC+Vg==
   dependencies:
     "@tunnckocore/execa" "^2.1.1"
     esm "^3.0.84"
-    is-installed-globally "^0.1.0"
+    global-dirs "^0.1.1"
     update-notifier "^2.5.0"
 
 aws-sign2@~0.7.0:
@@ -1754,7 +1754,7 @@ glob@^7.0.3, glob@^7.0.5, glob@^7.1.2, glob@^7.1.3:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-global-dirs@^0.1.0:
+global-dirs@^0.1.0, global-dirs@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/global-dirs/-/global-dirs-0.1.1.tgz#b319c0dd4607f353f3be9cca4c72fc148c49f445"
   integrity sha1-sxnA3UYH81PzvpzKTHL8FIxJ9EU=
