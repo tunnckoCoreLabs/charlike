@@ -2,7 +2,7 @@
 
 > {%= description %}
 
-Please consider following this project's author, [#{author.name}](https://github.com/#{author.username}), and :star: the project to show your :heart: and support.
+Please consider following this project's author, [#{author.name}](https://github.com/#{author.login}), and :star: the project to show your :heart: and support.
 
 <div id="thetop"></div>
 
@@ -105,7 +105,7 @@ here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="#{author.avatar}" width="120px;"/><br /><sub><b>#{author.name}</b></sub>](#{author.url})<br />[💻](https://github.com/#{repository}/commits?author=#{author.username} "Code") [📖](https://github.com/#{repository}/commits?author=#{author.username} "Documentation") [💬](#question-#{author.username} "Answering Questions") [👀](#review-#{author.username} "Reviewed Pull Requests") [🔍](#fundingFinding-#{author.username} "Funding Finding") |
+| [<img src="#{author.avatar}" width="120px;"/><br /><sub><b>#{author.name}</b></sub>](#{author.url})<br />[💻](https://github.com/#{repository}/commits?author=#{author.login} "Code") [📖](https://github.com/#{repository}/commits?author=#{author.login} "Documentation") [💬](#question-#{author.login} "Answering Questions") [👀](#review-#{author.login} "Reviewed Pull Requests") [🔍](#fundingFinding-#{author.login} "Funding Finding") |
 | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -159,10 +159,10 @@ Released under the [{%= license %} License][license-url].
 [renovateapp-img]: https://badgen.net/badge/renovate/enabled/green
 [prs-welcome-img]: https://badgen.net/badge/PRs/welcome/green
 [prs-welcome-url]: http://makeapullrequest.com
-[paypal-donate-url]: https://paypal.me/#{author.username}/10
+[paypal-donate-url]: https://paypal.me/#{author.login}/10
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
 [patreon-url]: https://www.patreon.com/bePatron?u=5579781
-[patreon-img]: https://badgen.net/badge/patreon/#{author.username}/F96854?icon=patreon
+[patreon-img]: https://badgen.net/badge/patreon/#{author.login}/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/#{repository}&via=#{author.twitter}

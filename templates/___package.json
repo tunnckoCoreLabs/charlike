@@ -1,5 +1,5 @@
 {
-  "name": "#{pkgName}",
+  "name": "#{name}",
   "description": "#{description}",
   "license": "Apache-2.0",
   "licenseStart": "#{licenseStart}",
@@ -19,7 +19,7 @@
   "main": "index.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "repository": "#{repository}",
   "homepage": "https://github.com/#{repository}",
   "author": "#{author.name} (#{author.url})",

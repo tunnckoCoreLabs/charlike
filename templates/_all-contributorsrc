@@ -1,5 +1,5 @@
 {
-  "projectName": "#{name}",
+  "projectName": "#{repo}",
   "projectOwner": "#{owner}",
   "repoType": "github",
   "repoHost": "https://github.com",
@@ -11,7 +11,7 @@
   "contributorsPerLine": 6,
   "contributors": [
     {
-      "login": "#{author.username}",
+      "login": "#{author.login}",
       "name": "#{author.name}",
       "avatar_url": "#{author.avatar}",
       "profile": "#{author.url}",
