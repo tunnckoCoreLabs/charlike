@@ -86,6 +86,7 @@ export default function createPlugin(settings) {
     locals.owner = opts.owner || locals.owner || locals.author.username;
 
     locals.deps = locals.deps || JSON.stringify({ esm: '^3.0.84' }, null, 4);
+    locals.deps = `${locals.deps.slice(0, -1)}  }`;
     locals.devDeps =
       locals.devDeps ||
       JSON.stringify(
@@ -97,6 +98,7 @@ export default function createPlugin(settings) {
         null,
         4,
       );
+    locals.devDeps = `${locals.devDeps}  }`;
 
     const repo = `${locals.owner}/${locals.name}`;
     locals.repository = locals.repository ? locals.repository : repo;
