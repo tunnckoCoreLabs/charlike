@@ -1,8 +1,8 @@
 {
   "name": "#{name}",
   "description": "#{description}",
-  "license": "Apache-2.0",
-  "licenseStart": "#{licenseStart}",
+  "license": "#{license.name}",
+  "licenseStart": "#{license.year}",
   "scripts": {
     "start": "tunnckocore-scripts",
     "extends": "@tunnckocore/config/scripts"
@@ -19,7 +19,7 @@
   "main": "index.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
-  "version": "0.0.0",
+  "version": "#{version}",
   "repository": "#{repository}",
   "homepage": "https://github.com/#{repository}",
   "author": "#{author.name} (#{author.url})",

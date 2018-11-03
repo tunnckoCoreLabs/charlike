@@ -16,7 +16,7 @@ import createPlugin from './create-plugin';
  * @private
  */
 export async function copy({ src, dest }, settings) {
-  return copyFolder(src, dest, createPlugin(settings));
+  return copyFolder(src, dest, await createPlugin(settings));
 }
 
 /**
