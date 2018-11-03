@@ -1,4 +1,3 @@
-
 import test from 'asia';
 import mod from '../src';
 
