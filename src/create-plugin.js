@@ -98,7 +98,7 @@ export default function createPlugin(settings) {
         null,
         4,
       );
-    locals.devDeps = `${locals.devDeps}  }`;
+    locals.devDeps = `${locals.devDeps.slice(0, -1)}  }`;
 
     const repo = `${locals.owner}/${locals.name}`;
     locals.repository = locals.repository ? locals.repository : repo;
