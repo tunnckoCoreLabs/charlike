@@ -4,8 +4,13 @@
 
 const proc = require('process');
 const getPkg = require('@tunnckocore/package-json').default;
+const autoUpdater = require('auto-install-updates');
+const mri = require('mri');
+const pkg = require('./package.json');
 
-const cli = require('mri')(proc.argv.slice(2), {
+autoUpdater({ pkg, updateCheckInterval: 1000 * 60 * 2 });
+
+const cli = mri(proc.argv.slice(2), {
   alias: {
     owner: 'o',
     name: 'n',
