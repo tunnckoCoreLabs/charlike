@@ -5,7 +5,11 @@
   "licenseStart": "#{license.year}",
   "scripts": {
     "start": "tunnckocore-scripts",
-    "extends": "@tunnckocore/config/scripts"
+    "extends": "@tunnckocore/config/scripts",
+    "docs": "tunnckocore-scripts docs",
+    "lint": "tunnckocore-scripts lint",
+    "test": "tunnckocore-scripts test",
+    "commit": "tunnckocore-scripts commit"
   },
   "engines": {
     "node": "^8.11.0 || >=10.13.0"
@@ -46,6 +50,13 @@
         "asia",
         "charlike",
         "docks",
+        "gitcommit",
+        "@tunnckocore/execa",
+        "@tunnckocore/package-json",
+        "@tunnckocore/create-project",
+        "@tunnckocore/update",
+        "@tunnckocore/config",
+        "@tunnckocore/scripts"
         "execa"
       ]
     },

@@ -37,11 +37,21 @@ export default async function createPlugin(settings) {
   }
 
   return function plugin(file, cb) {
-    fn({ pkg, file, settings, cb });
+    const author = {
+      url: 'https://tunnckocore.com',
+      name: gitName(),
+      email: gitEmail() || 'mameto2011@gmail.com',
+      twitter: 'tunnckoCore',
+      username: gitUsername(),
+      login: gitUsername(),
+      avatar: 'https://avatars3.githubusercontent.com/u/5038030?v=4',
+    };
+
+    fn({ pkg, file, settings, cb }, author);
   };
 }
 
-function fn({ pkg, file, settings, cb }) {
+function fn({ pkg, file, settings, cb }, author) {
   // convert templates names to normal names
 
   // eslint-disable-next-line no-param-reassign
@@ -83,16 +93,6 @@ function fn({ pkg, file, settings, cb }) {
    * @type {Object}
    */
 
-  const author = {
-    url: 'https://tunnckocore.com',
-    name: gitName(),
-    email: gitEmail() || 'mameto2011@gmail.com',
-    twitter: 'tunnckoCore',
-    username: gitUsername(),
-    login: gitUsername(),
-    avatar: 'https://avatars3.githubusercontent.com/u/5038030?v=4',
-  };
-
   const { opts } = settings;
   const locals = Object.assign(
     {
@@ -108,6 +108,7 @@ function fn({ pkg, file, settings, cb }) {
     opts.locals || {},
   );
 
+  locals.author.avatar = locals.author.avatar || author.avatar;
   locals.owner = opts.owner || locals.owner || locals.author.username;
   locals.version = locals.version || locals.pkg.version || '0.0.0';
   locals.license = Object.assign(
