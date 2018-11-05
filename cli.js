@@ -52,14 +52,6 @@ const argv = mri(proc.argv.slice(2), {
   },
 });
 
-argv.name = argv._[0] || argv.name;
-
-if (!argv.name) {
-  console.error('At least project name is required.');
-  console.error(showHelp());
-  proc.exit(1);
-}
-
 if (argv.help) {
   console.log(showHelp());
   proc.exit(0);
@@ -70,6 +62,14 @@ if (argv.version) {
   proc.exit(0);
 }
 
+argv.name = argv._[0] || argv.name;
+
+if (!argv.name) {
+  console.error('At least project name is required.');
+  console.error(showHelp());
+  proc.exit(1);
+}
+
 /* eslint-disable promise/always-return */
 
 argv.project = Object.assign({}, argv.project);
@@ -77,7 +77,6 @@ argv.project = Object.assign({}, argv.project);
 // const options = makeDefaults(argv);
 charlike(argv)
   .then((result = {}) => {
-    console.log(result);
     console.log('Project is generated at', result.project.dest);
   })
   .catch((err) => {
