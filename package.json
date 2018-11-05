@@ -1,49 +1,49 @@
 {
   "name": "charlike",
-  "description": "Small & fast project scaffolder with sane defaults. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options",
+  "description": "Small, fast and streaming project scaffolder with support for hundreds of template engines and sane defaults",
   "license": "Apache-2.0",
   "licenseStart": "2016",
   "scripts": {
-    "cli": "node cli.js",
     "start": "tunnckocore-scripts",
-    "extends": "@tunnckocore/config/scripts"
+    "extends": "@tunnckocore/config/scripts",
+    "docs": "tunnckocore-scripts docs",
+    "lint": "tunnckocore-scripts lint",
+    "test": "tunnckocore-scripts test",
+    "commit": "tunnckocore-scripts commit"
   },
   "engines": {
     "node": "^8.11.0 || >=10.13.0"
   },
   "dependencies": {
-    "@tunnckocore/package-json": "^0.3.1",
-    "auto-install-updates": "^0.2.2",
-    "camelcase": "^5.0.0",
-    "dateformat": "^3.0.3",
+    "arrify": "^1.0.1",
     "esm": "^3.0.84",
-    "git-config-path": "^1.0.1",
+    "fast-glob": "^2.2.3",
     "git-user-email": "^0.2.2",
     "git-user-name": "^2.0.0",
-    "git-username": "^1.0.0",
     "jstransformer": "^1.0.0",
-    "jstransformer-j140": "^1.0.0",
     "jstransformer-jstransformer": "^1.1.6",
+    "jstransformer-lodash": "^0.3.2",
+    "mixin-deep": "^2.0.0",
     "mri": "^1.1.1",
-    "parse-git-config": "^2.0.3",
-    "stream-copy-dir": "^1.0.0"
+    "set-value": "^3.0.0",
+    "year": "^0.2.1"
   },
   "devDependencies": {
-    "@tunnckocore/config": "^0.5.0",
+    "@tunnckocore/config": "^0.5.1",
     "@tunnckocore/scripts": "^1.0.1",
     "asia": "^0.19.7"
   },
   "files": [
     "src",
-    "cli.js",
     "index.js",
+    "cli.js",
     "templates"
   ],
   "bin": "cli.js",
   "main": "index.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
-  "version": "0.0.0-semantically-released",
+  "version": "3.0.0",
   "repository": "tunnckoCoreLabs/charlike",
   "homepage": "https://github.com/tunnckoCoreLabs/charlike",
   "author": "Charlike Mike Reagent (https://tunnckocore.com)",
@@ -68,10 +68,15 @@
     "related": {
       "list": [
         "asia",
+        "charlike",
         "docks",
         "gitcommit",
-        "new-release",
-        "jstransformer"
+        "@tunnckocore/execa",
+        "@tunnckocore/package-json",
+        "@tunnckocore/create-project",
+        "@tunnckocore/update",
+        "@tunnckocore/config",
+        "@tunnckocore/scripts"
       ]
     },
     "lint": {

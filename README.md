@@ -1,6 +1,6 @@
 # charlike [![npm version][npmv-img]][npmv-url] [![github release][ghrelease-img]][ghrelease-url] [![License][license-img]][license-url]
 
-> Small & fast project scaffolder with sane defaults. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options
+> Small, fast and streaming project scaffolder with support for hundreds of template engines and sane defaults
 
 Please consider following this project's author, [Charlike Mike Reagent](https://github.com/tunnckoCore), and :star: the project to show your :heart: and support.
 
@@ -27,22 +27,20 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 
 Project is [semantically](https://semver.org) & automatically released on [CircleCI](https://circleci.com) with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
 
-<!-- Logo when needed: 
--->
+<!-- Logo when needed:
 
 <p align="center">
   <a href="https://github.com/tunnckoCoreLabs/charlike">
-    <img src="./logo.png" width="50%" height="50%">
+    <img src="./media/logo.png" width="85%">
   </a>
 </p>
+
+-->
 
 ## Table of Contents
 
 - [Install](#install)
-- [CLI](#cli)
 - [API](#api)
-  * [src/index.js](#srcindexjs)
-    + [charlike](#charlike)
 - [See Also](#see-also)
 - [Contributing](#contributing)
   * [Follow the Guidelines](#follow-the-guidelines)
@@ -63,81 +61,10 @@ _We highly recommend to use Yarn when you think to contribute to this project._
 $ yarn add charlike
 ```
 
-## CLI
-
-Install it globally or locally and run `charlike --help`.
-
-```
-  Usage
-    $ charlike <name> <description> [flags]
-
-  Common Flags
-    --help              Show this output
-    --version           Show version
-
-  Options
-    --owner, -o         Project github owner - username or organization
-    --name, -n          Name of the project, same as to pass first param
-    --desc, -d          Project description, same as to pass second param
-    --repo, -r          Repository pattern like username/projectName
-    --engine, -e        Engine to be used, j140 by default
-    --licenseStart, -l  License start year
-    --locals, -L        Context to pass to template files
-    --templates, -t     Path to templates folder
-    --cwd               Folder to be used as current working dir
-
-  Examples
-    $ charlike my-awesome-project 'some cool description'
-    $ charlike minibase-data 'we are awesome' --owner node-minibase
-    $ charlike --desc 'abc description here' -n beta-trans -o gulpjs
-
-```
-
 ## API
 
 <!-- docks-start -->
 _Generated using [docks](http://npm.im/docks)._
-
-### [src/index.js](/src/index.js)
-
-#### [charlike](/src/index.js#L43)
-Scaffolds project with `name` and `desc` by
-creating folder with `name` to some folder.
-By default it generates folder with `name` to current
-working directory (or `options.cwd`).
-You can also define what _"templates"_ files to be used
-by passing `options.templates`, by default it uses [./templates](./templates)
-folder from this repository root.
-
-**Params**
-- `name` **{string}** project name
-- `desc` **{string}** project description
-- `[options]` **{object}** use `options.locals` to pass more context to template files,
-                             use `options.engine` for different template engine to be used
-                             in template files, or pass `options.render` function
-                             to use your favorite engine
-
-**Returns**
-- `Promise<string>` if successful, resolved promise with absolute path to the project
-
-**Examples**
-```javascript
-import charlike from 'charlike';
-
-const opts = {
-  cwd: '/home/charlike/code',
-  templates: '/home/charlike/config/.jsproject',
-  locals: {
-    foo: 'bar',
-    // some helper
-    toUpperCase: (val) => val.toUpperCase(),
-  },
-};
-
-charlike('my-awesome-project', 'some cool description here', opts)
-  .then((dest) => console.log(`Project generated to ${dest}`))
-  .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`));
-```
 
 <!-- docks-end -->
 
@@ -147,11 +74,15 @@ charlike('my-awesome-project', 'some cool description here', opts)
 
 Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your
 existance!
+- [@tunnckocore/config](https://www.npmjs.com/package/@tunnckocore/config): All the configs for all the tools, in one place | [homepage](https://github.com/tunnckoCoreLabs/config "All the configs for all the tools, in one place")
+- [@tunnckocore/create-project](https://www.npmjs.com/package/@tunnckocore/create-project): Create and scaffold a new project, its GitHub repository and… [more](https://github.com/tunnckoCoreLabs/create-project) | [homepage](https://github.com/tunnckoCoreLabs/create-project "Create and scaffold a new project, its GitHub repository and contents")
+- [@tunnckocore/execa](https://www.npmjs.com/package/@tunnckocore/execa): Thin layer on top of [execa][] that allows executing multiple… [more](https://github.com/tunnckoCoreLabs/execa) | [homepage](https://github.com/tunnckoCoreLabs/execa "Thin layer on top of [execa][] that allows executing multiple commands in parallel or in sequence")
+- [@tunnckocore/scripts](https://www.npmjs.com/package/@tunnckocore/scripts): Universal and minimalist scripts & tasks runner. | [homepage](https://github.com/tunnckoCoreLabs/scripts "Universal and minimalist scripts & tasks runner.")
+- [@tunnckocore/update](https://www.npmjs.com/package/@tunnckocore/update): Update a repository with latest templates from `charlike`. | [homepage](https://github.com/tunnckoCoreLabs/update "Update a repository with latest templates from `charlike`.")
 - [asia](https://www.npmjs.com/package/asia): Blazingly fast, magical and minimalist testing framework, for Today and… [more](https://github.com/olstenlarck/asia#readme) | [homepage](https://github.com/olstenlarck/asia#readme "Blazingly fast, magical and minimalist testing framework, for Today and Tomorrow")
+- [charlike](https://www.npmjs.com/package/charlike): Small & fast project scaffolder with sane defaults. Supports hundreds… [more](https://github.com/tunnckoCoreLabs/charlike) | [homepage](https://github.com/tunnckoCoreLabs/charlike "Small & fast project scaffolder with sane defaults. Supports hundreds of template engines through the @JSTransformers API or if you want custom `render` function passed through options")
 - [docks](https://www.npmjs.com/package/docks): Extensible system for parsing and generating documentation. It just freaking… [more](https://github.com/tunnckoCore/docks) | [homepage](https://github.com/tunnckoCore/docks "Extensible system for parsing and generating documentation. It just freaking works!")
 - [gitcommit](https://www.npmjs.com/package/gitcommit): Lightweight and joyful `git commit` replacement. Conventional Commits compliant. | [homepage](https://github.com/tunnckoCore/gitcommit "Lightweight and joyful `git commit` replacement. Conventional Commits compliant.")
-- [jstransformer](https://www.npmjs.com/package/jstransformer): Normalize the API of any jstransformer | [homepage](https://github.com/jstransformers/jstransformer#readme "Normalize the API of any jstransformer")
-- [new-release](https://www.npmjs.com/package/new-release): A stable alternative to [semantic-release][]. Only handles NPM publishing and… [more](https://github.com/tunnckoCore/new-release#readme) | [homepage](https://github.com/tunnckoCore/new-release#readme "A stable alternative to [semantic-release][]. Only handles NPM publishing and nothing more. For creating GitHub releases use the Semantic Release GitHub App")
 
 **[back to top](#thetop)**
 
@@ -198,14 +129,12 @@ here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 Consider showing your [support](#support-the-project) to them. :sparkling_heart:
 
+**[back to top](#thetop)**
+
 ## License
 
-Copyright (c) 2016-present, [Charlike Mike Reagent](https://tunnckocore.com) `<mameto2011@gmail.com>` & [contributors](#wonderful-contributors).  
+Copyright (c) 2016-present, [Charlike Mike Reagent](https://tunnckocore.com) `mameto2011@gmail.com` & [contributors](#wonderful-contributors).  
 Released under the [Apache-2.0 License][license-url].
-
----
-
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on November 02, 2018._
 
 <!-- Heading badges -->
 
@@ -255,5 +184,6 @@ _This file was generated by [verb-generate-readme](https://github.com/verbose/ve
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/tunnckoCoreLabs/charlike/issues/new
 
+[execa]: https://github.com/sindresorhus/execa
 [new-release]: https://github.com/tunnckoCore/new-release
 [semantic-release]: https://github.com/semantic-release/semantic-release

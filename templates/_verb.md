@@ -2,7 +2,7 @@
 
 > {%= description %}
 
-Please consider following this project's author, [#{author.name}](https://github.com/#{author.login}), and :star: the project to show your :heart: and support.
+Please consider following this project's author, [<%= author.name %>](https://github.com/<%= author.login %>), and :star: the project to show your :heart: and support.
 
 <div id="thetop"></div>
 
@@ -16,7 +16,7 @@ Please consider following this project's author, [#{author.name}](https://github
 
 If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
-[@tunnckoCore](https://twitter.com/#{author.twitter}) at Twitter.
+[@tunnckoCore](https://twitter.com/<%= author.twitter %>) at Twitter.
 
 [![Become a Patron][patreon-img]][patreon-url]
 [![Conventional Commits][ccommits-img]][ccommits-url]
@@ -30,7 +30,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 <!-- Logo when needed:
 
 <p align="center">
-  <a href="https://github.com/#{repository}">
+  <a href="https://github.com/{%= repository %}">
     <img src="./media/logo.png" width="85%">
   </a>
 </p>
@@ -75,7 +75,7 @@ existance!
 
 Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
-[@#{author.twitter}](https://twitter.com/#{author.twitter}) at Twitter.
+[@<%= author.twitter %>](https://twitter.com/<%= author.twitter %>) at Twitter.
 
 ### Support the project
 
@@ -105,7 +105,7 @@ here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="#{author.avatar}" width="120px;"/><br /><sub><b>#{author.name}</b></sub>](#{author.url})<br />[💻](https://github.com/#{repository}/commits?author=#{author.login} "Code") [📖](https://github.com/#{repository}/commits?author=#{author.login} "Documentation") [💬](#question-#{author.login} "Answering Questions") [👀](#review-#{author.login} "Reviewed Pull Requests") [🔍](#fundingFinding-#{author.login} "Funding Finding") |
+| [<img src="<%= author.avatar %>" width="120px;"/><br /><sub><b><%= author.name %></b></sub>](<%= author.url %>)<br />[💻](https://github.com/{%= repository %}/commits?author=<%= author.login %> "Code") [📖](https://github.com/{%= repository %}/commits?author=<%= author.login %> "Documentation") [💬](#question-<%= author.login %> "Answering Questions") [👀](#review-<%= author.login %> "Reviewed Pull Requests") [🔍](#fundingFinding-<%= author.login %> "Funding Finding") |
 | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -114,22 +114,18 @@ Consider showing your [support](#support-the-project) to them. :sparkling_heart:
 
 ## License
 
-Copyright (c) {%= licenseStart %}-present, [#{author.name}](#{author.url}) `<mameto2011@gmail.com>` & [contributors](#wonderful-contributors).  
-Released under the [{%= license %} License][license-url].
-
----
-
-{%= include('footer') %}
+Copyright (c) <%= license.year %>-present, [<%= author.name %>](<%= author.url %>) `<<%= author.email %>>` & [contributors](#wonderful-contributors).  
+Released under the [<%= license.name %> License][license-url].
 
 <!-- Heading badges -->
 
 [npmv-url]: https://www.npmjs.com/package/{%= name %}
 [npmv-img]: https://badgen.net/npm/v/{%= name %}?icon=npm
 
-[ghrelease-url]: https://github.com/#{repository}/releases/latest
-[ghrelease-img]: https://badgen.net/github/release/#{repository}?icon=github
+[ghrelease-url]: https://github.com/{%= repository %}/releases/latest
+[ghrelease-img]: https://badgen.net/github/release/{%= repository %}?icon=github
 
-[license-url]: https://github.com/#{repository}/blob/master/LICENSE
+[license-url]: https://github.com/{%= repository %}/blob/master/LICENSE
 [license-img]: https://badgen.net/npm/license/{%= name %}
 
 <!-- Front line badges -->
@@ -137,14 +133,14 @@ Released under the [{%= license %} License][license-url].
 [codestyle-url]: https://github.com/airbnb/javascript
 [codestyle-img]: https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb
 
-[linuxbuild-url]: https://circleci.com/gh/#{repository}/tree/master
-[linuxbuild-img]: https://badgen.net/circleci/github/#{repository}/master?label=build&icon=circleci
+[linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
+[linuxbuild-img]: https://badgen.net/circleci/github/{%= repository %}/master?label=build&icon=circleci
 
-[codecoverage-url]: https://codecov.io/gh/#{repository}
-[codecoverage-img]: https://badgen.net/codecov/c/github/#{repository}?icon=codecov
+[codecoverage-url]: https://codecov.io/gh/{%= repository %}
+[codecoverage-img]: https://badgen.net/codecov/c/github/{%= repository %}?icon=codecov
 
-[dependencies-url]: https://david-dm.org/#{repository}
-[dependencies-img]: https://badgen.net/david/dep/#{repository}?label=deps
+[dependencies-url]: https://david-dm.org/{%= repository %}
+[dependencies-img]: https://badgen.net/david/dep/{%= repository %}?label=deps
 
 [ccommits-url]: https://conventionalcommits.org/
 [ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
@@ -159,12 +155,12 @@ Released under the [{%= license %} License][license-url].
 [renovateapp-img]: https://badgen.net/badge/renovate/enabled/green
 [prs-welcome-img]: https://badgen.net/badge/PRs/welcome/green
 [prs-welcome-url]: http://makeapullrequest.com
-[paypal-donate-url]: https://paypal.me/#{author.login}/10
+[paypal-donate-url]: https://paypal.me/<%= author.login %>/10
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
 [patreon-url]: https://www.patreon.com/bePatron?u=5579781
-[patreon-img]: https://badgen.net/badge/patreon/#{author.login}/F96854?icon=patreon
+[patreon-img]: https://badgen.net/badge/patreon/<%= author.login %>/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
-[shareu]: https://twitter.com/intent/tweet?text=https://github.com/#{repository}&via=#{author.twitter}
+[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%=repository%}&via=<%= author.twitter %>
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
-[open-issue-url]: https://github.com/#{repository}/issues/new
+[open-issue-url]: https://github.com/{%= repository %}/issues/new

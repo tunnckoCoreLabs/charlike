@@ -1,8 +1,8 @@
 {
-  "name": "#{name}",
-  "description": "#{description}",
-  "license": "#{license.name}",
-  "licenseStart": "#{license.year}",
+  "name": "<%= project.name %>",
+  "description": "<%= project.description %>",
+  "license": "<%= license.name %>",
+  "licenseStart": "<%= license.year %>",
   "scripts": {
     "start": "tunnckocore-scripts",
     "extends": "@tunnckocore/config/scripts",
@@ -14,8 +14,8 @@
   "engines": {
     "node": "^8.11.0 || >=10.13.0"
   },
-  "dependencies": #{deps},
-  "devDependencies": #{devDeps},
+  "dependencies": <%= deps %>,
+  "devDependencies": <%= devDeps %>,
   "files": [
     "src",
     "index.js"
@@ -23,10 +23,10 @@
   "main": "index.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
-  "version": "#{version}",
-  "repository": "#{repository}",
-  "homepage": "https://github.com/#{repository}",
-  "author": "#{author.name} (#{author.url})",
+  "version": "<%= version %>",
+  "repository": "<%= repository %>",
+  "homepage": "https://github.com/<%= repository %>",
+  "author": "<%= author.name %> (<%= author.url %>)",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -57,7 +57,6 @@
         "@tunnckocore/update",
         "@tunnckocore/config",
         "@tunnckocore/scripts"
-        "execa"
       ]
     },
     "lint": {

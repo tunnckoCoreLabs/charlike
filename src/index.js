@@ -1,90 +1,92 @@
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
-import proc from 'process';
-import { copy } from './utils';
+import util from 'util';
+import JSTransformer from 'jstransformer';
+import transformer from 'jstransformer-jstransformer';
+import fastGlob from 'fast-glob';
+import arrayify from 'arrify';
+import objectAssign from 'mixin-deep';
 import { __dirname } from './cjs-globals';
+import makeDefaults from './defaults';
 
-/**
- * Scaffolds project with `name` and `desc` by
- * creating folder with `name` to some folder.
- * By default it generates folder with `name` to current
- * working directory (or `options.cwd`).
- * You can also define what _"templates"_ files to be used
- * by passing `options.templates`, by default it uses [./templates](./templates)
- * folder from this repository root.
- *
- * @example
- * import charlike from 'charlike';
- *
- * const opts = {
- *   cwd: '/home/charlike/code',
- *   templates: '/home/charlike/config/.jsproject',
- *   locals: {
- *     foo: 'bar',
- *     // some helper
- *     toUpperCase: (val) => val.toUpperCase(),
- *   },
- * };
- *
- * charlike('my-awesome-project', 'some cool description here', opts)
- *   .then((dest) => console.log(`Project generated to ${dest}`))
- *   .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`));
- *
- *
- * @name   charlike
- * @param  {string} name project name
- * @param  {string} desc project description
- * @param  {object} [options] use `options.locals` to pass more context to template files,
- *                              use `options.engine` for different template engine to be used
- *                              in template files, or pass `options.render` function
- *                              to use your favorite engine
- * @return {Promise<string>} if successful, resolved promise with absolute path to the project
- * @public
- */
+const jstransformer = JSTransformer(transformer);
 
-export default async function charlike(name, desc, options) {
-  if (typeof name !== 'string') {
-    throw new TypeError('charlike: expect `name` to be string');
-  }
-  if (typeof desc !== 'string') {
-    throw new TypeError('charlike: expect `desc` to be string');
+export default async function charlike(settings = {}) {
+  const proj = settings.project;
+
+  if (!proj || (proj && typeof proj !== 'object')) {
+    throw new TypeError('expect `settings.project` to be an object');
   }
 
-  const opts = Object.assign({}, options);
-  const cwd =
-    typeof opts.cwd === 'string' ? path.resolve(opts.cwd) : proc.cwd();
+  const options = makeDefaults(settings);
+  const { project, templates } = options;
 
-  let srcPath = null;
-  if (typeof opts.templates === 'string') {
-    srcPath = path.resolve(opts.templates);
+  const cfgDir = path.join(os.homedir(), '.config', 'charlike');
+  const tplDir = path.join(cfgDir, 'templates');
+  const templatesDir = templates ? path.resolve(templates) : null;
+
+  if (templatesDir && fs.existsSync(templatesDir)) {
+    project.templates = templatesDir;
+  } else if (fs.existsSync(cfgDir) && fs.existsSync(tplDir)) {
+    project.templates = tplDir;
   } else {
-    srcPath = path.join(path.dirname(__dirname), 'templates');
+    project.templates = path.join(path.dirname(__dirname), 'templates');
   }
 
-  if (!fs.existsSync(srcPath)) {
-    throw new Error('charlike: source templates directory not found');
+  if (!fs.existsSync(project.templates)) {
+    throw new Error(`source templates folder not exist: ${project.templates}`);
   }
 
-  const pkgName = name.startsWith('@') ? name.split('/')[1] : name;
-  const destPath = path.join(cwd, pkgName);
+  const locals = objectAssign({}, options.locals, { project });
 
-  const joined = (x) => ({
-    src: path.join(srcPath, x),
-    dest: path.join(destPath, x),
+  const stream = fastGlob.stream('**/*', {
+    cwd: project.templates,
+    ignore: arrayify(null),
   });
-  const settings = {
-    name,
-    pkgName,
-    desc,
-    opts,
-  };
 
-  const makeArgs = (x) => [joined(x), settings];
-  const copySrc = () => copy(...makeArgs('src'));
+  return new Promise((resolve, reject) => {
+    stream.on('error', reject);
+    stream.on('end', () => {
+      // Note: Seems to be called before really write to the destination directory.
+      // Stream are still fucking shit even in Node v10.
+      // Feels like nothing happend since v0.10.
+      // For proof, `process.exit` from inside the `.then` in the CLI,
+      // it will end/close the program before even create the dest folder.
+      // One more proof: put one console.log in stream.on('data')
+      // and you will see that it still outputs even after calling the resolve()
+      resolve({ locals, project });
+    });
+    stream.on('data', async (filepath) => {
+      try {
+        const tplFilepath = path.join(project.templates, filepath);
+        const { body } = await jstransformer.renderFileAsync(
+          tplFilepath,
+          { engine: options.engine },
+          locals,
+        );
 
-  return copySrc()
-    .then(() => copy(...makeArgs('test')))
-    .then(() => copy(...makeArgs('.circleci')))
-    .then(() => copy({ src: srcPath, dest: destPath }, settings))
-    .then(() => destPath);
+        const newFilepath = path
+          .join(project.dest, filepath)
+          .replace('_circleci', '.circleci');
+
+        const basename = path
+          .basename(newFilepath)
+          .replace(/^__/, '')
+          .replace(/^\$/, '')
+          .replace(/^_/, '.');
+
+        const fp = path.join(path.dirname(newFilepath), basename);
+        const fpDirname = path.dirname(fp);
+
+        if (!fs.existsSync(fpDirname)) {
+          await util.promisify(fs.mkdir)(fpDirname);
+        }
+
+        await util.promisify(fs.writeFile)(fp, body);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  });
 }
