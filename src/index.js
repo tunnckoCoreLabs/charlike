@@ -2,6 +2,8 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import util from 'util';
+import proc from 'process';
+import mri from 'mri';
 import JSTransformer from 'jstransformer';
 import transformer from 'jstransformer-jstransformer';
 import fastGlob from 'fast-glob';
@@ -12,7 +14,7 @@ import makeDefaults from './defaults';
 
 const jstransformer = JSTransformer(transformer);
 
-export default async function charlike(settings = {}) {
+async function charlike(settings = {}) {
   const proj = settings.project;
 
   if (!proj || (proj && typeof proj !== 'object')) {
@@ -90,3 +92,41 @@ export default async function charlike(settings = {}) {
     });
   });
 }
+
+charlike.cli = async (showHelp, procArgv = [], { pkg = {}, isUpdate } = {}) => {
+  const argv = mri(procArgv, {
+    alias: {
+      v: 'version',
+      h: 'help',
+      'project.name': ['n', 'name'],
+      'project.owner': ['o', 'owner'],
+      'project.description': ['d', 'desc', 'description'],
+      t: 'templates',
+    },
+  });
+
+  if (argv.help) {
+    showHelp(0);
+    return null;
+  }
+
+  if (argv.version) {
+    console.log(pkg.version);
+    proc.exit(0);
+    return null;
+  }
+
+  argv.name = argv._[0] || argv.name;
+
+  if (!argv.name && !isUpdate) {
+    console.error('At least project name is required.');
+    showHelp(1);
+    return null;
+  }
+
+  argv.project = Object.assign({}, argv.project);
+
+  return argv;
+};
+
+export default charlike;
