@@ -5,6 +5,9 @@ const setValue = require('set-value');
 const mixinDeep = require('mixin-deep');
 const gitUserName = require('git-user-name');
 const gitUserEmail = require('git-user-email');
+const packageJson = require('@tunnckocore/package-json');
+
+const get = async (name, field) => (await packageJson.default(name))[field];
 
 const defaults = {
   engine: 'lodash',
@@ -12,16 +15,6 @@ const defaults = {
     owner: 'tunnckoCoreLabs',
   },
   locals: {
-    deps: `${JSON.stringify({ esm: '^3.0.84' }, null, 4).slice(0, -1)}  }`,
-    devDeps: `${JSON.stringify(
-      {
-        '@tunnckocore/config': '^0.5.1',
-        '@tunnckocore/scripts': '^1.0.1',
-        asia: '^0.19.7',
-      },
-      null,
-      4,
-    ).slice(0, -1)}  }`,
     version: '0.0.0',
     author: {
       name: gitUserName(),
@@ -39,7 +32,7 @@ const defaults = {
   },
 };
 
-module.exports = (argv = {}) => {
+module.exports = async (argv = {}) => {
   const options = Object.keys(argv).reduce((acc, key) => {
     setValue(acc, key, argv[key]);
     return acc;
@@ -51,17 +44,41 @@ module.exports = (argv = {}) => {
   const opts = mixinDeep(
     { project: { name, description: desc } },
     defaults,
+    { locals: await latestDeps() },
     options,
   );
 
-  if (typeof opts.project.dest !== 'string') {
-    opts.project.dest = opts.project.name.startsWith('@')
+  let { repo } = opts.project;
+  if (typeof repo !== 'string') {
+    repo = opts.project.name.startsWith('@')
       ? opts.project.name.split('/')[1]
       : opts.project.name;
   }
 
-  opts.project.dest = path.join(opts.cwd || proc.cwd(), opts.project.dest);
-  opts.project.repo = path.basename(opts.project.dest);
-  opts.locals.repository = `${opts.project.owner}/${opts.project.repo}`;
+  opts.dest = path.join(opts.cwd || proc.cwd(), repo);
+  opts.project.repo = repo;
+
+  const repository = `${opts.project.owner}/${opts.project.repo}`;
+  opts.locals.repository = repository;
+
+  const home = opts.project.homepage || `https://github.com/${repository}`;
+  opts.project.homepage = home;
+
   return opts;
 };
+
+async function latestDeps(pkg = {}) {
+  const deps = Object.assign({}, pkg.dependencies, {
+    esm: `^${await get('esm', 'version')}`,
+  });
+
+  const latestConfig = await get('@tunnckocore/config', 'version');
+  const latestScripts = await get('@tunnckocore/scripts', 'version');
+  const devDeps = Object.assign({}, pkg.devDependencies, {
+    '@tunnckocore/config': `^${latestConfig}`,
+    '@tunnckocore/scripts': `^${latestScripts}`,
+    asia: `^${await get('asia', 'version')}`,
+  });
+
+  return { deps, devDeps };
+}

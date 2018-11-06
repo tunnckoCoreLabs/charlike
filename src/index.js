@@ -21,7 +21,7 @@ async function charlike(settings = {}) {
     throw new TypeError('expect `settings.project` to be an object');
   }
 
-  const options = makeDefaults(settings);
+  const options = await makeDefaults(settings);
   const { project, templates } = options;
 
   const cfgDir = path.join(os.homedir(), '.config', 'charlike');
@@ -50,11 +50,11 @@ async function charlike(settings = {}) {
   return new Promise((resolve, reject) => {
     stream.on('error', reject);
     stream.on('end', () => {
-      // Note: Seems to be called before really write to the destination directory.
+      // Note: Seems to be called before really write to the optionsination directory.
       // Stream are still fucking shit even in Node v10.
       // Feels like nothing happend since v0.10.
       // For proof, `process.exit` from inside the `.then` in the CLI,
-      // it will end/close the program before even create the dest folder.
+      // it will end/close the program before even create the options folder.
       // One more proof: put one console.log in stream.on('data')
       // and you will see that it still outputs even after calling the resolve()
       resolve({ locals, project });
@@ -69,7 +69,7 @@ async function charlike(settings = {}) {
         );
 
         const newFilepath = path
-          .join(project.dest, filepath)
+          .join(options.dest, filepath)
           .replace('_circleci', '.circleci');
 
         const basename = path

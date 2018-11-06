@@ -25,7 +25,7 @@
   "typings": "src/index.d.ts",
   "version": "<%= version %>",
   "repository": "<%= repository %>",
-  "homepage": "https://github.com/<%= repository %>",
+  "homepage": "<%= project.homepage %>",
   "author": "<%= author.name %> (<%= author.url %>)",
   "publishConfig": {
     "access": "public",
