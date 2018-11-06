@@ -80,5 +80,12 @@ async function latestDeps(pkg = {}) {
     asia: `^${await get('asia', 'version')}`,
   });
 
-  return { deps, devDeps };
+  return {
+    deps: stringify(deps),
+    devDeps: stringify(devDeps),
+  };
+}
+
+function stringify(val) {
+  return `${JSON.stringify(val, null, 4).slice(0, -1)}  }`;
 }
