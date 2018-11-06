@@ -38,16 +38,19 @@ function showHelp(exitCode = 0) {
     -t, --templates           Source templates directory.
     --engine                  Engine to be used in the template files.
     --locals                  Locals for the template files. Support dot notation.
-    --project                 Project metadata like name, description, author
+    --locals.author.name      Project's author name.
+    --locals.author.email     Project's author email. And so on.
+    --project                 Project metadata like name, description
     --project.name            Project name.
     --project.description     Project description.
-    --project.author.name     Project's author name.
     --cwd                     Folder to be used as current working dir.
-    --ly                      Set --locals.license.year, just a shortcut.
+    --ly                      Shortcut for --locals.license.year (license start year).
+    --ln                      Set --locals.license.name.
 
   Examples:
-    charlike --project.name foobar --project.author 'John Snow'
-    charlike foobar --project.author.name 'John Snow'
+    charlike my-new-project --ly 2018 --ln MIT -o myOrg
+    charlike --project.name foobar --locals.author 'John Snow'
+    charlike foobar --locals.author.name 'John Snow'
     charlike foobar --locals.license 'Apache-2.0' --locals.foo bar
     charlike foobar 'This is description'
     charlike foobar --project.description 'Some description here'
