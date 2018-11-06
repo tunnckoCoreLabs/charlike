@@ -55,7 +55,7 @@ module.exports = async (argv = {}) => {
       : opts.project.name;
   }
 
-  opts.dest = path.join(opts.cwd || proc.cwd(), repo);
+  opts.dest = opts.dest || path.join(opts.cwd || proc.cwd(), repo);
   opts.project.repo = repo;
 
   const repository = `${opts.project.owner}/${opts.project.repo}`;
