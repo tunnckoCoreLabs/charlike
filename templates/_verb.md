@@ -30,7 +30,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 <!-- Logo when needed:
 
 <p align="center">
-  <a href="https://github.com/{%= repository %}">
+  <a href="https://github.com/<%= repository %>">
     <img src="./media/logo.png" width="85%">
   </a>
 </p>
@@ -105,7 +105,7 @@ here](https://github.com/jfmengels/all-contributors-cli#usage).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="<%= author.avatar %>" width="120px;"/><br /><sub><b><%= author.name %></b></sub>](<%= author.url %>)<br />[💻](https://github.com/{%= repository %}/commits?author=<%= author.login %> "Code") [📖](https://github.com/{%= repository %}/commits?author=<%= author.login %> "Documentation") [💬](#question-<%= author.login %> "Answering Questions") [👀](#review-<%= author.login %> "Reviewed Pull Requests") [🔍](#fundingFinding-<%= author.login %> "Funding Finding") |
+| [<img src="<%= author.avatar %>" width="120px;"/><br /><sub><b><%= author.name %></b></sub>](<%= author.url %>)<br />[💻](https://github.com/<%= repository %>/commits?author=<%= author.login %> "Code") [📖](https://github.com/<%= repository %>/commits?author=<%= author.login %> "Documentation") [💬](#question-<%= author.login %> "Answering Questions") [👀](#review-<%= author.login %> "Reviewed Pull Requests") [🔍](#fundingFinding-<%= author.login %> "Funding Finding") |
 | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -122,10 +122,10 @@ Released under the [<%= license.name %> License][license-url].
 [npmv-url]: https://www.npmjs.com/package/{%= name %}
 [npmv-img]: https://badgen.net/npm/v/{%= name %}?icon=npm
 
-[ghrelease-url]: https://github.com/{%= repository %}/releases/latest
-[ghrelease-img]: https://badgen.net/github/release/{%= repository %}?icon=github
+[ghrelease-url]: https://github.com/<%= repository %>/releases/latest
+[ghrelease-img]: https://badgen.net/github/release/<%= repository %>?icon=github
 
-[license-url]: https://github.com/{%= repository %}/blob/master/LICENSE
+[license-url]: https://github.com/<%= repository %>/blob/master/LICENSE
 [license-img]: https://badgen.net/npm/license/{%= name %}
 
 <!-- Front line badges -->
@@ -133,14 +133,14 @@ Released under the [<%= license.name %> License][license-url].
 [codestyle-url]: https://github.com/airbnb/javascript
 [codestyle-img]: https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb
 
-[linuxbuild-url]: https://circleci.com/gh/{%= repository %}/tree/master
-[linuxbuild-img]: https://badgen.net/circleci/github/{%= repository %}/master?label=build&icon=circleci
+[linuxbuild-url]: https://circleci.com/gh/<%= repository %>/tree/master
+[linuxbuild-img]: https://badgen.net/circleci/github/<%= repository %>/master?label=build&icon=circleci
 
-[codecoverage-url]: https://codecov.io/gh/{%= repository %}
-[codecoverage-img]: https://badgen.net/codecov/c/github/{%= repository %}?icon=codecov
+[codecoverage-url]: https://codecov.io/gh/<%= repository %>
+[codecoverage-img]: https://badgen.net/codecov/c/github/<%= repository %>?icon=codecov
 
-[dependencies-url]: https://david-dm.org/{%= repository %}
-[dependencies-img]: https://badgen.net/david/dep/{%= repository %}?label=deps
+[dependencies-url]: https://david-dm.org/<%= repository %>
+[dependencies-img]: https://badgen.net/david/dep/<%= repository %>?label=deps
 
 [ccommits-url]: https://conventionalcommits.org/
 [ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
@@ -163,4 +163,4 @@ Released under the [<%= license.name %> License][license-url].
 
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%=repository%}&via=<%= author.twitter %>
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
-[open-issue-url]: https://github.com/{%= repository %}/issues/new
+[open-issue-url]: https://github.com/<%= repository %>/issues/new
