@@ -102,6 +102,8 @@ charlike.cli = async (showHelp, procArgv = [], opts) => {
         alias: {
           v: 'version',
           h: 'help',
+          'locals.license.year': 'ly',
+          'locals.license.name': 'ln',
           'project.name': ['n', 'name'],
           'project.owner': ['o', 'owner'],
           'project.description': ['d', 'desc', 'description'],
