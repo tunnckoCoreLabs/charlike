@@ -161,6 +161,6 @@ Released under the [<%= license.name %> License][license-url].
 [patreon-img]: https://badgen.net/badge/patreon/<%= author.login %>/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
-[shareu]: https://twitter.com/intent/tweet?text=https://github.com/{%=repository%}&via=<%= author.twitter %>
+[shareu]: https://twitter.com/intent/tweet?text=https://github.com/<%= repository %>&via=<%= author.twitter %>
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/<%= repository %>/issues/new
