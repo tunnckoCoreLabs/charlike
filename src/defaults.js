@@ -44,7 +44,7 @@ module.exports = async (argv = {}) => {
   const opts = mixinDeep(
     { project: { name, description: desc } },
     defaults,
-    { locals: await latestDeps() },
+    { locals: await latestDeps(argv.pkg) },
     options,
   );
 
