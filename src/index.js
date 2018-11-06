@@ -93,17 +93,24 @@ async function charlike(settings = {}) {
   });
 }
 
-charlike.cli = async (showHelp, procArgv = [], { pkg = {}, isUpdate } = {}) => {
-  const argv = mri(procArgv, {
-    alias: {
-      v: 'version',
-      h: 'help',
-      'project.name': ['n', 'name'],
-      'project.owner': ['o', 'owner'],
-      'project.description': ['d', 'desc', 'description'],
-      t: 'templates',
-    },
-  });
+charlike.cli = async (showHelp, procArgv = [], opts) => {
+  const options = objectAssign({ isUpdate: false }, opts);
+  const argv = mri(
+    procArgv,
+    objectAssign(
+      {
+        alias: {
+          v: 'version',
+          h: 'help',
+          'project.name': ['n', 'name'],
+          'project.owner': ['o', 'owner'],
+          'project.description': ['d', 'desc', 'description'],
+          t: 'templates',
+        },
+      },
+      options,
+    ),
+  );
 
   if (argv.help) {
     showHelp(0);
@@ -111,14 +118,14 @@ charlike.cli = async (showHelp, procArgv = [], { pkg = {}, isUpdate } = {}) => {
   }
 
   if (argv.version) {
-    console.log(pkg.version);
+    console.log(options.pkg.version);
     proc.exit(0);
     return null;
   }
 
   argv.name = argv._[0] || argv.name;
 
-  if (!argv.name && !isUpdate) {
+  if (!argv.name && !options.isUpdate) {
     console.error('At least project name is required.');
     showHelp(1);
     return null;
