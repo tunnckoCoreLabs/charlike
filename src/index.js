@@ -57,7 +57,7 @@ async function charlike(settings = {}) {
       // it will end/close the program before even create the options folder.
       // One more proof: put one console.log in stream.on('data')
       // and you will see that it still outputs even after calling the resolve()
-      resolve({ locals, project });
+      resolve({ locals, project, dest: options.dest, options });
     });
     stream.on('data', async (filepath) => {
       try {
