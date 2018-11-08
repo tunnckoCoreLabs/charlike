@@ -10,7 +10,7 @@ const charlike = require('./index');
   /* eslint-disable promise/always-return */
   charlike(argv)
     .then((result = {}) => {
-      console.log('Project is generated at', result.project.dest);
+      console.log('Project is generated at', result.dest);
     })
     .catch((err) => {
       console.error('Oooh! Some error occured.');
