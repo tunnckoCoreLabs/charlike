@@ -72,13 +72,22 @@ async function latestDeps(pkg = {}) {
     esm: `^${await get('esm', 'version')}`,
   });
 
-  const latestConfig = await get('@tunnckocore/config', 'version');
-  const latestScripts = await get('@tunnckocore/scripts', 'version');
-  const devDeps = Object.assign({}, pkg.devDependencies, {
-    '@tunnckocore/config': `^${latestConfig}`,
-    '@tunnckocore/scripts': `^${latestScripts}`,
-    asia: `^${await get('asia', 'version')}`,
-  });
+  const pkgs = [
+    'asia',
+    'docks',
+    'eslint',
+    'eslint-config-esmc',
+    'gitcommit',
+  ].reduce(
+    (promise, name) =>
+      promise.then(async (acc) => {
+        acc[name] = `^${await get(name, 'version')}`;
+        return acc;
+      }),
+    Promise.resolve({}),
+  );
+
+  const devDeps = Object.assign({}, pkg.devDependencies, await pkgs);
 
   return {
     deps: stringify(deps),

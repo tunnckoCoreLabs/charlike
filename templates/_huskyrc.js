@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = require('@tunnckocore/config/husky');
+module.exports = {
+  hooks: {
+    'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
+  },
+};
