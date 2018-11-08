@@ -5,7 +5,7 @@
   "licenseStart": "<%= license.year %>",
   "scripts": {
     "docs": "docks --outfile .verb.md && verb",
-    "lint": "eslint src test index.js cli.js --cache --fix --quiet --format codeframe",
+    "lint": "eslint '**/*.js' --cache --fix --quiet --format codeframe",
     "test": "nyc asia",
     "commit": "yarn lint && yarn test && yarn dry",
     "dry": "git add -A && git status --porcelain && gitcommit -sS",

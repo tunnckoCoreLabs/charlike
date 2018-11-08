@@ -72,13 +72,7 @@ async function latestDeps(pkg = {}) {
     esm: `^${await get('esm', 'version')}`,
   });
 
-  const pkgs = [
-    'asia',
-    'docks',
-    'eslint',
-    'eslint-config-esmc',
-    'gitcommit',
-  ].reduce(
+  const pkgs = ['@tunnckocore/config', 'asia'].reduce(
     (promise, name) =>
       promise.then(async (acc) => {
         acc[name] = `^${await get(name, 'version')}`;
