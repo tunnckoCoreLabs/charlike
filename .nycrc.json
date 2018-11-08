@@ -1,7 +1,7 @@
 {
   "extends": "./node_modules/@tunnckocore/config/nyc.json",
-  "statements": 73,
-  "branches": 44,
-  "functions": 88,
-  "lines": 72
+  "statements": 75,
+  "branches": 49,
+  "functions": 91,
+  "lines": 74
 }

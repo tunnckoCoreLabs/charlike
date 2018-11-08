@@ -4,12 +4,12 @@
   "license": "Apache-2.0",
   "licenseStart": "2016",
   "scripts": {
-    "start": "tunnckocore-scripts",
-    "extends": "@tunnckocore/config/scripts",
-    "docs": "tunnckocore-scripts docs",
-    "lint": "tunnckocore-scripts lint",
-    "test": "tunnckocore-scripts test",
-    "commit": "tunnckocore-scripts commit"
+    "docs": "docks --outfile .verb.md && verb",
+    "lint": "eslint '**/*.js' --cache --fix --quiet --format codeframe",
+    "test": "nyc asia",
+    "commit": "yarn lint && yarn test && yarn dry",
+    "dry": "git add -A && git status --porcelain && gitcommit -sS",
+    "release": "tunnckocore-release"
   },
   "engines": {
     "node": "^8.11.0 || >=10.13.0"
@@ -30,8 +30,8 @@
     "year": "^0.2.1"
   },
   "devDependencies": {
-    "@tunnckocore/config": "^0.5.1",
-    "@tunnckocore/scripts": "^1.0.1",
+    "@tunnckocore/config": "^1.0.0",
+    "@tunnckocore/scripts": "^1.1.0",
     "asia": "^0.19.7"
   },
   "files": [
@@ -44,7 +44,7 @@
   "main": "index.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "repository": "tunnckoCoreLabs/charlike",
   "homepage": "https://github.com/tunnckoCoreLabs/charlike",
   "author": "Charlike Mike Reagent (https://tunnckocore.com)",
@@ -69,15 +69,13 @@
     "related": {
       "list": [
         "asia",
-        "charlike",
         "docks",
         "gitcommit",
+        "git-commits-since",
         "@tunnckocore/execa",
-        "@tunnckocore/package-json",
         "@tunnckocore/create-project",
         "@tunnckocore/update",
-        "@tunnckocore/config",
-        "@tunnckocore/scripts"
+        "@tunnckocore/config"
       ]
     },
     "lint": {
@@ -85,7 +83,12 @@
     },
     "reflinks": [
       "new-release",
-      "semantic-release"
+      "semantic-release",
+      "detect-next-version",
+      "execa",
+      "parse-commit-message",
+      "recommended-bump"
     ]
-  }
+  },
+  "bin": "cli.js"
 }
