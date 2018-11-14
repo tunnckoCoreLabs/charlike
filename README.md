@@ -40,7 +40,10 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
 ## Table of Contents
 
 - [Install](#install)
+- [CLI](#cli)
 - [API](#api)
+  * [src/index.js](#srcindexjs)
+    + [charlike](#charlike)
 - [See Also](#see-also)
 - [Contributing](#contributing)
   * [Follow the Guidelines](#follow-the-guidelines)
@@ -59,6 +62,48 @@ _We highly recommend to use Yarn when you think to contribute to this project._
 
 ```bash
 $ yarn add charlike
+# or globally
+$ yarn global add charlike
+```
+
+## CLI
+
+Install it globally or locally and run `charlike --help`.
+
+```
+  Usage: charlike [name] [description] [flags]
+
+  Common Flags:
+    -h, --help                Display this help.
+    -v, --version             Display current version.
+
+  Flags:
+    -n, --name                Project's name.
+    -d, --desc                Project description, short for "--project.description".
+    -o, --owner               Usually your GitHub username or organization.
+    -t, --templates           Source templates directory.
+    --engine                  Engine to be used in the template files.
+    --locals                  Locals for the template files. Support dot notation.
+    --locals.author.name      Project's author name.
+    --locals.author.email     Project's author email. And so on.
+    --project                 Project metadata like name, description
+    --project.name            Project name.
+    --project.description     Project description.
+    --cwd                     Folder to be used as current working dir.
+    --ly                      Shortcut for --locals.license.year (license start year).
+    --ln                      Set --locals.license.name.
+
+  Examples:
+    charlike my-new-project --ly 2018 --ln MIT -o myOrg
+    charlike --project.name foobar --locals.author 'John Snow'
+    charlike foobar --locals.author.name 'John Snow'
+    charlike foobar --locals.license 'Apache-2.0' --locals.foo bar
+    charlike foobar 'This is description'
+    charlike foobar --project.description 'Some description here'
+    charlike foobar --desc 'Some description here'
+    charlike foobar 'Awesome description' --owner tunnckoCoreLabs
+    charlike --project.name qux --desc 'Yeah descr' --owner tunnckoCore
+
 ```
 
 ## API
@@ -66,22 +111,70 @@ $ yarn add charlike
 <!-- docks-start -->
 _Generated using [docks](http://npm.im/docks)._
 
+### [src/index.js](/src/index.js)
+
+#### [charlike](/src/index.js#L62)
+Generates a complete project using a set of templates.
+
+You can define what _"templates"_ files to be used
+by passing `settings.templates`, by default it uses [./templates](./templates)
+folder from this repository root.
+
+You can define project metadata in `settings.project` object, which should contain
+`name`, `description` properties and also can contain `repo` and `dest`.
+By default the destination folder is dynamically built from `settings.cwd` and `settings.project.name`,
+but this behavior can be changed. If `settings.project.repo` is passed, then it will be used
+instead of the `settings.project.name`.
+
+To control the context of the templates, pass `settings.locals`. The default set of locals
+includes `version` string and `project`, `author` and `license` objects.
+
+**Params**
+- `settings` **{object}** the only required is `project` which should be an object
+- `settings.cwd` **{object}** working directory to create project to, defaults to `process.cwd()`
+- `settings.project` **{object}** should contain `name`, `description`, `repo` and `dest`
+- `settings.locals` **{object}** to pass more context to template files
+- `settings.engine` **{string}** for different template engine to be used in template files, default is `lodash`
+
+**Returns**
+- `Promise<object>` if successful, will resolve to object like `{ locals, project, dest, options }`
+
+**Examples**
+```javascript
+import charlike from 'charlike';
+
+const settings = {
+  project: { name: 'foobar', description: 'Awesome project' },
+  cwd: '/home/charlike/code',
+  templates: '/home/charlike/config/.jsproject',
+  locals: {
+    foo: 'bar',
+    // some helper
+    toUpperCase: (val) => val.toUpperCase(),
+  },
+};
+
+// the `dest` will be `/home/charlike/code/foobar`
+charlike(settings)
+  .then(({ dest }) => console.log(`Project generated to ${dest}`))
+  .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`));
+```
+
 <!-- docks-end -->
 
 **[back to top](#thetop)**
 
 ## See Also
 
-Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your
-existance!
+Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
+
 - [@tunnckocore/config](https://www.npmjs.com/package/@tunnckocore/config): All the configs for all the tools, in one place | [homepage](https://github.com/tunnckoCoreLabs/config "All the configs for all the tools, in one place")
-- [@tunnckocore/create-project](https://www.npmjs.com/package/@tunnckocore/create-project): Create and scaffold a new project, its GitHub repository and contents | [homepage](https://github.com/tunnckoCoreLabs/create-project "Create and scaffold a new project, its GitHub repository and contents")
-- [@tunnckocore/execa](https://www.npmjs.com/package/@tunnckocore/execa): Thin layer on top of [execa][] that allows executing multiple commands in… [more](https://github.com/tunnckoCoreLabs/execa) | [homepage](https://github.com/tunnckoCoreLabs/execa "Thin layer on top of [execa][] that allows executing multiple commands in parallel or in sequence")
-- [@tunnckocore/update](https://www.npmjs.com/package/@tunnckocore/update): Update a repository with latest templates from `charlike`. | [homepage](https://github.com/tunnckoCoreLabs/update "Update a repository with latest templates from `charlike`.")
-- [asia](https://www.npmjs.com/package/asia): Blazingly fast, magical and minimalist testing framework, for Today and Tomorrow | [homepage](https://github.com/olstenlarck/asia#readme "Blazingly fast, magical and minimalist testing framework, for Today and Tomorrow")
-- [docks](https://www.npmjs.com/package/docks): Extensible system for parsing and generating documentation. It just freaking works! | [homepage](https://github.com/tunnckoCore/docks "Extensible system for parsing and generating documentation. It just freaking works!")
-- [git-commits-since](https://www.npmjs.com/package/git-commits-since): Get all commits since given period of time or by default from… [more](https://github.com/tunnckoCoreLabs/git-commits-since) | [homepage](https://github.com/tunnckoCoreLabs/git-commits-since "Get all commits since given period of time or by default from latest git semver tag. Also detects and calculates next needed / recommended bump for your package. Based on [recommended-bump][], [parse-commit-message][], [detect-next-version][], [git-semver")
+- [@tunnckocore/create-project](https://www.npmjs.com/package/@tunnckocore/create-project): Create and scaffold a new project, its GitHub repository and… [more](https://github.com/tunnckoCoreLabs/create-project) | [homepage](https://github.com/tunnckoCoreLabs/create-project "Create and scaffold a new project, its GitHub repository and contents")
+- [asia](https://www.npmjs.com/package/asia): Blazingly fast, magical and minimalist testing framework, for Today and… [more](https://github.com/olstenlarck/asia#readme) | [homepage](https://github.com/olstenlarck/asia#readme "Blazingly fast, magical and minimalist testing framework, for Today and Tomorrow")
+- [docks](https://www.npmjs.com/package/docks): Extensible system for parsing and generating documentation. It just freaking… [more](https://github.com/tunnckoCore/docks) | [homepage](https://github.com/tunnckoCore/docks "Extensible system for parsing and generating documentation. It just freaking works!")
+- [git-commits-since](https://www.npmjs.com/package/git-commits-since): Get all commits since given period of time or by… [more](https://github.com/tunnckoCoreLabs/git-commits-since) | [homepage](https://github.com/tunnckoCoreLabs/git-commits-since "Get all commits since given period of time or by default from latest git semver tag. Understands and follows both SemVer and the Conventional Commits specification.")
 - [gitcommit](https://www.npmjs.com/package/gitcommit): Lightweight and joyful `git commit` replacement. Conventional Commits compliant. | [homepage](https://github.com/tunnckoCore/gitcommit "Lightweight and joyful `git commit` replacement. Conventional Commits compliant.")
+- [recommended-bump](https://www.npmjs.com/package/recommended-bump): Calculates recommended bump (next semver version) based on given array… [more](https://github.com/tunnckoCoreLabs/recommended-bump) | [homepage](https://github.com/tunnckoCoreLabs/recommended-bump "Calculates recommended bump (next semver version) based on given array of commit messages following Conventional Commits specification")
 
 **[back to top](#thetop)**
 
@@ -184,6 +277,6 @@ Released under the [Apache-2.0 License][license-url].
 [detect-next-version]: https://github.com/tunnckoCoreLabs/detect-next-version
 [execa]: https://github.com/sindresorhus/execa
 [new-release]: https://github.com/tunnckoCore/new-release
-[parse-commit-message]: https://github.com/olstenlarck/parse-commit-message
+[parse-commit-message]: https://github.com/tunnckoCoreLabs/parse-commit-message
 [recommended-bump]: https://github.com/tunnckoCoreLabs/recommended-bump
 [semantic-release]: https://github.com/semantic-release/semantic-release

@@ -14,6 +14,51 @@ import makeDefaults from './defaults';
 
 const jstransformer = JSTransformer(transformer);
 
+/**
+ * Generates a complete project using a set of templates.
+ *
+ * You can define what _"templates"_ files to be used
+ * by passing `settings.templates`, by default it uses [./templates](./templates)
+ * folder from this repository root.
+ *
+ * You can define project metadata in `settings.project` object, which should contain
+ * `name`, `description` properties and also can contain `repo` and `dest`.
+ * By default the destination folder is dynamically built from `settings.cwd` and `settings.project.name`,
+ * but this behavior can be changed. If `settings.project.repo` is passed, then it will be used
+ * instead of the `settings.project.name`.
+ *
+ * To control the context of the templates, pass `settings.locals`. The default set of locals
+ * includes `version` string and `project`, `author` and `license` objects.
+ *
+ * @example
+ * import charlike from 'charlike';
+ *
+ * const settings = {
+ *   project: { name: 'foobar', description: 'Awesome project' },
+ *   cwd: '/home/charlike/code',
+ *   templates: '/home/charlike/config/.jsproject',
+ *   locals: {
+ *     foo: 'bar',
+ *     // some helper
+ *     toUpperCase: (val) => val.toUpperCase(),
+ *   },
+ * };
+ *
+ * // the `dest` will be `/home/charlike/code/foobar`
+ * charlike(settings)
+ *   .then(({ dest }) => console.log(`Project generated to ${dest}`))
+ *   .catch((err) => console.error(`Error occures: ${err.message}; Sorry!`));
+ *
+ *
+ * @name   charlike
+ * @param  {object} settings the only required is `project` which should be an object
+ * @param  {object} settings.cwd working directory to create project to, defaults to `process.cwd()`
+ * @param  {object} settings.project should contain `name`, `description`, `repo` and `dest`
+ * @param  {object} settings.locals to pass more context to template files
+ * @param  {string} settings.engine for different template engine to be used in template files, default is `lodash`
+ * @return {Promise<object>} if successful, will resolve to object like `{ locals, project, dest, options }`
+ * @public
+ */
 async function charlike(settings = {}) {
   const proj = settings.project;
 

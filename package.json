@@ -72,10 +72,9 @@
         "asia",
         "docks",
         "gitcommit",
+        "recommended-bump",
         "git-commits-since",
-        "@tunnckocore/execa",
         "@tunnckocore/create-project",
-        "@tunnckocore/update",
         "@tunnckocore/config"
       ]
     },
