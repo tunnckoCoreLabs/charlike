@@ -8,7 +8,7 @@
     "lint": "eslint '**/*.js' --cache --fix --quiet --format codeframe",
     "test": "nyc asia",
     "commit": "yarn lint && yarn test && yarn dry",
-    "dry": "git add -A && git status --porcelain && gitcommit -sS",
+    "dry": "git add -A && git status --porcelain && gitcommit",
     "release": "tunnckocore-release"
   },
   "engines": {
@@ -51,12 +51,10 @@
         "charlike",
         "docks",
         "gitcommit",
-        "@tunnckocore/execa",
-        "@tunnckocore/package-json",
+        "git-commits-since",
+        "recommended-bump",
         "@tunnckocore/create-project",
-        "@tunnckocore/update",
-        "@tunnckocore/config",
-        "@tunnckocore/scripts"
+        "@tunnckocore/config"
       ]
     },
     "lint": {

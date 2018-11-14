@@ -62,9 +62,9 @@ $ yarn add {%= name %}
 
 ## See Also
 
-Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your
-existance!
-{%= related(verb.related.list, { words: 12 }) %}
+Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
+
+{%= related(verb.related.list, { words: 10 }) %}
 
 **[back to top](#thetop)**
 {% } %}

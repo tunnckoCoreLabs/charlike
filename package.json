@@ -8,7 +8,7 @@
     "lint": "eslint '**/*.js' --cache --fix --quiet --format codeframe",
     "test": "nyc asia",
     "commit": "yarn lint && yarn test && yarn dry",
-    "dry": "git add -A && git status --porcelain && gitcommit -sS",
+    "dry": "git add -A && git status --porcelain && gitcommit",
     "release": "tunnckocore-release"
   },
   "engines": {
@@ -30,8 +30,7 @@
     "year": "^0.2.1"
   },
   "devDependencies": {
-    "@tunnckocore/config": "^1.0.0",
-    "@tunnckocore/scripts": "^1.1.0",
+    "@tunnckocore/config": "^1.0.2",
     "asia": "^0.19.7"
   },
   "files": [
@@ -89,6 +88,5 @@
       "parse-commit-message",
       "recommended-bump"
     ]
-  },
-  "bin": "cli.js"
+  }
 }
