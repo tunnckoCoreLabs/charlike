@@ -75,7 +75,7 @@ async function latestDeps(pkg = {}) {
   const pkgs = [
     '@tunnckocore/scripts',
     'asia@next',
-    'eslint-config-esmc',
+    'eslint-config-tunnckocore',
   ].reduce(
     (promise, name) =>
       promise.then(async (acc) => {
