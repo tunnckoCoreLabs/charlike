@@ -72,14 +72,11 @@ async function latestDeps(pkg = {}) {
     esm: `^${await get('esm', 'version')}`,
   });
 
-  const pkgs = [
-    '@tunnckocore/scripts',
-    'asia@next',
-    'eslint-config-tunnckocore',
-  ].reduce(
+  const pkgs = ['@tunnckocore/scripts', 'asia@next'].reduce(
     (promise, name) =>
       promise.then(async (acc) => {
-        acc[name] = `^${await get(name, 'version')}`;
+        const n = name.split('@')[0] || name;
+        acc[n] = `^${await get(name, 'version')}`;
         return acc;
       }),
     Promise.resolve({}),

@@ -6,8 +6,8 @@
   "scripts": {
     "docs": "scripts docks --outfile .verb.md && scripts verb",
     "lint": "scripts eslint '**/*.js' --cache --fix --quiet --format codeframe",
-    "test-only": "node -r esm test",
-    "test": "nyc node test",
+    "test-only": "node -r esm test/index.js",
+    "test": "scripts nyc node test/index.js",
     "precommit": "scripts lint && scripts test-only",
     "commit": "scripts dry",
     "dry": "git add -A && git status --porcelain && scripts gitcommit"
@@ -31,8 +31,7 @@
     "year": "^0.2.1"
   },
   "devDependencies": {
-    "@tunnckocore/config": "^1.0.2",
-    "@tunnckocore/scripts": "^1.2.0",
+    "@tunnckocore/scripts": "^1.2.1",
     "asia": "^1.0.0-rc.7"
   },
   "files": [
@@ -57,7 +56,7 @@
     "extends": "tunnckocore"
   },
   "eslintConfig": {
-    "extends": "./node_modules/@tunnckocore/config/eslint.js"
+    "extends": "tunnckocore"
   },
   "verb": {
     "run": true,
