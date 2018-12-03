@@ -20,12 +20,12 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 
 [![Become a Patron][patreon-img]][patreon-url]
 [![Conventional Commits][ccommits-img]][ccommits-url]
-[![NPM Downloads Weekly][downloads-weekly-img]][npmv-url]
+[![Spectrum community][spectrum-community-img]][spectrum-community-url]
 [![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
 [![Share Love Tweet][shareb]][shareu]
 
-Project is [semantically](https://semver.org) & automatically released on [CircleCI](https://circleci.com) with [new-release][] and its [New Release](https://github.com/apps/new-release) GitHub App.
+Project is [semantically](https://semver.org) versioned & automatically released through [CircleCI](https://circleci.com) with [Standard Release](https://github.com/standard-release/standard-release).
 
 <!-- Logo when needed:
 
@@ -46,7 +46,7 @@ Project is [semantically](https://semver.org) & automatically released on [Circl
     + [charlike](#charlike)
 - [See Also](#see-also)
 - [Contributing](#contributing)
-  * [Follow the Guidelines](#follow-the-guidelines)
+  * [Guides and Community](#guides-and-community)
   * [Support the project](#support-the-project)
   * [OPEN Open Source](#open-open-source)
   * [Wonderful Contributors](#wonderful-contributors)
@@ -180,11 +180,10 @@ Some of these projects are used here or were inspiration for this one, others ar
 
 ## Contributing
 
-### Follow the Guidelines
+### Guides and Community
 
 Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
-For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
-[@tunnckoCore](https://twitter.com/tunnckoCore) at Twitter.
+For bug reports and feature requests, please join our [Spectrum community][spectrum-community-url] forum and open a thread there.
 
 ### Support the project
 
@@ -256,6 +255,9 @@ Released under the [Apache-2.0 License][license-url].
 [new-release-url]: https://ghub.io/new-release
 [new-release-img]: https://badgen.net/badge/semantically/released/05c5ff
 
+[spectrum-community-img]: https://badgen.net/badge/spectrum/community/7b16ff
+[spectrum-community-url]: https://spectrum.chat/tunnckoCore
+
 [downloads-weekly-img]: https://badgen.net/npm/dw/charlike
 [downloads-monthly-img]: https://badgen.net/npm/dm/charlike
 [downloads-total-img]: https://badgen.net/npm/dt/charlike
@@ -274,9 +276,3 @@ Released under the [Apache-2.0 License][license-url].
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
 [open-issue-url]: https://github.com/tunnckoCoreLabs/charlike/issues/new
 
-[detect-next-version]: https://github.com/tunnckoCoreLabs/detect-next-version
-[execa]: https://github.com/sindresorhus/execa
-[new-release]: https://github.com/tunnckoCoreLabs/new-release
-[parse-commit-message]: https://github.com/tunnckoCoreLabs/parse-commit-message
-[recommended-bump]: https://github.com/tunnckoCoreLabs/recommended-bump
-[semantic-release]: https://github.com/semantic-release/semantic-release

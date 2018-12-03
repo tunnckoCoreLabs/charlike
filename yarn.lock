@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@tunnckocore/execa@^2.0.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@tunnckocore/execa/-/execa-2.1.2.tgz#c60dcc49ffbe8edb06211db966dda05eb2318186"
-  integrity sha512-uV3ocBiZurQajYx8mIqlg8mTDaoOH2Wp2HDqUUHMLEn2AArXK99BF1Cac6FYpj7m7IVXOP94mOWvjK5c8Aa+Bg==
+"@tunnckocore/execa@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@tunnckocore/execa/-/execa-2.2.1.tgz#34557ab1a44af060edd9938b41d9508fffb3c399"
+  integrity sha512-YkRe0ny24JKuoxo/uIx7TzbunGnsfsQZ7neuIGPRnh1ykHG50FijGH9tUaTZfqzyrvMJF31Uh2QVmgEBjnFuXg==
   dependencies:
     esm "^3.0.84"
     execa "^1.0.0"
@@ -34,19 +34,19 @@
     esm "^3.0.84"
     parse-package-name "^0.1.0"
 
-"@tunnckocore/scripts@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@tunnckocore/scripts/-/scripts-1.2.1.tgz#bb73120d1e048da90f2869e471fe5eaee588156a"
-  integrity sha512-5PaFx59r/g2Q9IWQR/Em2HAu9VWbDYfgvmya81BwK24K9c2aesZt7QANwLG2SONekQL66qT9oBvY1xcS1otKhw==
+"@tunnckocore/scripts@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@tunnckocore/scripts/-/scripts-1.2.5.tgz#c0b9f4aaa9258c9d4fec488c7c236f7a0a1052d3"
+  integrity sha512-brBfywuijhuRNT+Ts0Akg9DSh85MUasQVccdyvt2CdwQYxM+CVN7F8PWy5Xv3T+1c8WrEatscGTX4383tKumtQ==
   dependencies:
-    "@tunnckocore/execa" "^2.0.2"
-    all-module-paths "^0.5.0"
+    "@tunnckocore/execa" "^2.2.1"
+    all-module-paths "^0.7.1"
     esm "^3.0.84"
 
-all-module-paths@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/all-module-paths/-/all-module-paths-0.5.0.tgz#49bdc5e5dabdc8857db5c29bf96ed873092a0869"
-  integrity sha512-SoBtMg68ze4/Z2KACbZEqgAdb9D+WztnmDmrOtgdmSAtpM6B9ZW8osEdDmXfrD6DIeZ7mfjwZKyLKuaJAar/Wg==
+all-module-paths@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/all-module-paths/-/all-module-paths-0.7.1.tgz#2d16dd821185d9d4b2b99a83473f6999863c5d43"
+  integrity sha512-KS0BdamB3hDP6PLiqijm4s1XU7yXFj8L49FPTnXTITKPFos7yWSbrwGpLCECunOwtYSh51cxcIvmDDpRrG4ydA==
   dependencies:
     esm "^3.0.84"
     global-dirs "^0.1.1"
@@ -81,10 +81,10 @@ asap@~2.0.3:
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
 
-asia@^1.0.0-rc.7:
-  version "1.0.0-rc.7"
-  resolved "https://registry.yarnpkg.com/asia/-/asia-1.0.0-rc.7.tgz#9db33fbdaddcbeb16c31c74bbe6099362224698a"
-  integrity sha512-wAkH4jTVl1t5j80AD3KrS6usK+NrKbMCesp/REQVT90Umf/VvuL8M1Xvs1qSphRLZpsgDlRcJEoi6wts36qLJQ==
+asia@^1.0.0-rc.25:
+  version "1.0.0-rc.25"
+  resolved "https://registry.yarnpkg.com/asia/-/asia-1.0.0-rc.25.tgz#be91fb8cb50ae1501c516a70258b57f684d92c6f"
+  integrity sha512-HTpRiz1qWD7agvNVICV4kdl+Vs76LpNDj/aDZlMlGBSu9NwKfz9o5nDT8l+Hr8TQqo+79EnNBrlDKjFyg4293w==
 
 assign-symbols@^1.0.0:
   version "1.0.0"
@@ -300,7 +300,7 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-fast-glob@^2.2.3:
+fast-glob@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.4.tgz#e54f4b66d378040e0e4d6a68ec36bbc5b04363c0"
   integrity sha512-FjK2nCGI/McyzgNtTESqaWP3trPvHyRyoyY70hxjc3oKPNmDe8taohLZpoVKoUjW85tbU5txaYUZCNtVzygl1g==
