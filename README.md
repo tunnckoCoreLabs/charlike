@@ -183,7 +183,7 @@ Some of these projects are used here or were inspiration for this one, others ar
 ### Guides and Community
 
 Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
-For bug reports and feature requests, please join our [Spectrum community][spectrum-community-url] forum and open a thread there.
+For bug reports and feature requests, please join our [Spectrum community][spectrum-community-url] forum and open a thread there with prefixing the title of the thread with the name of the project if there is not separate channel for it.
 
 ### Support the project
 
