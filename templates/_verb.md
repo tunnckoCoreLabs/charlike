@@ -12,7 +12,7 @@ Please consider following this project's author, [<%= author.name %>](https://gi
 [![DavidDM dependency status][dependencies-img]][dependencies-url]
 [![Renovate App Status][renovateapp-img]][renovateapp-url]
 [![Make A Pull Request][prs-welcome-img]][prs-welcome-url]
-[![Semantically Released][new-release-img]][new-release-url]
+[![Semantically Released][standard-release-img]][standard-release-url]
 
 If you have any _how-to_ kind of questions, please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents.  
 For bugs reports and feature requests, [please create an issue][open-issue-url] or ping
@@ -25,7 +25,7 @@ For bugs reports and feature requests, [please create an issue][open-issue-url] 
 [![NPM Downloads Total][downloads-total-img]][npmv-url]
 [![Share Love Tweet][shareb]][shareu]
 
-Project is [semantically](https://semver.org) versioned & automatically released through [CircleCI](https://circleci.com) with [Standard Release](https://github.com/standard-release/standard-release).
+Project is [semantically](https://semver.org) versioned & automatically released through [CircleCI](https://circleci.com) with [Standard Release][standard-release-url].
 
 <!-- Logo when needed:
 
@@ -143,8 +143,9 @@ Released under the [<%= license.name %> License][license-url].
 
 [ccommits-url]: https://conventionalcommits.org/
 [ccommits-img]: https://badgen.net/badge/conventional%20commits/v1.0.0/dfb317
-[new-release-url]: https://ghub.io/new-release
-[new-release-img]: https://badgen.net/badge/semantically/released/05c5ff
+
+[standard-release-url]: https://github.com/standard-release/standard-release
+[standard-release-img]: https://badgen.net/badge/semantically/released/05c5ff
 
 [spectrum-community-img]: https://badgen.net/badge/spectrum/community/7b16ff
 [spectrum-community-url]: https://spectrum.chat/tunnckoCore
@@ -155,14 +156,18 @@ Released under the [<%= license.name %> License][license-url].
 
 [renovateapp-url]: https://renovatebot.com
 [renovateapp-img]: https://badgen.net/badge/renovate/enabled/green
+
 [prs-welcome-img]: https://badgen.net/badge/PRs/welcome/green
 [prs-welcome-url]: http://makeapullrequest.com
+
 [paypal-donate-url]: https://paypal.me/<%= author.login %>/10
 [paypal-donate-img]: https://badgen.net/badge/$/support/purple
+
 [patreon-url]: https://www.patreon.com/bePatron?u=5579781
 [patreon-img]: https://badgen.net/badge/patreon/<%= author.login %>/F96854?icon=patreon
 [patreon-sponsor-img]: https://badgen.net/badge/become/a%20sponsor/F96854?icon=patreon
 
 [shareu]: https://twitter.com/intent/tweet?text=https://github.com/<%= repository %>&via=<%= author.twitter %>
 [shareb]: https://badgen.net/badge/twitter/share/1da1f2?icon=twitter
+
 [open-issue-url]: https://github.com/<%= repository %>/issues/new
