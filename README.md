@@ -186,7 +186,7 @@ Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./
 
 For bug reports and feature requests, please join our [Spectrum community][spectrum-community-url] forum and open a thread there with prefixing the title of the thread with the name of the project if there's no separate channel for it.
 
-Consider reading the [Support and Release Policy](https://github.com/tunnckoCoreLabs/support-release-policy) guide if you are interesed in what are the supported Node.js versions and how we proceed. In short, we support _latest two even-numbered_ Node.js release lines.
+Consider reading the [Support and Release Policy](https://github.com/tunnckoCoreLabs/support-release-policy) guide if you are interested in what are the supported Node.js versions and how we proceed. In short, we support _latest two even-numbered_ Node.js release lines.
 
 ### Support the project
 
