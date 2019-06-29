@@ -1,6 +1,10 @@
+# Markdown files
+*.md
+LICENSE
+
 # Build environment
 dist
-templates
+lerna.json
 
 # Package managers lockfiles
 package-lock.json
