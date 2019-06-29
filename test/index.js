@@ -2,6 +2,8 @@ import assert from 'assert';
 import test from 'asia';
 import charlike from '../src';
 
+/* eslint-disable jest/expect-expect */
+
 test('should work properly', async () => {
   const { locals, project } = await charlike({
     project: { name: '@tunnckocore/foobar', description: 'wo hooo' },
