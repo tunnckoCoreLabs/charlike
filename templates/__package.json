@@ -1,72 +1,41 @@
 {
   "name": "<%= project.name %>",
+  "version": "<%= version %>",
   "description": "<%= project.description %>",
-  "license": "<%= license.name %>",
+  "author": "Charlike Mike Reagent <opensource@tunnckocore.com>",
+  "repository": "<%= repository %>",
+  "homepage": "<%= project.homepage %>",
+  "license": "MPL-2.0",
   "licenseStart": "<%= license.year %>",
   "scripts": {
-    "docs": "scripts docks --outfile .verb.md && scripts verb",
-    "lint": "scripts eslint '**/*.js' --cache --fix --quiet --format codeframe",
-    "test-only": "node -r esm test/index.js",
-    "test": "scripts nyc node test/index.js",
-    "precommit": "scripts lint && scripts test-only",
-    "commit": "scripts dry",
-    "dry": "git add -A && git status --porcelain && scripts gitcommit"
+    "start": "yarn hela",
+    "test": "nyc node test",
+    "test-only": "node -r esm test",
+    "lint": "eslint src test --cache --fix --format codeframe"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
   },
   "engines": {
-    "node": "^8.10.0 || >=10.13.0"
+    "node": ">=10.13"
   },
-  "dependencies": <%= deps %>,
-  "devDependencies": <%= devDeps %>,
+  "keywords": [
+    "tunnckocorehq",
+    "open source",
+    "opensource"
+  ],
   "files": [
     "src",
     "index.js"
   ],
   "main": "index.js",
   "module": "src/index.js",
-  "typings": "src/index.d.ts",
-  "version": "<%= version %>",
-  "repository": "<%= repository %>",
-  "homepage": "<%= project.homepage %>",
-  "author": "<%= author.name %> (<%= author.url %>)",
-  "publishConfig": {
-    "access": "public",
-    "tag": "latest"
+  "dependencies": {
+    "esm": "^3.2.25"
   },
-  "renovate": {
-    "extends": "tunnckocore"
-  },
-  "eslintConfig": {
-    "extends": "tunnckocore"
-  },
-  "verb": {
-    "run": true,
-    "toc": {
-      "render": true,
-      "method": "preWrite",
-      "maxdepth": 4
-    },
-    "layout": "empty",
-    "tasks": [
-      "readme"
-    ],
-    "related": {
-      "list": [
-        "asia",
-        "charlike",
-        "docks",
-        "gitcommit",
-        "git-commits-since",
-        "recommended-bump",
-        "@tunnckocore/scripts",
-        "@tunnckocore/create-project"
-      ]
-    },
-    "lint": {
-      "reflinks": true
-    },
-    "reflinks": [
-      "new-release",
-      "semantic-release"
-    ]
+  "devDependencies": {
+    "@standard-release/cli": "^2.4.4",
+    "@tunnckocore/config": "^5.0.1"
   }
 }

@@ -115,7 +115,8 @@ async function charlike(settings = {}) {
 
         const newFilepath = path
           .join(options.dest, filepath)
-          .replace('_circleci', '.circleci');
+          .replace('_circleci', '.circleci')
+          .replace('_github', '.github');
 
         const basename = path
           .basename(newFilepath)
