@@ -44,10 +44,11 @@ Project is [semantically](https://semver.org) versioned & automatically released
 
 | Topic | Contact |
 | :-- | --: |
-| Any licensing questions, like private or commerical use of modifications | ![licensing_email][licensing_email] |
-| Consulting, professional support, personal or team training | ![consulting_email][consulting_email] |
-| For critical problems, security reports, partnerships and sponsoring | ![ceo_email][ceo_email] | 
-
+| Any legal or licensing questions, like private or commerical use | ![tunnckocore_legal][tunnckocore_legal] |
+| For any critical problems and security reports | ![tunnckocore_security][tunnckocore_security] | 
+| Consulting, professional support, personal or team training | ![tunnckocore_consulting][tunnckocore_consulting] |
+| For any questions about Open Source, partnerships and sponsoring | ![tunnckocore_opensource][tunnckocore_opensource] |
+| Curited interesting news, announcements, articles, and thoughts | ![tunnckocore_newsletter][tunnckocore_newsletter] |
 
 <!-- Logo when needed:
 
@@ -219,6 +220,8 @@ Released under the [<%= license.name %> License][license-url].
 
 [open-issue-url]: https://github.com/<%= repository %>/issues/new
 
-[licensing_email]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/licensing/tunnckocore?label&color=a134a4&icon=https://svgshare.com/i/Dt6.svg
-[consulting_email]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/consulting/tunnckocore?label&color=07ba96&icon=https://svgshare.com/i/Dt6.svg
-[ceo_email]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/ceo/tunnckocore?label&color=ed1848&icon=https://svgshare.com/i/Dt6.svg
+[tunnckocore_legal]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/legal/tunnckocore?label&color=A56016&icon=https://svgshare.com/i/Dt6.svg
+[tunnckocore_consulting]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/consulting/tunnckocore?label&color=07ba96&icon=https://svgshare.com/i/Dt6.svg
+[tunnckocore_security]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/security/tunnckocore?label&color=ed1848&icon=https://svgshare.com/i/Dt6.svg
+[tunnckocore_opensource]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/opensource/tunnckocore?label&color=ff7a2f&icon=https://svgshare.com/i/Dt6.svg
+[tunnckocore_newsletter]: https://badgen.net/https/liam-badge-daknys6gadky.runkit.sh/com/newsletter/tunnckocore?label&color=5199FF&icon=https://svgshare.com/i/Dt6.svg
