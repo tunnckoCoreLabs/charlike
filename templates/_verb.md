@@ -194,7 +194,7 @@ Released under the [<%= license.name %> License][license-url].
 
 <!-- TODO: update icon -->
 [paypal-url]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HYJJEZNSGAPGC&source=url
-[paypal-img]: https://badgen.net/badge/PayPal/donate%20once/003087?icon=https://simpleicons.now.sh/paypal/fff
+[paypal-img]: https://badgen.net/badge/PayPal/donate/003087?icon=https://simpleicons.now.sh/paypal/fff
 
 <!-- TODO: update icon -->
 [kofi-url]: https://ko-fi.com/tunnckoCore
