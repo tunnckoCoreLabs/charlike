@@ -37,7 +37,7 @@
     "@standard-release/cli": "^2.4.4",
     "@tunnckocore/config": "^5.0.1",
     "@tunnckocore/scripts": "^1.2.5",
-    "asia": "^1.0.0-rc.25"
+    "asia": "^3.0.0"
   },
   "files": [
     "src",
