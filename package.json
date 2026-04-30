@@ -30,7 +30,7 @@
     "jstransformer-lodash": "^0.3.2",
     "mixin-deep": "^2.0.0",
     "mri": "^1.1.1",
-    "set-value": "^3.0.0",
+    "set-value": "^4.0.0",
     "year": "^0.2.1"
   },
   "devDependencies": {
